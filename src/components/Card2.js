@@ -42,7 +42,7 @@ const Card2 = ({cartitem}) => {
                 <button onClick={()=>handleremoveitem(cartitem?.info?.id)} className='border-2 text-green-500 rounded-md px-3 py-1 relative -top-2 z-10 bg-white left-5'><span className="relative -top-3 left-14">-</span><span className="mr-3">REM</span></button>
             </p>):
             (<p>
-                <button onClick={()=>handleremoveitem(cartitem?.info?.id)} className='border-2 text-green-500 rounded-md px-3 py-1 relative z-10 bg-white left-5'><span className="relative -top-3 left-14">——</span><span className="mr-3">REM</span></button>
+                <button onClick={()=>handleremoveitem(cartitem?.info?.id)} className='border-2 text-green-500 rounded-md px-3 py-1 relative z-10 bg-white left-5'><span className="relative -top-3 left-14">—</span><span className="mr-3">REM</span></button>
             </p>)
         }
         </div>

@@ -15,7 +15,8 @@ const RestaurantMenu = () => {
     return (
        restaurant_info2!==null && restaurant_info2!==undefined?
        (
-        <div className='w-[800px] mx-auto'>
+        <div className='w-full h-full dark:bg-black pt-10 dark:text-white'>
+            <div className='w-[800px] mx-auto'>
            <p className=' font-semibold text-xl'>{restaurant_info?.name}</p>
            <p className='flex flex-row gap-x-2'>{
             cusine.map((cusin)=>{
@@ -29,6 +30,7 @@ const RestaurantMenu = () => {
                 })
             }
             </div>
+        </div>
        ):
        <p>false</p>
   )
