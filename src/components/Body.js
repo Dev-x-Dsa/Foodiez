@@ -12,7 +12,7 @@ const Body = () => {
         restaurant_data===null || restaurant_data===undefined?
         (<p><Shimmer/></p>):
         (
-          <div className='flex flex-wrap justify-center items-center gap-x-14 gap-y-10'>
+          <div className='flex flex-wrap justify-evenly items-center gap-y-12'>
           {
             restaurant_data.map((data)=>{
                 return <Link to={`/Restaurant/${data?.info?.id}`}>
