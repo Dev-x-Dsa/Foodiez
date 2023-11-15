@@ -3,7 +3,6 @@ import { MenuContext } from '../ContextAPI/MenuContext';
 import Card from './Card';
 import { Link } from 'react-router-dom';
 import Shimmer from './Shimmer';
-
 const Body = () => {
   const {restaurant_data}=useContext(MenuContext);
   return (
