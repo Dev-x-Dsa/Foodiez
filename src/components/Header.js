@@ -4,7 +4,7 @@ import {AiOutlineShoppingCart} from "react-icons/ai";
 import {FaUserCircle} from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import img1 from "../images/moon.jpeg"
+import img1 from "../images/moon.png"
 import img2 from "../images/sun.png";
 
 const Header = () => {
