@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { additemtocart } from '../Redux/Slices/CartSlice';
 import { toast } from 'react-toastify';
 
-const ItemCard = ({data}) => {
+const ItemCard = ({data,visible}) => {
     const [pric,setpric]=useState(0);
     const cartitems=useSelector(store=>store.cart.items);
-
     const dispatch=useDispatch();
 
     function handleadditem(item){
@@ -25,7 +24,7 @@ const ItemCard = ({data}) => {
     },[data]);
 
   return (
-    <div>
+    <div className={`${visible?'hidden':'flex'}`}>
        <div className='flex border-b-2 py-10 justify-between items-center w-[800px] mx-auto'>
         <div>
             <p>{data?.card?.info?.name}</p>

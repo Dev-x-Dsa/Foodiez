@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { CDN_URL } from '../constants';
 
 const Card = ({ data }) => {
+  console.log(data?.info);
   const [cusine, setcusine] = useState([]);
   useEffect(() => {
     setcusine(data?.info?.cuisines);
@@ -13,18 +14,20 @@ const Card = ({ data }) => {
         <div className='w-full absolute bottom-2 right-2 text text-slate-200 z-20 drop-shadow-xl'>
           <p className='text-right capitalize'>{data?.info?.name}</p>
           <p className='text-right capitalize text-slate-400'>{data?.info?.areaName}</p>
+          <p className='text-right capitalize text-slate-400'>{data?.info?.avgRating}</p>
+          <p className='text-right capitalize text-slate-400'>{data?.info?.aggregatedDiscountInfoV3?.header} {data?.info?.aggregatedDiscountInfoV3?.subHeader}</p>
         </div>
         <div className='absolute bottom-[-2px] left-[-1px] bg-green-500 z-20 rounded-md p-1 overflow-y-visible group-hover:bg-green-600'>
           ₹999.00
         </div>
-        {/* <div className='flex justify-center gap-x-2 overflow-hidden'>
+      </div>
+        <div className='flex gap-x-2 overflow-hidden max-w-[400px]'>
             {
               cusine.map((data1)=>{
                 return <p>{data1}</p>
               })
             }
-          </div> */}
-      </div>
+          </div>
     </div>
   )
 }
