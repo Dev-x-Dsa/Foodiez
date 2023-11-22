@@ -26,7 +26,7 @@ const Header = () => {
   }
 
   return (
-    <div>
+    <div className='fixed w-full bg-white z-50'>
       <div className='flex flex-row justify-between shadow-lg text-xl dark:bg-black dark:text-white'>
         <Link to="/"><div><img src={image} className='cursor-pointer  w-40 h-20'/></div></Link>
         <div className='flex gap-x-10 items-center'>

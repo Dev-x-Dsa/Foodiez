@@ -6,7 +6,7 @@ const Cart = () => {
   const cartitems=useSelector(store=>store.cart.items);
   console.log(cartitems);
   return (
-    <div>
+    <div className='pt-32'>
         {
             cartitems.length!==0?
             (
@@ -14,7 +14,9 @@ const Cart = () => {
                     return <Card2 cartitem={cartitem}/>
                 })
             ):
-            (<p></p>)
+            (<p className='text-center font-bold text-3xl'>
+              Your Cart is Empty
+            </p>)
         }
     </div>
   )

@@ -21,9 +21,9 @@ const Card = ({ data }) => {
           ₹999.00
         </div>
       </div>
-        <div className='flex gap-x-2 overflow-hidden max-w-[400px]'>
+        <div className='flex no-wrap gap-x-2 overflow-hidden max-w-[400px]'>
             {
-              cusine.map((data1)=>{
+              cusine.slice(0, 3).map((data1)=>{
                 return <p>{data1}</p>
               })
             }
