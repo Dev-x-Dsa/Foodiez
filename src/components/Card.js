@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { CDN_URL } from '../constants';
 
 const Card = ({ data }) => {
-  console.log(data?.info);
   const [cusine, setcusine] = useState([]);
   useEffect(() => {
     setcusine(data?.info?.cuisines);

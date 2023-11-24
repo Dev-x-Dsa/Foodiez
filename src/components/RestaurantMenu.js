@@ -11,11 +11,11 @@ const RestaurantMenu = () => {
     useEffect(()=>{
         setresid(id);
     },[id]);
-
+    console.log(restaurant_info2);
     return (
        restaurant_info2!==null && restaurant_info2!==undefined?
        (
-        <div className='w-full h-full dark:bg-black pt-32 dark:text-white'>
+        <div className='w-full h-full dark:bg-black pt-10 dark:text-white'>
             <div className='w-[800px] mx-auto'>
            <p className=' font-semibold text-xl'>{restaurant_info?.name}</p>
            <p className='flex flex-row gap-x-2'>{

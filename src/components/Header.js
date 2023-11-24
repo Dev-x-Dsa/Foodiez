@@ -26,7 +26,7 @@ const Header = () => {
   }
 
   return (
-    <div className='fixed w-full bg-white z-50'>
+    <div>
       <div className='flex flex-row justify-between shadow-lg text-xl dark:bg-black dark:text-white'>
         <Link to="/"><div><img src={image} className='cursor-pointer  w-40 h-20'/></div></Link>
         <div className='flex gap-x-10 items-center'>
@@ -49,7 +49,7 @@ const Header = () => {
               </div>
             </div>
             <div className='dark:hidden'><img onClick={()=>{handlethemeswitch()}} src={img1} className='w-7 h-7 cursor-pointer'/></div>
-            <div className='hidden dark:block'><img onClick={()=>{handlethemeswitch()}} src={img2} className='w-7 h-7 cursor-pointer'/></div>
+            <div className='hidden dark:block '><img onClick={()=>{handlethemeswitch()}} src={img2} className='w-7 h-7 cursor-pointer'/></div>
 
             <div><FaUserCircle className='cursor-pointer text-3xl'/></div>
         </div>
