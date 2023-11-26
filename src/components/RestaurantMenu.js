@@ -11,7 +11,6 @@ const RestaurantMenu = () => {
     useEffect(()=>{
         setresid(id);
     },[id]);
-    console.log(restaurant_info2);
     return (
        restaurant_info2!==null && restaurant_info2!==undefined?
        (

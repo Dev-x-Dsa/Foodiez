@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import image from "../images/images.png";
 import {AiOutlineShoppingCart} from "react-icons/ai";
 import {FaUserCircle} from "react-icons/fa";
@@ -6,11 +6,14 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import img1 from "../images/moon.png"
 import img2 from "../images/sun.png";
+import { MenuContext } from '../ContextAPI/MenuContext';
 
 const Header = () => {
 
+  const {filterdata,allrestaurants}=useContext(MenuContext);
   const cartitems=useSelector(store=>store.cart.items);
   const [usertheme,setusertheme]=useState("light");
+  const [search,setsearch]=useState('');
   useEffect(()=>{
     if(usertheme==="dark"){
       document.documentElement.classList.add("dark");
@@ -24,19 +27,18 @@ const Header = () => {
   const handlethemeswitch=()=>{
     setusertheme(usertheme==="dark"?"light":"dark");
   }
-
   return (
     <div>
       <div className='flex flex-row justify-between shadow-lg text-xl dark:bg-black dark:text-white'>
         <Link to="/"><div><img src={image} className='cursor-pointer  w-40 h-20'/></div></Link>
         <div className='flex gap-x-10 items-center'>
-            <Link to="/"><div className='cursor-pointer'>Home</div></Link>
+            <Link to="/" onClick={()=>{allrestaurants()}}><div className='cursor-pointer'>Home</div></Link>
             <div className='cursor-pointer '>About Us</div>
             <div className='cursor-pointer'>Contact</div>
         </div>
         <div className='flex flex-row gap-x-5 mx-2 items-center mr-20'>
             <div>
-                <input type='text' placeholder='Search' className=' outline-none border-b-2 rounded-lg dark:text-black py-1 text-xl leading-tight px-3 box-border'/>
+                <input value={search} onChange={(e)=>setsearch(e.target.value)} onKeyDown={(e)=>{if(e.key==='Enter') filterdata(search)}} type='text' placeholder='Search' className=' outline-none border-b-2 rounded-lg dark:text-black py-1 text-xl leading-tight px-3 box-border'/>
             </div>
             <div className='flex'>
               <Link to="./cart"><div><AiOutlineShoppingCart className=' cursor-pointer text-2xl'/></div></Link>
