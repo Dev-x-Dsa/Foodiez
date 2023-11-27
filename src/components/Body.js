@@ -6,12 +6,12 @@ import Shimmer from './Shimmer';
 const Body = () => {
   const {restaurant_data}=useContext(MenuContext);
   return (
-    <div className='pt-10'>
+    <div className='py-12 dark:bg-[#0d1117]'>
       {
         restaurant_data===null || restaurant_data===undefined?
         (<p><Shimmer/></p>):
         (
-          <div className='flex flex-wrap justify-evenly items-center gap-y-12'>
+            <div className='flex flex-wrap justify-evenly items-center gap-y-12'>
           {
             restaurant_data.map((data)=>{
                 return <Link to={`/Restaurant/${data?.info?.id}`}>

@@ -29,16 +29,16 @@ const Header = () => {
   }
   return (
     <div>
-      <div className='flex flex-row justify-between shadow-lg text-xl dark:bg-black dark:text-white'>
-        <Link to="/"><div><img src={image} className='cursor-pointer  w-40 h-20'/></div></Link>
+      <div className='flex flex-row justify-between shadow-lg text-xl bg-slate-100 dark:bg-[#24292f] dark:text-white'>
+        <Link to="/"><div><img src={image} className='cursor-pointer  w-40 h-20 dark:invert'/></div></Link>
         <div className='flex gap-x-10 items-center'>
             <Link to="/" onClick={()=>{allrestaurants()}}><div className='cursor-pointer'>Home</div></Link>
-            <div className='cursor-pointer '>About Us</div>
+            <a href='#footer' className='cursor-pointer '>About Us</a>
             <div className='cursor-pointer'>Contact</div>
         </div>
         <div className='flex flex-row gap-x-5 mx-2 items-center mr-20'>
             <div>
-                <input value={search} onChange={(e)=>setsearch(e.target.value)} onKeyDown={(e)=>{if(e.key==='Enter') filterdata(search)}} type='text' placeholder='Search' className=' outline-none border-b-2 rounded-lg dark:text-black py-1 text-xl leading-tight px-3 box-border'/>
+                <input value={search} onChange={(e)=>setsearch(e.target.value)} onKeyDown={(e)=>{if(e.key==='Enter') filterdata(search)}} type='text' placeholder='Search' className='outline-none border-b-2 rounded-lg dark:text-black py-1 text-xl rounded-lg leading-tight px-3 box-border'/>
             </div>
             <div className='flex'>
               <Link to="./cart"><div><AiOutlineShoppingCart className=' cursor-pointer text-2xl'/></div></Link>

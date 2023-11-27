@@ -2,12 +2,12 @@ import React from 'react'
 import img1 from "../images/facebook.png";
 import img2 from "../images/instagram.png";
 import img3 from "../images/linkedin.png";
-import img4 from "../images/twitter.png";
+import img4 from "../images/x.png";
 import img5 from "../images/youtube.png";
 
 const Footer = () => {
   return (
-    <div className='bg-slate-100 px-32 mt-12 py-8'>
+    <div className='bg-slate-100 px-32 pt-12 py-8 dark:bg-[#24292f] dark:text-white'>
       <div className='font-bold text-3xl ml-8'>Foodiez</div>
       <div className='flex flex-row w-full justify-evenly'>
         <div>
@@ -24,7 +24,7 @@ const Footer = () => {
         <div>
           <p className='font-semibold mb-3'>Company</p>
           <div className='flex flex-col gap-y-2'>
-            <p className='cursor-pointer'>Carrers</p>
+            <p className='cursor-pointer'>Careers</p>
             <p className='cursor-pointer'>Team</p>
           </div>
         </div>
