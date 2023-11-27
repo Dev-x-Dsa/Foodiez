@@ -39,11 +39,11 @@ const Footer = () => {
         <div>
           <p className='font-semibold mb-3 cursor-pointer'>Social Links</p>
           <div className='flex flex-row gap-x-1'>
-            <img src={img1} className='w-8 h-8 cursor-pointer'/>
-            <img src={img2} className='w-8 h-8 cursor-pointer'/>
-            <img src={img3} className='w-8 h-8 cursor-pointer'/>
-            <img src={img4} className='w-8 h-8 cursor-pointer'/>
-            <img src={img5} className='w-8 h-8 cursor-pointer'/>
+            <img src={img1} className='w-8 h-8 cursor-pointer dark:invert'/>
+            <img src={img2} className='w-8 h-8 cursor-pointer dark:invert'/>
+            <img src={img3} className='w-8 h-8 cursor-pointer dark:invert'/>
+            <img src={img4} className='w-8 h-8 cursor-pointer dark:invert'/>
+            <img src={img5} className='w-8 h-8 cursor-pointer dark:invert'/>
           </div>
         </div>
       </div>
