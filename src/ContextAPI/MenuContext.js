@@ -13,7 +13,7 @@ export default function MenuContextProvider({children}){
     const [lati,setlati]=useState(null);
     const [longi,setlongi]=useState(null);
     const [temprestaurant_data,setemprestaurant_data]=useState(null);
-    
+    const [restaurant_bannerdata,setrestaurant_bannerdata]=useState(null);
     
     async function fetchdata(latitude,longitude){
         setlati(latitude);
@@ -24,9 +24,12 @@ export default function MenuContextProvider({children}){
         
         const restaurant_info=data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
         data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        
+
+        const restaurant_bannerinfo=data?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info;
+        setrestaurant_bannerdata(restaurant_bannerinfo);
         setrestaurant_data(restaurant_info);
         setemprestaurant_data(restaurant_info);
+        console.log(data);
         
     }
     
@@ -71,7 +74,8 @@ export default function MenuContextProvider({children}){
         restaurant_info2,
         setrestaurant_info2,
         filterdata,
-        allrestaurants
+        allrestaurants,
+        restaurant_bannerdata
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>

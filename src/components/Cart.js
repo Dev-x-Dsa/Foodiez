@@ -22,11 +22,10 @@ const Cart = () => {
               ):
               (<div className='flex flex-col items-center py-10 dark:text-white  '>
               <img src={img} className='w-[400px]'/>
-              <p className=' font-bold text-2xl'>No Orders Yet</p>
-              <p className='text-[#78716c]'>Your cart is empty Add</p>
-              <p className='text-[#78716c]'>something from the menu</p>
+              <p className=' font-bold text-2xl'>Oops... Cart is empty</p>
+              <p className='text-[#78716c]'>Feeling Hungry...</p>
               <Link to="/">
-                <button className='mt-4 rounded-full text-white border-2 p-2 text-xl bg-red-500 px-6 dark:border-slate-700'>GO BACK</button>
+                <button className='mt-4 rounded-full text-white border-2 p-2 text-xl bg-[#ff7300] px-6 dark:border-slate-700'>Order Now</button>
               </Link>
             </div>)
           }
