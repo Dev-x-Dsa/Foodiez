@@ -24,7 +24,7 @@ const Card2 = ({cartitem}) => {
 
   return (
     <div>
-          <div className='flex border-b-2 py-10 justify-between items-center w-[800px] mx-auto font-Open'>
+          <div className='flex border-b-2 border-[#a8bbbf] dark:border-[#798283] py-10 justify-between items-center w-[800px] mx-auto font-Open'>
         <div>
             <p>{cartitem?.info?.name}</p>
             <div>{
