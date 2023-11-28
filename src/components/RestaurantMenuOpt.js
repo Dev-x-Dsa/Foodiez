@@ -21,7 +21,7 @@ const RestaurantMenuOpt = ({rest}) => {
 
   return (
     <div>
-      <div className=' cursor-pointer'>
+      <div className=' cursor-pointer font-Open'>
       {
         rest?.card?.card?.title?
         (<div onClick={()=>visiblehandler()} className='text-2xl flex flex-row justify-between border-t-4 border-b-4 py-2 mt-5'>

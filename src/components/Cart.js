@@ -10,7 +10,7 @@ const Cart = () => {
   var total=0;
   const cartitems=useSelector(store=>store.cart.items);
   return (
-    <div className='dark:bg-[#0d1117] dark:text-white py-10'>
+    <div className='dark:bg-[#0d1117] dark:text-white py-10 font-Open'>
         <div>
           {
               cartitems.length!==0?

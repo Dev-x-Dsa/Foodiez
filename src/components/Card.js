@@ -8,7 +8,7 @@ const Card = ({ data }) => {
     setcusine(data?.info?.cuisines);
   }, [cusine]);
   return (
-    <div className='flex flex-col items-end'>
+    <div className='flex flex-col items-end font-Open'>
       <div className='hover:scale-105 ease-in-out duration-200'>
         <div className='max-w-[404px] rounded-2xl relative overflow-hidden hover:before:to-10%  before:absolute before:left-0 before:right-0 before:top-0 before:z-10 before:h-full before:w-full before:bg-gradient-to-t  from-black to-40% text-lg group hover:text-white'>
         <img src={CDN_URL + data?.info?.cloudinaryImageId}/>

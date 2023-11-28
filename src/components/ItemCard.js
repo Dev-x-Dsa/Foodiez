@@ -25,7 +25,7 @@ const ItemCard = ({data,visible}) => {
     },[data]);
 
   return (
-    <div className={`${visible?'hidden':'flex'}`}>
+      <div className={`${visible ? 'hidden' : 'flex'} font-Open`}>
        <div className='flex border-b-2 py-10 justify-between items-center w-[800px] mx-auto'>
         <div>
             <p>{data?.card?.info?.name || data?.dish?.info?.name}</p>

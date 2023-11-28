@@ -7,7 +7,7 @@ import img5 from "../images/youtube.png";
 
 const Footer = () => {
   return (
-    <div className='bg-slate-100 px-32 pt-12 py-8 dark:bg-[#24292f] dark:text-white'>
+    <div className='bg-slate-100 px-32 pt-12 py-8 dark:bg-[#24292f] dark:text-white font-Open'>
       <div className='font-bold text-3xl ml-8'>Foodiez</div>
       <div className='flex flex-row w-full justify-evenly'>
         <div>

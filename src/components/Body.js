@@ -4,6 +4,9 @@ import Card from './Card';
 import { Link } from 'react-router-dom';
 import Shimmer from './Shimmer';
 import { CDN_URL } from '../constants';
+import './style.css'
+import img from "../images/circle-right.png";
+
 const Body = () => {
   const {restaurant_data,restaurant_bannerdata}=useContext(MenuContext);
   return (
@@ -13,17 +16,20 @@ const Body = () => {
         (<p><Shimmer/></p>):
         (
           <div>
-          <div>
-            <p className='capitalize'>Best offers for You</p>
-            <div className='flex flex-row justify-center items-center space-x-10 w-9/12 mx-auto'>
+              <div>
+                <p className='font-bold text-4xl mx-14 px-3 text-slate-700 dark:text-slate-300 font-Open'>Best Offers for You...</p>
+                <div className='flex items-center py-10 mb-10 overflow-x-scroll mx-10 flex-shrink-0'>
+                  <div className='absolute right-5 z-20'>
+                    <img src={img} className='w-10 cursor-pointer z-30'/>
+                  </div>
               {
                 restaurant_bannerdata.map((data)=>{
-                  return <div ><img src={CDN_URL+data.imageId}/></div>
+                  return <div className='rounded-2xl hover:scale-105 overflow-hidden w-[400px] mx-7 flex-shrink-0'><img src={CDN_URL+data.imageId}/></div>
                 })
               }
             </div>
           </div>
-          <div className='flex flex-wrap justify-evenly items-center gap-y-12'>
+              <div className='flex flex-wrap justify-evenly items-center gap-y-12 font-Open'>
             {
               restaurant_data.map((data)=>{
                   return <Link to={`/Restaurant/${data?.info?.id}`}>

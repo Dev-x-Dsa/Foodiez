@@ -29,12 +29,12 @@ const Header = () => {
   }
   return (
     <div>
-      <div className='flex flex-row justify-between shadow-lg text-xl bg-slate-100 dark:bg-[#24292f] dark:text-white'>
+      <div className='flex flex-row justify-between shadow-lg text-2xl bg-slate-100 dark:bg-[#24292f] dark:text-white font-Open font-semibold'>
         <Link to="/"><div><img src={image} className='cursor-pointer  w-40 h-20 dark:invert'/></div></Link>
         <div className='flex gap-x-10 items-center'>
-            <Link to="/" onClick={()=>{allrestaurants()}}><div className='cursor-pointer'>Home</div></Link>
-            <a href='#footer' className='cursor-pointer '>About Us</a>
-            <div className='cursor-pointer'>Contact</div>
+            <Link to="/" onClick={()=>{allrestaurants()}}><div className='cursor-pointer p-3'>Home</div></Link>
+            <a href='#footer' className='cursor-pointer p-3'>About Us</a>
+            <div className='cursor-pointer p-3'>Contact</div>
         </div>
         <div className='flex flex-row gap-x-5 mx-2 items-center mr-20'>
             <div>
