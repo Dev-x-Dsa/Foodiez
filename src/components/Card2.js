@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { CDN_URL } from '../constants';
-import { useDispatch } from 'react-redux';
-import { removeitem } from '../Redux/Slices/CartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { additemtocart, removeitem } from '../Redux/Slices/CartSlice';
 import { toast } from 'react-toastify';
 
 const Card2 = ({cartitem}) => {
     const [pric,setpric]=useState(0);
     const dispatch=useDispatch();
+    const freq=useSelector(store=>store.cart.itemQuantities);
+
 
     useEffect(()=>{
         setpric(cartitem?.info?.price);
@@ -15,11 +17,12 @@ const Card2 = ({cartitem}) => {
         }
     },[cartitem]);
     
+    function handleadditem(item){
+        dispatch(additemtocart(item));
+    }
+      
     function handleremoveitem(item){
         dispatch(removeitem(item));
-        toast.error("Removed from cart !", {
-            position: toast.POSITION.TOP_RIGHT,
-        });
     }
 
   return (
@@ -33,6 +36,11 @@ const Card2 = ({cartitem}) => {
                 <p>₹{130}</p>
             }</div>
             <p className='w-[600px]'>{cartitem?.info?.description}</p>
+        </div>
+        <div className='flex'>
+            <p onClick={()=>{handleadditem(cartitem)}}>+</p>
+            <span className='mx-2'>{freq[cartitem?.info?.id]}</span>
+            <p onClick={()=>{handleremoveitem(cartitem?.info?.id)}}>-</p>
         </div>
         <div className='rounded-lg w-28 h-20'>
     {

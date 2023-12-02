@@ -12,6 +12,8 @@ const Header = () => {
 
   const {filterdata,allrestaurants}=useContext(MenuContext);
   const cartitems=useSelector(store=>store.cart.items);
+  const uniquecartitems = [...new Set(cartitems)];
+
   const [usertheme,setusertheme]=useState("light");
   const [search,setsearch]=useState('');
   useEffect(()=>{
@@ -45,7 +47,7 @@ const Header = () => {
               <div >
                 {
                   cartitems.length>0?
-                  (<p className='relative -top-1 right-3 text-center bg-green-600 rounded-full w-5 h-5 text-sm text-white'>{cartitems.length}</p>):
+                  (<p className='relative -top-1 right-3 text-center bg-green-600 rounded-full w-5 h-5 text-sm text-white'>{uniquecartitems.length}</p>):
                   (<p></p>)
                 }
               </div>
