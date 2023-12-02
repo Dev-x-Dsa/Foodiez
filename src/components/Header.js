@@ -36,16 +36,16 @@ const Header = () => {
             <a href='#footer' className='cursor-pointer p-3'>About Us</a>
             <div className='cursor-pointer p-3'>Contact</div>
         </div>
-        <div className='flex flex-row gap-x-5 mx-2 items-center mr-20'>
+        <div className='flex flex-row gap-x-5 mx-2 items-center ml-20'>
             <div>
-                <input value={search} onChange={(e)=>setsearch(e.target.value)} onKeyDown={(e)=>{if(e.key==='Enter') filterdata(search)}} type='text' placeholder='Search' className='outline-none border-b-2 rounded-lg dark:text-black py-1 text-xl rounded-lg leading-tight px-3 box-border'/>
+                <input value={search} onChange={(e)=>setsearch(e.target.value)} onKeyDown={(e)=>{if(e.key==='Enter') filterdata(search)}} type='text' placeholder='Search' className='outline-none border-b-2 rounded-lg dark:text-black py-1 font-medium leading-tight px-3 box-border'/>
             </div>
             <div className='flex'>
-              <Link to="./cart"><div><AiOutlineShoppingCart className=' cursor-pointer text-2xl'/></div></Link>
+            <Link to="./cart"><div><AiOutlineShoppingCart size={33} className=' cursor-pointer text-2xl'/></div></Link>
               <div >
                 {
                   cartitems.length>0?
-                  (<p className='relative -top-3 right-2 text-center bg-green-600 rounded-full w-6 h-6 text-sm text-white'>{cartitems.length}</p>):
+                  (<p className='relative -top-1 right-3 text-center bg-green-600 rounded-full w-5 h-5 text-sm text-white'>{cartitems.length}</p>):
                   (<p></p>)
                 }
               </div>

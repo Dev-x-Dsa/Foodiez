@@ -25,7 +25,7 @@ const Cart = () => {
               <p className=' font-bold text-2xl'>Oops... Cart is empty</p>
               <p className='text-[#78716c]'>Feeling Hungry...</p>
               <Link to="/">
-                <button className='mt-4 rounded-full text-white border-2 p-2 text-xl bg-[#ff7300] px-6 dark:border-slate-700'>Order Now</button>
+                <button className='mt-4 rounded-full text-white border-2 p-2 text-xl bg-[#ff2400] px-6 dark:border-slate-700'>Order Now</button>
               </Link>
             </div>)
           }
