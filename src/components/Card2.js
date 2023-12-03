@@ -38,9 +38,9 @@ const Card2 = ({cartitem}) => {
             <p className='w-[600px]'>{cartitem?.info?.description}</p>
         </div>
         <div className='flex justify-center items-center'>
-            <button className='bg-green-100 w-5 h-5 flex items-center justify-center rounded-md border-green-300 border' onClick={()=>{handleadditem(cartitem)}}>+</button>
-            <div className='mx-2 font-semibold text-lg '>{freq[cartitem?.info?.id]}</div>
-            <button className='bg-red-100 w-5 h-5 flex items-center justify-center rounded-md border-red-300 border' onClick={()=>{handleremoveitem(cartitem?.info?.id)}}>-</button>
+        <button className='bg-green-100 w-5 h-5 flex items-center justify-center rounded-md border-green-300 border hover:bg-green-200' onClick={()=>{handleadditem(cartitem)}}>+</button>
+        <div className='mx-2 font-semibold text-lg '>{freq[cartitem?.info?.id]}</div>
+        <button className='bg-red-100 w-5 h-5 flex items-center justify-center rounded-md border-red-300 border hover:bg-red-200' onClick={()=>{handleremoveitem(cartitem?.info?.id)}}>-</button>
         </div>
         <div className='rounded-lg w-28 h-20 ml-2'>
     {
