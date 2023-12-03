@@ -38,9 +38,9 @@ const Card2 = ({cartitem}) => {
             <p className='w-[600px]'>{cartitem?.info?.description}</p>
         </div>
         <div className='flex justify-center items-center'>
-        <button className='bg-green-100 w-5 h-5 flex items-center justify-center rounded-md border-green-300 border hover:bg-green-200' onClick={()=>{handleadditem(cartitem)}}>+</button>
+        <button className='bg-green-100 w-5 h-5 flex items-center justify-center rounded-md border-green-300 border hover:bg-green-200 dark:bg-green-800 dark:border-green-600 dark:hover:bg-green-900' onClick={()=>{handleadditem(cartitem)}}>+</button>
         <div className='mx-2 font-semibold text-lg '>{freq[cartitem?.info?.id]}</div>
-        <button className='bg-red-100 w-5 h-5 flex items-center justify-center rounded-md border-red-300 border hover:bg-red-200' onClick={()=>{handleremoveitem(cartitem?.info?.id)}}>-</button>
+        <button className='bg-red-100 w-5 h-5 flex items-center justify-center rounded-md border-red-300 border hover:bg-red-200 dark:bg-red-800 dark:border-red-600 dark:hover:bg-red-900' onClick={()=>{handleremoveitem(cartitem?.info?.id)}}>-</button>
         </div>
         <div className='rounded-lg w-28 h-20 ml-2'>
     {
@@ -50,7 +50,7 @@ const Card2 = ({cartitem}) => {
                 <button onClick={() => handleremoveitem(cartitem?.info?.id)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 relative -top-2 z-10 bg-slate-100 dark:dark:bg-[#1f2020] left-5'><span className="relative -top-3 left-14 font-extrabold">-</span><span className="mr-3 font-extrabold">REM</span></button>
             </p>):
             (<p>
-            <button onClick={() => handleremoveitem(cartitem?.info?.id)} className='border-2 text-green-500 dark:border-gray-950 rounded-md px-3 py-1 relative z-10 bg-slate-100 dark:dark:bg-[#1f2020] left-5'><span className="relative -top-3 left-14 font-extrabold">—</span><span className="mr-3 font-extrabold">REM</span></button>
+            <button onClick={() => handleremoveitem(cartitem?.info?.id)} className='border-2 text-green-500 dark:border-gray-950 rounded-md px-3 py-1 relative z-10 bg-slate-100 dark:dark:bg-[#1f2020] left-5'><span className="relative -top-3 left-14 font-extrabold">-</span><span className="mr-3 font-extrabold">REM</span></button>
             </p>)
         }
         </div>
