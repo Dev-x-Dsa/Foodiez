@@ -29,7 +29,19 @@ const Body = () => {
                   </div>
               {
                 restaurant_bannerdata.map((data)=>{
-                  return <div className='rounded-2xl hover:scale-105  ease-in-out duration-200 overflow-hidden w-[400px] mx-7 flex-shrink-0'><img src={CDN_URL+data.imageId}/></div>
+                  let url=data?.entityId;
+                  let collection_id=data?.entityId;
+                  if(data?.entityId[0]==='s'){
+                    let url1=new URL(url);
+                    const queryString = url1.search;
+                    const urlSearchParams = new URLSearchParams(queryString);
+                    collection_id = urlSearchParams.get('collection_id');
+                  }
+                  console.log(collection_id);
+                  console.log(`/Restaurant/${data?.entityId}`);
+                  return <Link to={`/Restaurant/${collection_id}`}>
+                     <div className='cursor-pointer rounded-2xl hover:scale-105  ease-in-out duration-200 overflow-hidden w-[400px] mx-7 flex-shrink-0'><img src={CDN_URL+data.imageId}/></div>
+                  </Link>
                 })
               }
             </div>

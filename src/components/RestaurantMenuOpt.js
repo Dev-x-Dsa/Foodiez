@@ -8,7 +8,7 @@ const RestaurantMenuOpt = ({rest}) => {
 
     const [itemcard,setitemcard]=useState([]);
     const [arrow,setarrow]=useState(false);
-    console.log(rest);
+    // console.log(rest);
     useEffect(()=>{
         setitemcard(rest?.card?.card?.itemCards || rest?.card?.card?.carousel || rest?.card?.card?.categories?.[0]?.itemCards);
     },[rest]);

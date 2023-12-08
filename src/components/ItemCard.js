@@ -3,6 +3,8 @@ import { CDN_URL } from '../constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { additemtocart } from '../Redux/Slices/CartSlice';
 import { toast } from 'react-toastify';
+import vegimg from "../images/veg.png";
+import nonveg from "../images/nonveg.png";
 
 const ItemCard = ({data,visible}) => {
     const [pric,setpric]=useState(0);
@@ -28,6 +30,8 @@ const ItemCard = ({data,visible}) => {
       <div className={`${visible ? 'hidden' : 'flex'} font-Open`}>
        <div className='flex border-b-2 py-10 justify-between items-center w-[800px] mx-auto'>
         <div>
+            <div>{data?.card?.info?.isVeg?(<p><img src={vegimg} className='w-4 h-4'/></p>):(<p><img src={nonveg} className='w-4 h-4'/></p>)} 
+            </div>
             <p>{data?.card?.info?.name || data?.dish?.info?.name}</p>
             <div>{
                 pric!==null && pric!==undefined?
