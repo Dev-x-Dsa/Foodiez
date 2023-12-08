@@ -37,10 +37,10 @@ const CartSlice = createSlice({
       }
     },
 
-    clearcart: (state) => {
-      // Clear both items array and itemQuantities
-      state.items = [];
-      state.itemQuantities = {};
+    clearcart: (state,action) => {
+      const itemId = action.payload;
+      state.items = state.items.filter((item) => item?.info?.id !== itemId);
+      delete state.itemQuantities[itemId];
     },
   },
 });

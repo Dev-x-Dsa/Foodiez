@@ -10,7 +10,7 @@ import Hero from './Hero';
 
 const Body = () => {
   const {restaurant_data,restaurant_bannerdata}=useContext(MenuContext);
-  return (
+  return (  
     <div className='py-12 dark:bg-[#0d1117]'>
       {
         restaurant_data===null || restaurant_data===undefined?

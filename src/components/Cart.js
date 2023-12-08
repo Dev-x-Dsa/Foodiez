@@ -13,7 +13,7 @@ const Cart = () => {
   const uniquecartitems = [...new Set(cartitems)];
   const freq=useSelector(store=>store.cart.itemQuantities);
   return (
-    <div className='dark:bg-[#0d1117] dark:text-white py-10 font-Open'>
+    <div className='dark:bg-[#0d1117] dark:text-white py-10 font-Open min-h-[370px] max-h-full'>
         <div>
           {
               uniquecartitems.length!==0?
@@ -37,7 +37,7 @@ const Cart = () => {
         <div>
           {
             cartitems.length!==0?
-            (<div className='text-center text-2xl my-5'>
+            (<div className='text-center text-2xl my-4'>
               <p>Total Items: {freq1}</p>
               <p>Total Price: ₹{total}</p>
             </div>):
