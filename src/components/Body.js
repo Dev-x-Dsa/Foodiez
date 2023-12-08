@@ -37,8 +37,6 @@ const Body = () => {
                     const urlSearchParams = new URLSearchParams(queryString);
                     collection_id = urlSearchParams.get('collection_id');
                   }
-                  console.log(collection_id);
-                  console.log(`/Restaurant/${data?.entityId}`);
                   return <div className='cursor-pointer rounded-2xl hover:scale-105  ease-in-out duration-200 overflow-hidden w-[400px] mx-7 flex-shrink-0'><Link to={`/Restaurant/${collection_id}`}><img src={CDN_URL+data.imageId}/></Link></div>
                 })
               }
