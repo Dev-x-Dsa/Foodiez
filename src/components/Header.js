@@ -14,14 +14,28 @@ const Header = () => {
   const cartitems=useSelector(store=>store.cart.items);
   const uniquecartitems = [...new Set(cartitems)];
 
-  const [usertheme,setusertheme]=useState("light");
+  const [usertheme,setusertheme]=useState(localStorage.getItem('Mode'));
   const [search,setsearch]=useState('');
+
+  useEffect(()=>{
+    if(localStorage.getItem('Mode')===undefined){
+      setusertheme('light');
+      document.documentElement.classList.add('light');
+      localStorage.setItem('Mode',usertheme);
+    }
+    else{
+      console.log(localStorage.getItem('Mode'));
+      document.documentElement.classList.add(localStorage.getItem('Mode'));
+    }
+  },[])
   useEffect(()=>{
     if(usertheme==="dark"){
       document.documentElement.classList.add("dark");
+      localStorage.setItem('Mode',usertheme);
     }
     else{
       document.documentElement.classList.remove("dark");
+      localStorage.setItem('Mode',usertheme);
     }
 
   },[usertheme])
@@ -52,8 +66,8 @@ const Header = () => {
                 }
               </div>
             </div>
-            <div className='dark:hidden'><img onClick={()=>{handlethemeswitch()}} src={img1} className='w-7 h-7 cursor-pointer'/></div>
-            <div className='hidden dark:block '><img onClick={()=>{handlethemeswitch()}} src={img2} className='w-7 h-7 cursor-pointer'/></div>
+            <div className='dark:hidden'><img onClick={()=>{handlethemeswitch(); }} src={img1} className='w-7 h-7 cursor-pointer'/></div>
+            <div className='hidden dark:block '><img onClick={()=>{handlethemeswitch();}} src={img2} className='w-7 h-7 cursor-pointer'/></div>
 
             <div><FaUserCircle className='cursor-pointer text-3xl'/></div>
         </div>

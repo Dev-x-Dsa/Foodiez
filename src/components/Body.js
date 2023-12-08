@@ -6,6 +6,7 @@ import Shimmer from './Shimmer';
 import { CDN_URL } from '../constants';
 import './style.css'
 import img from "../images/circle-right.png";
+import Hero from './Hero';
 
 const Body = () => {
   const {restaurant_data,restaurant_bannerdata}=useContext(MenuContext);
@@ -16,6 +17,10 @@ const Body = () => {
         (<p><Shimmer/></p>):
         (
           <div>
+              <div className='text-white'>
+                <Hero/>
+                JJDFK
+              </div>
               <div>
                 <p className='font-bold text-4xl mx-14 px-3 text-slate-700 dark:text-slate-300 font-Open'>Best Offers for You...</p>
                 <div className='flex items-center py-10 mb-10 overflow-x-scroll mx-10 flex-shrink-0'>
