@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import img1 from "../images/moon.png"
 import img2 from "../images/sun.png";
+import img3 from "../images/pup.png";
 import { MenuContext } from '../ContextAPI/MenuContext';
 
 const Header = () => {
@@ -45,7 +46,7 @@ const Header = () => {
   }
   return (
     <div>
-      <div className='flex flex-row justify-between shadow-lg text-2xl bg-slate-100 dark:bg-[#24292f] dark:text-white font-Open font-semibold'>
+      <div className='flex flex-row justify-between shadow-lg text-2xl bg-slate-100 dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
         <Link to="/"><div><img src={image} className='cursor-pointer  w-40 h-20 dark:invert'/></div></Link>
         <div className='flex gap-x-10 items-center'>
             <Link to="/" onClick={()=>{allrestaurants()}}><div className='cursor-pointer p-3'>Home</div></Link>
@@ -57,19 +58,22 @@ const Header = () => {
                 <input value={search} onChange={(e)=>setsearch(e.target.value)} onKeyDown={(e)=>{if(e.key==='Enter') filterdata(search)}} type='text' placeholder='Search' className='outline-none border-b-2 rounded-lg dark:text-black py-1 font-medium leading-tight px-3 box-border'/>
             </div>
             <div className='flex'>
-            <Link to="./cart"><div><AiOutlineShoppingCart size={33} className=' cursor-pointer text-2xl'/></div></Link>
-              <div >
+            <Link to="./cart"><div><AiOutlineShoppingCart size={33} className='cursor-pointer text-2xl'/>
+              <div className='absolute' >
                 {
                   cartitems.length>0?
-                  (<p className='relative -top-1 right-3 text-center bg-green-600 rounded-full w-5 h-5 text-sm text-white'>{uniquecartitems.length}</p>):
+                  (<p className='relative -top-10 left-5 text-center bg-green-600 rounded-full w-5 h-5 text-sm text-white'>{uniquecartitems.length}</p>):
                   (<p></p>)
                 }
               </div>
+            </div></Link>
             </div>
             <div className='dark:hidden'><img onClick={()=>{handlethemeswitch(); }} src={img1} className='w-7 h-7 cursor-pointer'/></div>
             <div className='hidden dark:block '><img onClick={()=>{handlethemeswitch();}} src={img2} className='w-7 h-7 cursor-pointer'/></div>
 
-            <div><FaUserCircle className='cursor-pointer text-3xl'/></div>
+          <div class="cursor-pointer">
+            <img class="rounded-full w-8" alt="profile" src={img3}></img>
+          </div>
         </div>
       </div>
     </div>

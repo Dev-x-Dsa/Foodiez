@@ -37,9 +37,9 @@ const Cart = () => {
         <div>
           {
             cartitems.length!==0?
-            (<div className='text-center text-2xl my-4'>
-              <p>Total Items: {freq1}</p>
-              <p>Total Price: ₹{total}</p>
+            (<div className='text-center text-3xl my-4'>
+              <p class="capitalize w-full text-zinc-700 font-medium dark:text-slate-300">Total Items : <span class="text-[#206213] font-thin dark:text-green-500">{freq1}</span></p>
+              <p class="capitalize w-full text-zinc-700 font-medium dark:text-slate-300">Total Price : <span class="text-[#206213] font-thin dark:text-green-500">₹{total}</span></p>
             </div>):
             (<p className='dark:text-black text-white'></p>)
           }

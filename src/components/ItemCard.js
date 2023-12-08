@@ -15,7 +15,7 @@ const ItemCard = ({data,visible}) => {
     function handleadditem(item){
         dispatch(additemtocart(item));
         toast.success("Added to cart !", {
-            position: toast.POSITION.TOP_RIGHT,
+            position: toast.POSITION.BOTTOM_RIGHT,
         });
     }
     useEffect(()=>{
@@ -36,23 +36,23 @@ const ItemCard = ({data,visible}) => {
                  (<p></p>)
             } 
             </div>
-            <p>{data?.card?.info?.name || data?.dish?.info?.name}</p>
+                <p class="text-lg capitalize w-full text-zinc-700 font-semibold dark:text-slate-300">{data?.card?.info?.name || data?.dish?.info?.name}</p>
             <div>{
                 pric!==null && pric!==undefined?
-                <p>₹{pric/100}</p>:
+                <p class="text-[#206213] text-lg font-thin dark:text-green-500">₹{pric/100}</p>:
                 <p></p>
             }</div>
-            <p className='w-[600px]'>{data?.card?.info?.description || data?.dish?.info?.description}</p>
+                  <p className='w-[590px] capitalize text-[#a6abb3]'>{data?.card?.info?.description || data?.dish?.info?.description}</p>
         </div>
-        <div className='rounded-lg w-28 h-20'>
+        <div className='rounded-lg  ml-11 relative'>
     {
             (data?.card?.info?.imageId || data?.dish?.info?.imageId)?
             (<p>
-                <img src={CDN_URL+imgg} alt='' className='w-full h-full scale-110 object-cover rounded-lg'/>
-                <button onClick={() => handleadditem(data?.card)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 relative -top-2 z-10 bg-slate-100 dark:dark:bg-[#1f2020] left-4'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
+                <img src={CDN_URL+imgg} alt='' className=' rounded-lg'/>
+                <button onClick={() => handleadditem(data?.card)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
             </p>):
             (<p>
-                <button onClick={()=>handleadditem(data?.card)} className='border-2 text-green-500 dark:border-gray-950 rounded-md px-3 py-1 relative z-10 bg-slate-100 dark:dark:bg-[#1f2020] left-4'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
+                <button onClick={() => handleadditem(data?.card)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
             </p>)
         }
         </div>

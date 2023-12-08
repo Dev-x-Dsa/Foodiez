@@ -13,8 +13,6 @@ const Card = ({ data }) => {
         <div className='max-w-[404px] rounded-2xl relative overflow-hidden hover:before:to-10%  before:absolute before:left-0 before:right-0 before:top-0 before:z-10 before:h-full before:w-full before:bg-gradient-to-t  from-black to-40% text-lg group hover:text-white'>
         <img src={CDN_URL + data?.info?.cloudinaryImageId}/>
         <div className='w-full absolute bottom-1 left-2 text text-slate-200 z-20 drop-shadow-xl'>
-          {/* <p className='text-right capitalize'>{data?.info?.name}</p>
-          <p className='text-right capitalize text-slate-400'>{data?.info?.areaName}</p> */}
           <p className='text-left capitalize text-white-400 font-bold text-xl'>{data?.info?.aggregatedDiscountInfoV3?.header} {data?.info?.aggregatedDiscountInfoV3?.subHeader}</p>
         </div>
       </div>
