@@ -15,7 +15,7 @@ const Header = () => {
   const cartitems = useSelector(store => store.cart.items);
   const uniquecartitems = [...new Set(cartitems)];
 
-  const [usertheme, setusertheme] = useState(localStorage.getItem('Mode'));
+  const [usertheme, setusertheme] = useState(localStorage.getItem('Mode') || "dark");
   const [search, setsearch] = useState('');
 
   useEffect(() => {
