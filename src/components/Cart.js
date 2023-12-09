@@ -1,11 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card2 from './Card2';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import img from "../images/cartfinal.png"
+import img1 from "../images/loadcrop.gif";
+import img2 from "../images/finalcrop.gif";
 
 const Cart = () => {
 
+  const [check,setcheck]=useState("hidden");
+  const [check2,setcheck2]=useState("visible");
+  const [ohover,sethover]=useState(false);
+
+  useEffect(()=>{
+    setTimeout(() => {
+      setcheck("visible");
+      setcheck2("hidden");
+    },3880);
+  },[]);
+
+  useEffect(()=>{
+    if(ohover===true){
+      setcheck("hidden");
+      setcheck2("visible");
+      setTimeout(() => {
+        setcheck("visible");
+        setcheck2("hidden");
+        sethover(false);
+      }, 3500);
+    }
+  },[ohover]);
 
   var total = 0;
   var freq1 = 0;
@@ -25,7 +49,8 @@ const Cart = () => {
               })
             ) :
             (<div className='flex flex-col items-center py-10 dark:text-white  '>
-              <img src={img} className='w-[400px]' />
+              <img src={img1} className={`w-[400px] pb-7  ${check2}`} />
+              <img onPointerOver={()=>{sethover(true)}} src={img2} className={`w-[400px] pb-7  ${check}`}/>
               <p className=' font-bold text-2xl'>Oops... Cart is empty</p>
               <p className='text-[#78716c]'>Feeling Hungry...</p>
               <Link to="/">

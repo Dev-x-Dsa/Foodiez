@@ -2,7 +2,32 @@ import React, { useEffect, useState } from 'react'
 import { CDN_URL } from '../constants';
 import img1 from "../images/star.png"
 
+
+
 const Card = ({ data }) => {
+
+  const [avgrate, setavgrate] = useState("bg-[#ffffff]");
+
+  useEffect(() => {
+    let value=parseFloat(data?.info?.avgRating);
+    if(data?.info?.avgRating===NaN){
+      value=3;
+    }
+    if (value>= 4.5) {
+      setavgrate("bg-[#4bab1b]");
+    }
+    else if (value >= 3.5 && value<4.5) {
+      setavgrate("bg-[#a3e635]");
+    }
+    else if (value>= 2.5 && value<3.5) {
+      setavgrate("bg-[#f97316]");
+    }
+    else {
+      setavgrate("bg-[#ef4444]");
+    }
+  }, []);
+
+
   const [cusine, setcusine] = useState([]);
   useEffect(() => {
     setcusine(data?.info?.cuisines);
@@ -17,7 +42,7 @@ const Card = ({ data }) => {
           </div>
         </div>
         <div className='flex flex-row mt-1'>
-          <div class="flex flex-row items-center border bg-[#44961b] border-gray-200  dark:border-gray-800 rounded-lg w-12 mr-2 ">
+          <div className={`flex flex-row items-center border ${avgrate} border-gray-200  dark:border-gray-800 rounded-lg w-12 mr-2`}>
             <img class="object-cover rounded-t-lg md:rounded-none md:rounded-s-lg w-5 px-1" src={img1}></img>
             <div class="flex flex-col justify-between">
               <span class="font-normal  text-white ">{data?.info?.avgRating}</span>

@@ -20,8 +20,8 @@ const Header = () => {
 
   useEffect(()=>{
     if(localStorage.getItem('Mode')===undefined){
-      setusertheme('light');
-      document.documentElement.classList.add('light');
+      setusertheme('dark');
+      document.documentElement.classList.add('dark');
       localStorage.setItem('Mode',usertheme);
     }
     else{
