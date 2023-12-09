@@ -27,6 +27,9 @@ const Body = () => {
                   <div className='absolute right-5 z-20'>
                     <img src={img} className='w-10 cursor-pointer z-30' />
                   </div>
+                  <div className='absolute left-5 z-20 rotate-180'>
+                    <img src={img} className='w-10 cursor-pointer z-30' />
+                  </div>
                   {
                     restaurant_bannerdata.map((data) => {
                       let url = data?.entityId;
