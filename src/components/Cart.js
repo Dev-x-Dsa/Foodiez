@@ -8,19 +8,19 @@ import img2 from "../images/finalcrop.gif";
 
 const Cart = () => {
 
-  const [check,setcheck]=useState("hidden");
-  const [check2,setcheck2]=useState("visible");
-  const [ohover,sethover]=useState(false);
+  const [check, setcheck] = useState("hidden");
+  const [check2, setcheck2] = useState("visible");
+  const [ohover, sethover] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     setTimeout(() => {
       setcheck("visible");
       setcheck2("hidden");
-    },3880);
-  },[]);
+    }, 3880);
+  }, []);
 
-  useEffect(()=>{
-    if(ohover===true){
+  useEffect(() => {
+    if (ohover === true) {
       setcheck("hidden");
       setcheck2("visible");
       setTimeout(() => {
@@ -29,7 +29,7 @@ const Cart = () => {
         sethover(false);
       }, 3500);
     }
-  },[ohover]);
+  }, [ohover]);
 
   var total = 0;
   var freq1 = 0;
@@ -50,7 +50,7 @@ const Cart = () => {
             ) :
             (<div className='flex flex-col items-center py-10 dark:text-white  '>
               <img src={img1} className={`w-[400px] pb-7  ${check2}`} />
-              <img onPointerOver={()=>{sethover(true)}} src={img2} className={`w-[400px] pb-7  ${check}`}/>
+              <img onPointerOver={() => { sethover(true) }} src={img2} className={`w-[400px] pb-7  ${check}`} />
               <p className=' font-bold text-2xl'>Oops... Cart is empty</p>
               <p className='text-[#78716c]'>Feeling Hungry...</p>
               <Link to="/">

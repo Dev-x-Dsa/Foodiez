@@ -9,21 +9,21 @@ const Card = ({ data }) => {
   const [avgrate, setavgrate] = useState("bg-[#ffffff]");
 
   useEffect(() => {
-    let value=parseFloat(data?.info?.avgRating);
-    if(data?.info?.avgRating===NaN){
-      value=3;
+    let value = parseFloat(data?.info?.avgRating);
+    if (data?.info?.avgRating === NaN || value <= 0) {
+      setavgrate("bg-[#78716c]");
     }
-    if (value>= 4.5) {
-      setavgrate("bg-[#4bab1b]");
+    else if (value >= 4.5) {
+      setavgrate("bg-[#16a32b]");
     }
-    else if (value >= 3.5 && value<4.5) {
-      setavgrate("bg-[#a3e635]");
+    else if (value >= 3.5 && value < 4.5) {
+      setavgrate("bg-[#81b02a]");
     }
-    else if (value>= 2.5 && value<3.5) {
+    else if (value >= 2.5 && value < 3.5) {
       setavgrate("bg-[#f97316]");
     }
     else {
-      setavgrate("bg-[#ef4444]");
+      setavgrate("bg-[#e61e1e]");
     }
   }, []);
 
