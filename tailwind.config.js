@@ -3,13 +3,13 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  darkMode:"class",
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
         'Open': ['Open Sans', 'sans- serif'],
         'Roboto': ['Roboto', 'sans- serif']
-      } 
+      }
     },
   },
   plugins: [],

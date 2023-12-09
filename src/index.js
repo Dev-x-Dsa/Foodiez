@@ -17,35 +17,35 @@ import "react-toastify/dist/ReactToastify.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
-const Approuter=createBrowserRouter([
+const Approuter = createBrowserRouter([
   {
-      path:"/",
-      element:<App/>,
-      children:[
-        {
-          path:"/",
-          element:<Body/>
-        },
-        {
-          path:"Restaurant/:id",
-          element:<RestaurantMenu/>
-        },
-        {
-          path:"cart",
-          element:<Cart/>
-        }
-      ]
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Body />
+      },
+      {
+        path: "Restaurant/:id",
+        element: <RestaurantMenu />
+      },
+      {
+        path: "cart",
+        element: <Cart />
+      }
+    ]
   },
-  
-  
-]) 
+
+
+])
 
 
 root.render(
-    <Provider store={store}>
-      <MenuContextProvider>
-      <ToastContainer/>
-      <RouterProvider router={Approuter}/>
-     </MenuContextProvider>
-    </Provider>
+  <Provider store={store}>
+    <MenuContextProvider>
+      <ToastContainer />
+      <RouterProvider router={Approuter} />
+    </MenuContextProvider>
+  </Provider>
 );
