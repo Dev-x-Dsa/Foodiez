@@ -5,6 +5,7 @@ import { additemtocart } from '../Redux/Slices/CartSlice';
 import { toast } from 'react-toastify';
 import vegimg from "../images/veg.png";
 import nonveg from "../images/nonveg.png";
+import defalt from "../images/default.png";
 
 const ItemCard = ({data,visible}) => {
     const [pric,setpric]=useState(0);
@@ -42,7 +43,7 @@ const ItemCard = ({data,visible}) => {
                 <p class="text-[#206213] text-lg font-thin dark:text-green-500">₹{pric/100}</p>:
                 <p></p>
             }</div>
-                  <p className='w-[590px] capitalize text-[#a6abb3]'>{data?.card?.info?.description || data?.dish?.info?.description}</p>
+                  <p className='w-[590px] capitalize text-[17px] text-neutral-500 dark:text-neutral-400'>{data?.card?.info?.description || data?.dish?.info?.description}</p>
         </div>
         <div className='rounded-lg  ml-11 relative'>
     {
@@ -52,6 +53,7 @@ const ItemCard = ({data,visible}) => {
                 <button onClick={() => handleadditem(data?.card)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
             </p>):
             (<p>
+                <img src={defalt} alt='' className=' rounded-lg' />
                 <button onClick={() => handleadditem(data?.card)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
             </p>)
         }
