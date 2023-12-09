@@ -45,15 +45,15 @@ const ItemCard = ({data,visible}) => {
             }</div>
                   <p className='w-[590px] capitalize text-[17px] text-neutral-500 dark:text-neutral-400'>{data?.card?.info?.description || data?.dish?.info?.description}</p>
         </div>
-        <div className='rounded-lg  ml-11 relative'>
+        <div className='rounded-lg relative'>
     {
             (data?.card?.info?.imageId || data?.dish?.info?.imageId)?
-            (<p>
+            (<p className='ml-11'>
                 <img src={CDN_URL+imgg} alt='' className=' rounded-lg'/>
                 <button onClick={() => handleadditem(data?.card)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
             </p>):
-            (<p>
-                <img src={defalt} alt='' className=' rounded-lg' />
+            (<p class="mr-9">
+                <img src={defalt} alt='' className='rounded-lg w-full scale-125'/>
                 <button onClick={() => handleadditem(data?.card)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
             </p>)
         }
