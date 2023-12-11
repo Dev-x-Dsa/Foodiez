@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import Card2 from "./Card2";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import img from "../images/cartfinal.png";
 import img1 from "../images/loadcrop.gif";
 import img2 from "../images/finalcrop.gif";
+import visa from "../images/visa.png"
+import mastercard from "../images/mastercard.png"
+import rupay from "../images/rupay.png"
+import qr from "../images/qr.png"
 
 const Cart = () => {
   const [check, setcheck] = useState("hidden");
@@ -39,60 +42,151 @@ const Cart = () => {
     <div className="dark:bg-[#0d1117] dark:text-white py-10 font-Open min-h-[370px] max-h-full">
       <div>
         {uniquecartitems.length !== 0 ? (
-          <div className="flex flex-row w-10/12 mx-auto gap-x-10 justify-around ">
-            <div className="bg-[#24292f] px-4 py-3 h-[660px]  rounded-lg">
-              <div className="text-2xl mb-6">Shopping Cart</div>
-              <div className="min-w-[800px]  h-[580px] overflow-x-hidden overflow-y-scroll">
+          <div className="flex flex-row w-10/12 mx-auto gap-x-10 justify-around">
+            <div className="dark:bg-[#24292f] px-4 py-4 h-[777px] rounded-xl bg-[#faf9f9]">
+              <div className="text-2xl mb-5 ml-2 flex">
+                <p className="mr-2">Shopping Cart</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="33" height="33" viewBox="0 0 24 24" stroke-width="1.5" stroke="#a8bbbf" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                  <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                  <path d="M17 17h-11v-14h-2" />
+                  <path d="M6 5l14 1l-1 7h-13" />
+                </svg>
+              </div>
+              <div className="min-w-[800px]  h-[510px] overflow-x-hidden overflow-y-scroll dark:bg-[#21252b] bg-[#f5f4f4] border-b-2 border-t-2 border-[#a8bbbf] rounded-sm">
                 {uniquecartitems.map((cartitem) => {
                   freq1 += freq[cartitem?.info?.id];
                   cartitem?.info?.price
                     ? (total =
-                        total +
-                        (parseInt(cartitem?.info?.price) / 100) *
-                          freq[cartitem?.info?.id])
+                      total +
+                      (parseInt(cartitem?.info?.price) / 100) *
+                      freq[cartitem?.info?.id])
                     : (total += 130 * freq[cartitem?.info?.id]);
                   return <Card2 cartitem={cartitem} />;
                 })}
               </div>
-              </div>
-            <div>
-              {
-                <div className="flex flex-col gap-y-6">
-                  <div className="bg-[#24292f] py-4 px-10 rounded-lg">
-                    <div>
-                      <p className="text-2xl">Delivery Info</p>
-                      For writers looking for a way to get their creative writing
-                      juices flowing, using a random paragraph can be a great way
-                      to do this. One of the great benefits of this tool is that
-                      nobody knows what is going to appear in the paragraph. This
-                      can be leveraged in a few different ways to force the writer
-                      to use creativity. For example, the random paragraph can be
-                      used as the beginning paragraph of a story that the writer
-                      must finish. I can also be used as a paragraph somewhere
-                      inside a short story, or for a more difficult
-                      I can also be used as a paragraph somewhere
-                      inside a short story, or for a more difficult creative
-                      challenge, it can be used as the ending paragraph. 
+              <div>
+                {cartitems.length !== 0 ? (
+                  <div className="text-3xl my-2">
+                    <div className="flex items justify-between items-stretch">
+                      <span class="capitalize w-full text-zinc-700 font-medium text-2xl dark:text-neutral-300 ml-1">
+                        Subtotal :{" "}
+                      </span>
+                      <span class="text-neutral-700 font-thin dark:text-gray-300">
+                        ₹{total}.00
+                      </span>
+                    </div>
+                    <div className="flex items justify-between items-stretch">
+                      <span class="capitalize w-full text-zinc-700 font-medium text-2xl dark:text-neutral-300 ml-1">
+                        Delivery Charges :{" "}
+                      </span>
+                      <span class="text-neutral-700 font-thin dark:text-gray-300">
+                        ₹50.00
+                      </span>
+                    </div>
+                    <div className="border-[#a8bbbf] border-t-2 my-6"></div>
+                    <div className="flex items justify-between items-stretch">
+                      <span class="capitalize w-full text-zinc-700 font-medium text-2xl dark:text-neutral-300 ml-1">
+                        Total Price :{" "}
+                      </span>
+                      <span class="text-neutral-700 font-thin dark:text-gray-300">
+                        ₹{total + 50}.00
+                      </span>
                     </div>
                   </div>
-                  <div className="bg-[#24292f] py-6 px-10 rounded-lg mx-auto flex flex-col items-center gap-y-5">
+                ) : (
+                  <p className="dark:text-black text-white"></p>
+                )}
+              </div>
+            </div>
+            <div>
+              {
+                <div className="flex flex-col gap-y-6 h-[571px] items-stretch justify-stretch w-[654px]">
+                  <div className="dark:bg-[#24292f] pb-9 pt-4 px-10 rounded-xl bg-[#faf9f9]">
                     <div>
-                      <p className="text-2xl">Payment Info</p>
-                      For writers looking for a way to get their creative writing
-                      juices flowing, using a random paragraph can be a great way
-                      to do this. One of the great benefits of this tool is that
-                      nobody knows what is going to appear in the paragraph. This
-                      can be leveraged in a few different ways to force the writer
-                      to use creativity. 
+                      <p className="text-2xl font-semibold">Delivery Info</p>
+                      <div className="border-[#a8bbbf] border-t-2 my-5"></div>
+                      <div className="flex flex-col">
+                        <div className="flex py-2">
+                          <div className="flex flex-col">
+                            Address*
+                            <input type="text" />
+                          </div>
+                        </div>
+                        <div className="flex justify-between py-2">
+                          <div className="flex flex-col">
+                            City*
+                            <input type="text" />
+                          </div>
+                          <div className="flex flex-col">
+                            State*
+                            <input type="text" />
+                          </div>
+                        </div>
+                        <div className="flex justify-between py-2">
+                          <div className="flex flex-col">
+                            Pin Code*
+                            <input type="text" />
+                          </div>
+                          <div className="flex flex-col">
+                            Mobile*
+                            <input type="text" />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <button className=" bg-blue-700 w-3/4 rounded-lg px-10 py-3">Pay Now</button>
+                  </div>
+                  <div className="dark:bg-[#24292f] pb-6 pt-4 px-10 rounded-xl bg-[#faf9f9]">
+                    <div>
+                      <div className="flex justify-between">
+                        <p className="text-2xl font-semibold">Payment</p>
+                        <div class="bg-[#bbbaba] dark:bg-[#141618] p-1.5 rounded-md flex text-base">
+                          <div class="dark:bg-[#232627] bg-[#858484] rounded-md text-center w-[100%] cursor-pointer p-0.5 pr-1.5">Card</div>
+                          <div class="dark:bg-[#141618] bg-[#bbbaba] rounded-md text-center w-[100%] cursor-pointer p-0.5 pl-1.5">UPI</div>
+                        </div>
+                      </div>
+                      <div className="border-[#a8bbbf] border-t-2 my-5"></div>
+                      <div className="flex flex-col">
+                        <div className="flex py-2">
+                          <div className="flex flex-col">
+                            Card Holder*
+                            <input type="text" />
+                          </div>
+                        </div>
+                        <div className="flex justify-between py-2">
+                          <div className="flex flex-col">
+                            Card Number*
+                            <input type="text" />
+                          </div>
+                          <div>
+                            <img class="w-[3.25rem]" src={visa}></img>
+                            <img class="w-[3.25rem]" src={mastercard}></img>
+                            <img class="w-[3.25rem]" src={rupay}></img>
+                          </div>
+                        </div>
+                        <div className="flex justify-between py-2">
+                          <div className="flex flex-col">
+                            Expiry*
+                            <input type="text" />
+                          </div>
+                          <div className="flex flex-col">
+                            CVV/CVC*
+                            <input type="password" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-center pt-5">
+                      <button className=" bg-blue-700 w-1/3 rounded-lg px-auto py-3 text-lg text-white">Pay Now ₹{check}</button>
+                    </div>
                   </div>
                 </div>
               }
             </div>
           </div>
         ) : (
-          <div className="flex flex-col items-center py-10 dark:text-white  ">
+          <div className="flex flex-col items-center py-10 dark:text-white">
             <img src={img1} className={`w-[400px] pb-7  ${check2}`} />
             <img
               onPointerOver={() => {
@@ -111,26 +205,7 @@ const Cart = () => {
           </div>
         )}
       </div>
-      <div>
-        {cartitems.length !== 0 ? (
-          <div className="text-center text-3xl my-4">
-            <p class="capitalize w-full text-zinc-700 font-medium dark:text-slate-300">
-              Total Items :{" "}
-              <span class="text-[#206213] font-thin dark:text-green-500">
-                {freq1}
-              </span>
-            </p>
-            <p class="capitalize w-full text-zinc-700 font-medium dark:text-slate-300">
-              Total Price :{" "}
-              <span class="text-[#206213] font-thin dark:text-green-500">
-                ₹{total}
-              </span>
-            </p>
-          </div>
-        ) : (
-          <p className="dark:text-black text-white"></p>
-        )}
-      </div>
+
     </div>
   );
 };
