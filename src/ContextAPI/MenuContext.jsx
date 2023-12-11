@@ -62,6 +62,7 @@ export default function MenuContextProvider({children}){
     },[resid]);
 
 
+
     const values={
         restaurant_data,
         setrestaurant_data,
@@ -77,7 +78,7 @@ export default function MenuContextProvider({children}){
         setrestaurant_info2,
         filterdata,
         allrestaurants,
-        restaurant_bannerdata
+        restaurant_bannerdata,
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>

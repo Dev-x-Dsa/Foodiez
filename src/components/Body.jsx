@@ -7,8 +7,13 @@ import { CDN_URL } from '../constants';
 import './style.css'
 import img from "../images/circle-right.png";
 import Hero from './Hero';
+import { useRef } from 'react';
 
 const Body = () => {
+  const ref=useRef(null);
+  const scroll = (scrollOffset) => {
+    ref.current.scrollLeft += scrollOffset;
+  };
   const { restaurant_data, restaurant_bannerdata } = useContext(MenuContext);
   return (
     <div className='py-12 dark:bg-[#0d1117]'>
@@ -21,14 +26,14 @@ const Body = () => {
                 <Hero />
                 Hero is Here
               </div>
-              <div>
+               <div>
                 <p className='font-bold text-4xl mx-14 px-3 text-slate-700 dark:text-slate-300 font-Open'>Best Offers for You...</p>
-                <div className='flex items-center py-10 mb-10 overflow-x-scroll mx-10 flex-shrink-0'>
+                <div className='flex items-center py-10 mb-10 overflow-x-scroll mx-10 flex-shrink-0 scroll-smooth ease-in-out' ref={ref}>
                   <div className='absolute right-5 z-20'>
-                    <img src={img} className='w-10 cursor-pointer z-30' />
+                    <img src={img} className='w-10 cursor-pointer z-30' onClick={()=>scroll(800)}/>
                   </div>
                   <div className='absolute left-5 z-20 rotate-180'>
-                    <img src={img} className='w-10 cursor-pointer z-30' />
+                    <img src={img} className='w-10 cursor-pointer z-30' onClick={()=>scroll(-800)}/>
                   </div>
                   {
                     restaurant_bannerdata.map((data) => {
