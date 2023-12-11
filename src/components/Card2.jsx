@@ -30,7 +30,7 @@ const Card2 = ({ cartitem }) => {
 
     return (
         <div>
-            <div className='flex border-b-2 border-[#a8bbbf] dark:border-[#798283] py-10 justify-between items-center w-[820px] mx-auto font-Open'>
+            <div className='flex border-b-2 border-[#a8bbbf] dark:border-[#798283] py-8 justify-between items-center w-[720px] mx-auto font-Open'>
                 <div>
                     <p class="text-lg capitalize w-full text-zinc-700 font-semibold dark:text-slate-300">{cartitem?.info?.name}</p>
                     <div>{
@@ -38,7 +38,7 @@ const Card2 = ({ cartitem }) => {
                             <p class="text-[#206213] text-lg font-thin dark:text-green-500">₹{pric / 100}</p> :
                             <p class="text-[#206213] text-lg font-thin dark:text-green-500" >₹{130}</p>
                     }</div>
-                    <p className='w-[550px] capitalize text-[#a6abb3]'>{cartitem?.info?.description}</p>
+                    <p className='w-[400px] capitalize text-[#a6abb3]'>{cartitem?.info?.description}</p>
                 </div>
                 <div className='flex justify-center items-center mx-5'>
                     <button className='bg-green-100 w-5 h-5 flex items-center justify-center rounded-md border-green-300 border hover:bg-green-200 dark:bg-green-800 dark:border-green-600 dark:hover:bg-green-900' onClick={() => { handleadditem(cartitem) }}>+</button>
@@ -59,6 +59,7 @@ const Card2 = ({ cartitem }) => {
                                 </button>
                             </p>) :
                             (<p>
+                                <img src={CDN_URL + cartitem?.info?.imageId} alt='' className='rounded-lg  border-red-400 border-5' />
                                 <button onClick={() => handleclearcart(cartitem?.info?.id)} className='border-2 dark:border-gray-950 text-green-500 rounded-full h-7 w-7 absolute -top-3 z-10 bg-gray-100 dark:dark:bg-[#252525] -right-3 text-lg font-extrabold'>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="-2 -1 23 24" stroke-width="3" stroke="#ef4444" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
