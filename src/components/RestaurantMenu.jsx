@@ -8,14 +8,14 @@ const RestaurantMenu = () => {
     let { id } = useParams();
     const { resid, setresid, fetchdata2, restaurant_menu, restaurant_info, restaurant_info2 } = useContext(MenuContext);
     const [cusine, setcusine] = useState([]);
-    const [data,setdata]=useState(restaurant_info2);
+    const [data, setdata] = useState(restaurant_info2);
 
-    const item="burger";
+    const item = "burger";
 
     useEffect(() => {
         setresid(id);
     }, [id]);
-    
+
     return (
         restaurant_info2 !== null && restaurant_info2 !== undefined ?
             (
