@@ -3,6 +3,8 @@ import { CDN_URL } from '../constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { additemtocart, removeitem, clearcart } from '../Redux/Slices/CartSlice';
 import { toast } from 'react-toastify';
+import defalt from "../images/default.png";
+
 
 const Card2 = ({ cartitem }) => {
     const [pric, setpric] = useState(0);
@@ -59,7 +61,7 @@ const Card2 = ({ cartitem }) => {
                                 </button>
                             </p>) :
                             (<p>
-                                <img src={CDN_URL + cartitem?.info?.imageId} alt='' className='rounded-lg  border-red-400 border-5' />
+                                <img src={defalt} alt='' className='rounded-lg w-full scale-125' />
                                 <button onClick={() => handleclearcart(cartitem?.info?.id)} className='border-2 dark:border-gray-950 text-green-500 rounded-full h-7 w-7 absolute -top-3 z-10 bg-gray-100 dark:dark:bg-[#252525] -right-3 text-lg font-extrabold'>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="-2 -1 23 24" stroke-width="3" stroke="#ef4444" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />

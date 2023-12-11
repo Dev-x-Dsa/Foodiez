@@ -72,8 +72,7 @@ const Cart = () => {
                       inside a short story, or for a more difficult
                       I can also be used as a paragraph somewhere
                       inside a short story, or for a more difficult creative
-                      challenge, it can be used as the ending paragraph. In every
-                      case, the writer is forced to use creativity to incorporate
+                      challenge, it can be used as the ending paragraph. 
                     </div>
                   </div>
                   <div className="bg-[#24292f] py-6 px-10 rounded-lg mx-auto flex flex-col items-center gap-y-5">
