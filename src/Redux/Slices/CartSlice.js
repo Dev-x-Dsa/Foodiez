@@ -22,7 +22,7 @@ const CartSlice = createSlice({
 
     removeitem: (state, action) => {
       const itemId = action.payload;
-      
+
       // Check if the item exists in the cart
       if (state.itemQuantities[itemId] > 1) {
         // Decrease the frequency if more than 1
@@ -32,12 +32,12 @@ const CartSlice = createSlice({
         state.items = state.items.filter((item) => item?.info?.id !== itemId);
         delete state.itemQuantities[itemId];
         toast.error("Removed from cart !", {
-          position: toast.POSITION.TOP_RIGHT,
-      });
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
       }
     },
 
-    clearcart: (state,action) => {
+    clearcart: (state, action) => {
       const itemId = action.payload;
       state.items = state.items.filter((item) => item?.info?.id !== itemId);
       delete state.itemQuantities[itemId];

@@ -5,7 +5,7 @@ const Hero = () => {
         <div className="flex items-stretch justify-between">
             <div className="flex flex-col">
                 <h2 className="my-2">Enter Location 🗺</h2>
-                <input type="text" className="rounded-md"/>
+                <input type="text" className="rounded-md" />
             </div>
             <div className="relative w-[400px]">
                 <img src={plate} alt="" className="absolute -top-32 -right-32 w-full" />
