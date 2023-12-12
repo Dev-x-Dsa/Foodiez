@@ -47,7 +47,7 @@ const Card2 = ({ cartitem }) => {
                                     <img src={CDN_URL + cartitem?.info?.imageId} alt='' className='rounded-lg  border-red-400 border-5' />
                                 </p>) :
                                 (<p>
-                                    <img src={defalt} alt='' className='rounded-lg w-full scale-125 ml-6 mr-2 mx-auto  border-red-400 border-5' />
+                                    <img src={defalt} alt='' className='rounded-lg w-full scale-[130%] pl-9 pr-10  border-red-400 border-5' />
                                 </p>)
                         }
                     </div>

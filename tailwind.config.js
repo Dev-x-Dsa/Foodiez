@@ -9,6 +9,8 @@ module.exports = {
       fontFamily: {
         'Open': ['Open Sans', 'sans- serif'],
         'Roboto': ['Roboto', 'sans- serif']
+      }, backgroundImage: {
+        'hero': "url('images/pizza.jpg')",
       }
     },
   },

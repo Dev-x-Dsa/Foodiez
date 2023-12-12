@@ -124,28 +124,28 @@ const Cart = () => {
                       <div className="flex flex-col ">
                         <div className="flex py-2">
                           <div className="flex flex-col w-full">
-                            Address*
-                            <input type="text" className=" outline-none rounded-md px-2 py-0.5 w-full text-black" />
+                            <div className="flex">Address<span class='text-red-500'>*</span></div>
+                            <input type="text" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" />
                           </div>
                         </div>
                         <div className="flex justify-between py-2 w-full gap-x-5">
                           <div className="flex flex-col w-full">
-                            City*
-                            <input type="text"  className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                            <div className="flex">City<span class='text-red-500'>*</span></div>
+                            <input type="text"  className="dark:bg-[#757575]  bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white"/>
                           </div>
                           <div className="flex flex-col w-full">
-                            State*
-                            <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                            <div className="flex">State<span class='text-red-500'>*</span></div>
+                            <input type="text" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white"/>
                           </div>
                         </div>
                         <div className="flex justify-between py-2 w-full gap-x-5">
                           <div className="flex flex-col w-full">
-                            Pin Code*
-                            <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                            <div className="flex">Pin Code<span class='text-red-500'>*</span></div>
+                            <input type="number" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" min="000000" max="999999" />
                           </div>
                           <div className="flex flex-col w-full">
-                            Mobile*
-                            <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                            <div className="flex">Mobile<span class='text-red-500'>*</span></div>
+                            <input type="tel" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" pattern="[6-9]{1}-[0-9]{9}"/>
                           </div>
                         </div>
                       </div>
@@ -164,31 +164,28 @@ const Cart = () => {
                       <div className="flex flex-col">
                         <div className="flex py-2">
                           <div className="flex flex-col w-full">
-                            Card Holder*
-                            <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                            <div className="flex">Card Holder<span class='text-red-500'>*</span></div>
+                            <input type="text" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white"/>
                           </div>
                         </div>
                         <div className="flex justify-between py-2 gap-x-4">
                           <div className="flex flex-col w-full">
-                            Card Number*
+                            <div className="flex">Card Number<span class='text-red-500'>*</span></div>
                             <div className="flex flex-row gap-x-5">
-                            <input maxLength={10} type="text" onChange={()=>{changeimage()}} className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
-                            <img class="w-[3.25rem]" src={img}></img>
-                            {/* <img class="w-[3.25rem] hidden" src={visa}></img> */}
-                            {/* <img class="w-[3.25rem] hidden" src={rupay}></img> */}
-                            </div>
-                            
+                              <input maxLength={10} type="text" onChange={() => { changeimage() }} className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white"/>
+                            <img class="w-[3rem]" src={img}></img>
+                            </div>                            
                           </div>
                           </div>
                               
                         <div className="flex justify-between py-2 gap-x-5">
                           <div className="flex flex-col w-full">
-                            Expiry*
-                            <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                            <div className="flex">Expiry<span class='text-red-500'>*</span></div>
+                            <input type="date" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white dark:text-slate-100"/>
                           </div>
                           <div className="flex flex-col w-full">
-                            CVV/CVC*
-                            <input type="password" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                            <div className="flex">CVV/CVC<span class='text-red-500'>*</span></div>
+                            <input type="password" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white dark:text-slate-100"/>
                           </div>
                         </div>
                       </div>

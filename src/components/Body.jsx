@@ -23,8 +23,7 @@ const Body = () => {
           (
             <div>
               <div className='text-white'>
-                <Hero />
-                Hero is Here
+                <Hero/>
               </div>
               <div>
                 <p className='font-bold text-4xl mx-14 px-3 text-slate-700 dark:text-slate-300 font-Open'>Best Offers for You...</p>
