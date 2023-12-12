@@ -68,7 +68,11 @@ const Card2 = ({ cartitem }) => {
                             <button className='bg-red-100 w-5 h-5 flex items-center justify-center rounded-md border-red-300 border hover:bg-red-200 dark:bg-red-800 dark:border-red-600 dark:hover:bg-red-900' onClick={() => { handleremoveitem(cartitem?.info?.id) }}>-</button>
                         </div>
                         <div className='flex justify-center items-center pt-4 dark:text-blue-300 text-[#252536] font-bold text-xl'>
-                            ₹ 199.99
+                            {
+                                pric !== null && pric !== undefined ?
+                                    freq[cartitem?.info?.id]*pric/100 :
+                                    freq[cartitem?.info?.id]*130
+                            }
                         </div>
                     </div>
                 </div>

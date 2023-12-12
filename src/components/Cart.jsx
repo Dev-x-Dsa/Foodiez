@@ -14,6 +14,22 @@ const Cart = () => {
   const [check2, setcheck2] = useState("visible");
   const [ohover, sethover] = useState(false);
   const [img, setimg] = useState(mastercard);
+  const [bg1,setbg1]=useState("bg-[#232627]");
+  const [bg2,setbg2]=useState("bg-[#141618]");
+  const [upi,setupi]=useState(false);
+
+  
+  function changecolor(){
+    setbg1("bg-[#232627]");
+    setbg2("bg-[#141618]");
+    setupi(false);
+  }
+
+  function changecolor2(){
+    setbg1("bg-[#141618]");
+    setbg2("bg-[#232627]");
+    setupi(true);
+  }
   useEffect(() => {
     setTimeout(() => {
       setcheck("visible");
@@ -125,7 +141,7 @@ const Cart = () => {
                         <div className="flex py-2">
                           <div className="flex flex-col w-full">
                             <div className="flex">Address<span class='text-red-500'>*</span></div>
-                            <input type="text" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" />
+                            <input type="text" maxLength={50} className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" />
                           </div>
                         </div>
                         <div className="flex justify-between py-2 w-full gap-x-5">
@@ -145,7 +161,7 @@ const Cart = () => {
                           </div>
                           <div className="flex flex-col w-full">
                             <div className="flex">Mobile<span class='text-red-500'>*</span></div>
-                            <input type="tel" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" pattern="[6-9]{1}-[0-9]{9}" />
+                            <input type="tel" maxLength={10} className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" pattern="[6-9]{1}-[0-9]{9}" />
                           </div>
                         </div>
                       </div>
@@ -156,42 +172,51 @@ const Cart = () => {
                       <div className="flex justify-between">
                         <p className="text-2xl font-semibold">Payment</p>
                         <div class="bg-[#bbbaba] dark:bg-[#141618] p-1.5 rounded-md flex text-base">
-                          <div class="dark:bg-[#232627] bg-[#858484] rounded-md text-center w-[100%] cursor-pointer p-0.5 pr-1.5">Card</div>
-                          <div class="dark:bg-[#141618] bg-[#bbbaba] rounded-md text-center w-[100%] cursor-pointer p-0.5 pl-1.5">UPI</div>
+                          <div onClick={()=>changecolor()} className={`dark:${bg1} bg-[#858484] rounded-md text-center w-[100%] cursor-pointer p-0.5 pr-1.5`}>Card</div>
+                          <div onClick={()=>changecolor2()} className={`dark:${bg2} bg-[#bbbaba] rounded-md text-center w-[100%] cursor-pointer p-0.5 pl-1.5`}>UPI</div>
                         </div>
                       </div>
                       <div className="border-[#a8bbbf] border-t-2 my-5"></div>
-                      <div className="flex flex-col">
-                        <div className="flex py-2">
-                          <div className="flex flex-col w-full">
-                            <div className="flex">Card Holder<span class='text-red-500'>*</span></div>
-                            <input type="text" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" />
-                          </div>
-                        </div>
-                        <div className="flex justify-between py-2 gap-x-4">
-                          <div className="flex flex-col w-full">
-                            <div className="flex">Card Number<span class='text-red-500'>*</span></div>
-                            <div className="flex flex-row gap-x-5">
-                              <input maxLength={10} type="text" onChange={() => { changeimage() }} className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" />
-                              <img class="w-[3rem]" src={img}></img>
+                      {
+                          upi? 
+                          (<p className="flex justify-center">
+                            <img src={qr} className="w-[210px] aspect-square" />
+                          </p>):
+                          (
+                            <div className="flex flex-col">
+                              <div className="flex py-2">
+                                <div className="flex flex-col w-full">
+                                  Card Holder*
+                                  <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                                </div>
+                              </div>
+                              <div className="flex justify-between py-2 gap-x-4">
+                                <div className="flex flex-col w-full">
+                                  Card Number*
+                                  <div className="flex flex-row gap-x-5">
+                                  <input maxLength={10} type="text" onChange={()=>{changeimage()}} className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                                  <img class="w-[3.25rem]" src={img}></img>
+                                  </div>
+                                  
+                                </div>
+                                </div>
+                                    
+                              <div className="flex justify-between py-2 gap-x-5">
+                                <div className="flex flex-col w-full">
+                                  Expiry*
+                                  <input type="text" maxLength={4} className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                                </div>
+                                <div className="flex flex-col w-full">
+                                  CVV/CVC*
+                                  <input type="password" maxLength={3} className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-
-                        <div className="flex justify-between py-2 gap-x-5">
-                          <div className="flex flex-col w-full">
-                            <div className="flex">Expiry<span class='text-red-500'>*</span></div>
-                            <input type="date" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white dark:text-slate-100" />
-                          </div>
-                          <div className="flex flex-col w-full">
-                            <div className="flex">CVV/CVC<span class='text-red-500'>*</span></div>
-                            <input type="password" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white dark:text-slate-100" />
-                          </div>
-                        </div>
-                      </div>
+                          )
+                        }
                     </div>
                     <div className="flex items-center justify-center pt-5">
-                      <button className=" bg-blue-700 w-1/3 rounded-lg px-auto py-3 text-lg text-white">Pay Now ₹{check}</button>
+                      <button className=" bg-blue-700 w-1/3 rounded-lg px-auto py-3 text-lg text-white">Pay Now ₹{total+50}</button>
                     </div>
                   </div>
                 </div>

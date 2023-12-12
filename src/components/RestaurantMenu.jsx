@@ -9,7 +9,7 @@ const RestaurantMenu = () => {
     const { resid, setresid, fetchdata2, restaurant_menu, restaurant_info, restaurant_info2 } = useContext(MenuContext);
     const [cusine, setcusine] = useState([]);
     const [data, setdata] = useState(restaurant_info2);
-
+    // console.log(restaurant_info)
     const item = "burger";
 
     useEffect(() => {
@@ -28,6 +28,8 @@ const RestaurantMenu = () => {
                             })
                         }</p>
                         <p className="text-neutral-600 dark:text-neutral-400 text-2xl font-thin">{restaurant_info?.areaName}</p>
+                        <p className="text-neutral-600 dark:text-neutral-400 text-2xl font-thin">{restaurant_info?.sla?.slaString}</p>
+
                         {
                             restaurant_info2?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((rest) => {
                                 return <RestaurantMenuOpt key={id} rest={rest} />
