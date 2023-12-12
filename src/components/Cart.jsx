@@ -13,7 +13,7 @@ const Cart = () => {
   const [check, setcheck] = useState("hidden");
   const [check2, setcheck2] = useState("visible");
   const [ohover, sethover] = useState(false);
-
+  const [img,setimg]=useState(mastercard);
   useEffect(() => {
     setTimeout(() => {
       setcheck("visible");
@@ -33,6 +33,20 @@ const Cart = () => {
     }
   }, [ohover]);
 
+  function changeimage(){
+    console.log("chlaa")
+    console.log(img);
+    setTimeout(() => {
+      setimg(visa);
+    },1000);
+    setTimeout(() => {
+      setimg(rupay);
+    },4000);
+
+    setTimeout(() => {
+      setimg(mastercard)
+    },7000);
+  }
   var total = 0;
   var freq1 = 0;
   const cartitems = useSelector((store) => store.cart.items);
@@ -107,31 +121,31 @@ const Cart = () => {
                     <div>
                       <p className="text-2xl font-semibold">Delivery Info</p>
                       <div className="border-[#a8bbbf] border-t-2 my-5"></div>
-                      <div className="flex flex-col">
+                      <div className="flex flex-col ">
                         <div className="flex py-2">
-                          <div className="flex flex-col">
+                          <div className="flex flex-col w-full">
                             Address*
-                            <input type="text" />
+                            <input type="text" className=" outline-none rounded-md px-2 py-0.5 w-full text-black" />
                           </div>
                         </div>
-                        <div className="flex justify-between py-2">
-                          <div className="flex flex-col">
+                        <div className="flex justify-between py-2 w-full gap-x-5">
+                          <div className="flex flex-col w-full">
                             City*
-                            <input type="text" />
+                            <input type="text"  className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
                           </div>
-                          <div className="flex flex-col">
+                          <div className="flex flex-col w-full">
                             State*
-                            <input type="text" />
+                            <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
                           </div>
                         </div>
-                        <div className="flex justify-between py-2">
-                          <div className="flex flex-col">
+                        <div className="flex justify-between py-2 w-full gap-x-5">
+                          <div className="flex flex-col w-full">
                             Pin Code*
-                            <input type="text" />
+                            <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
                           </div>
-                          <div className="flex flex-col">
+                          <div className="flex flex-col w-full">
                             Mobile*
-                            <input type="text" />
+                            <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
                           </div>
                         </div>
                       </div>
@@ -149,30 +163,32 @@ const Cart = () => {
                       <div className="border-[#a8bbbf] border-t-2 my-5"></div>
                       <div className="flex flex-col">
                         <div className="flex py-2">
-                          <div className="flex flex-col">
+                          <div className="flex flex-col w-full">
                             Card Holder*
-                            <input type="text" />
+                            <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
                           </div>
                         </div>
-                        <div className="flex justify-between py-2">
-                          <div className="flex flex-col">
+                        <div className="flex justify-between py-2 gap-x-4">
+                          <div className="flex flex-col w-full">
                             Card Number*
-                            <input type="text" />
+                            <div className="flex flex-row gap-x-5">
+                            <input maxLength={10} type="text" onChange={()=>{changeimage()}} className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                            <img class="w-[3.25rem]" src={img}></img>
+                            {/* <img class="w-[3.25rem] hidden" src={visa}></img> */}
+                            {/* <img class="w-[3.25rem] hidden" src={rupay}></img> */}
+                            </div>
+                            
                           </div>
-                          <div>
-                            <img class="w-[3.25rem]" src={visa}></img>
-                            <img class="w-[3.25rem]" src={mastercard}></img>
-                            <img class="w-[3.25rem]" src={rupay}></img>
                           </div>
-                        </div>
-                        <div className="flex justify-between py-2">
-                          <div className="flex flex-col">
+                              
+                        <div className="flex justify-between py-2 gap-x-5">
+                          <div className="flex flex-col w-full">
                             Expiry*
-                            <input type="text" />
+                            <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
                           </div>
-                          <div className="flex flex-col">
+                          <div className="flex flex-col w-full">
                             CVV/CVC*
-                            <input type="password" />
+                            <input type="password" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
                           </div>
                         </div>
                       </div>

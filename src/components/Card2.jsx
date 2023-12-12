@@ -3,6 +3,7 @@ import { CDN_URL } from '../constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { additemtocart, removeitem, clearcart } from '../Redux/Slices/CartSlice';
 import { toast } from 'react-toastify';
+import defalt from "../images/default.png";
 
 const Card2 = ({ cartitem }) => {
     const [pric, setpric] = useState(0);
@@ -46,7 +47,7 @@ const Card2 = ({ cartitem }) => {
                                     <img src={CDN_URL + cartitem?.info?.imageId} alt='' className='rounded-lg  border-red-400 border-5' />
                                 </p>) :
                                 (<p>
-                                    <img src={CDN_URL + cartitem?.info?.imageId} alt='' className='rounded-lg  border-red-400 border-5' />
+                                    <img src={defalt} alt='' className='rounded-lg w-full scale-125 ml-6 mr-2 mx-auto  border-red-400 border-5' />
                                 </p>)
                         }
                     </div>
