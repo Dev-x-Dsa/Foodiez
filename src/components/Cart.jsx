@@ -34,7 +34,7 @@ const Cart = () => {
     setTimeout(() => {
       setcheck("visible");
       setcheck2("hidden");
-    }, 3880);
+    }, 3510);
   }, []);
 
   useEffect(() => {
@@ -50,19 +50,17 @@ const Cart = () => {
   }, [ohover]);
 
   function changeimage() {
-    console.log("chlaa")
-    console.log(img);
     setTimeout(() => {
       setimg(visa);
     }, 1000);
     setTimeout(() => {
       setimg(rupay);
     }, 4000);
-
     setTimeout(() => {
       setimg(mastercard)
     }, 7000);
   }
+  
   var total = 0;
   var freq1 = 0;
   const cartitems = useSelector((store) => store.cart.items);
