@@ -14,20 +14,20 @@ const Cart = () => {
   const [check2, setcheck2] = useState("visible");
   const [ohover, sethover] = useState(false);
   const [img, setimg] = useState(mastercard);
-  const [bg1,setbg1]=useState("bg-[#232627]");
-  const [bg2,setbg2]=useState("bg-[#141618]");
+  const [bg1, setbg1] = useState("bg-[#232627] bg-[#858484]");
+  const [bg2, setbg2] = useState("bg-[#141618] bg-[#bbbaba]");
   const [upi,setupi]=useState(false);
 
   
   function changecolor(){
-    setbg1("bg-[#232627]");
-    setbg2("bg-[#141618]");
+    setbg1("bg-[#232627] bg-[#858484]");
+    setbg2("bg-[#141618] bg-[#bbbaba]");
     setupi(false);
   }
 
   function changecolor2(){
-    setbg1("bg-[#141618]");
-    setbg2("bg-[#232627]");
+    setbg1("bg-[#141618] bg-[#bbbaba]");
+    setbg2("bg-[#232627] bg-[#858484]");
     setupi(true);
   }
   useEffect(() => {
@@ -172,8 +172,8 @@ const Cart = () => {
                       <div className="flex justify-between">
                         <p className="text-2xl font-semibold">Payment</p>
                         <div class="bg-[#bbbaba] dark:bg-[#141618] p-1.5 rounded-md flex text-base">
-                          <div onClick={()=>changecolor()} className={`dark:${bg1} bg-[#858484] rounded-md text-center w-[100%] cursor-pointer p-0.5 pr-1.5`}>Card</div>
-                          <div onClick={()=>changecolor2()} className={`dark:${bg2} bg-[#bbbaba] rounded-md text-center w-[100%] cursor-pointer p-0.5 pl-1.5`}>UPI</div>
+                          <div onClick={()=>changecolor()} className={`dark:${bg1} rounded-md text-center w-[100%] cursor-pointer p-0.5 pr-1.5`}>Card</div>
+                          <div onClick={()=>changecolor2()} className={`dark:${bg2} rounded-md text-center w-[100%] cursor-pointer p-0.5 pl-1.5`}>UPI</div>
                         </div>
                       </div>
                       <div className="border-[#a8bbbf] border-t-2 my-5"></div>
