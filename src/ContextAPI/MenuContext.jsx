@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 
 
@@ -14,7 +15,12 @@ export default function MenuContextProvider({children}){
     const [longi,setlongi]=useState(null);
     const [temprestaurant_data,setemprestaurant_data]=useState(null);
     const [restaurant_bannerdata,setrestaurant_bannerdata]=useState(null);
-    
+    var cartitems = useSelector((store) => store.cart.items);
+    var freq = useSelector((store) => store.cart.itemQuantities);
+
+
+
+
     async function fetchdata(latitude,longitude){
         setlati(latitude);
         setlongi(longitude);
@@ -79,6 +85,8 @@ export default function MenuContextProvider({children}){
         filterdata,
         allrestaurants,
         restaurant_bannerdata,
+        cartitems,
+        freq
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card2 from "./Card2";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import img1 from "../images/loadcrop.gif";
 import img2 from "../images/finalcrop.gif";
@@ -8,6 +8,9 @@ import visa from "../images/visa.png"
 import mastercard from "../images/mastercard.png"
 import rupay from "../images/rupay.png"
 import qr from "../images/qr.png"
+import { toast } from "react-toastify";
+import { additemtocart } from "../Redux/Slices/CartSlice";
+import { MenuContext } from "../ContextAPI/MenuContext";
 
 const Cart = () => {
   const [check, setcheck] = useState("hidden");
@@ -17,14 +20,13 @@ const Cart = () => {
   const [bg1, setbg1] = useState("bg-[#232627] bg-[#858484]");
   const [bg2, setbg2] = useState("bg-[#141618] bg-[#bbbaba]");
   const [upi,setupi]=useState(false);
-
-  
+  const dispatch=useDispatch();
   function changecolor(){
     setbg1("bg-[#232627] bg-[#858484]");
     setbg2("bg-[#141618] bg-[#bbbaba]");
     setupi(false);
   }
-
+var {cartitems,freq}=useContext(MenuContext);
   function changecolor2(){
     setbg1("bg-[#141618] bg-[#bbbaba]");
     setbg2("bg-[#232627] bg-[#858484]");
@@ -60,16 +62,26 @@ const Cart = () => {
       setimg(mastercard)
     }, 7000);
   }
-  
+  function orderplaced() {
+    toast.success("Order is placed successfully!", {
+          position: toast.POSITION.TOP_CENTER,
+      });
+  }
+
+
   var total = 0;
   var freq1 = 0;
-  const cartitems = useSelector((store) => store.cart.items);
-  const uniquecartitems = [...new Set(cartitems)];
-  const freq = useSelector((store) => store.cart.itemQuantities);
+
+
+  
+
+  
+
+
   return (
-    <div className="dark:bg-[#0d1117] dark:text-white py-10 font-Open min-h-[370px] max-h-full">
+    <div className="dark:bg-[#020305] dark:text-white py-10 font-Open min-h-[370px] max-h-full">
       <div>
-        {uniquecartitems.length !== 0 ? (
+        {cartitems.length !== 0 ? (
           <div className="flex flex-row w-10/12 mx-auto gap-x-10 justify-around">
             <div className="dark:bg-[#24292f] px-4 py-4 h-[777px] rounded-xl bg-[#faf9f9]">
               <div className="text-2xl mb-5 ml-2 flex">
@@ -83,7 +95,7 @@ const Cart = () => {
                 </svg>
               </div>
               <div className="min-w-[800px]  h-[510px] overflow-x-hidden overflow-y-scroll dark:bg-[#21252b] bg-[#f5f4f4] border-b-2 border-t-2 border-[#a8bbbf] rounded-sm">
-                {uniquecartitems.map((cartitem) => {
+                {cartitems.map((cartitem) => {
                   freq1 += freq[cartitem?.info?.id];
                   cartitem?.info?.price
                     ? (total =
@@ -214,7 +226,7 @@ const Cart = () => {
                         }
                     </div>
                     <div className="flex items-center justify-center pt-5">
-                      <button className=" bg-blue-700 w-1/3 rounded-lg px-auto py-3 text-lg text-white">Pay Now ₹{total+50}</button>
+                      <button onClick={()=>orderplaced()} className=" bg-blue-700 w-1/3 rounded-lg px-auto py-3 text-lg text-white">Pay Now ₹{total+50}</button>
                     </div>
                   </div>
                 </div>

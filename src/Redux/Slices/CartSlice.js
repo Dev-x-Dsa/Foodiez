@@ -14,7 +14,14 @@ const CartSlice = createSlice({
       const itemId = newItem?.info?.id;
 
       // Add the item to the items array
-      state.items.push(newItem);
+      let check=false;
+      if(state.items.map(item=>{
+        if(item?.info?.id===itemId){
+          check=true;
+        }
+      }))
+      if(!check)
+        state.items.push(newItem);
 
       // Update the frequency of the item
       state.itemQuantities[itemId] = (state.itemQuantities[itemId] || 0) + 1;
@@ -22,7 +29,7 @@ const CartSlice = createSlice({
 
     removeitem: (state, action) => {
       const itemId = action.payload;
-
+      
       // Check if the item exists in the cart
       if (state.itemQuantities[itemId] > 1) {
         // Decrease the frequency if more than 1
@@ -32,12 +39,12 @@ const CartSlice = createSlice({
         state.items = state.items.filter((item) => item?.info?.id !== itemId);
         delete state.itemQuantities[itemId];
         toast.error("Removed from cart !", {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
+          position: toast.POSITION.TOP_RIGHT,
+      });
       }
     },
 
-    clearcart: (state, action) => {
+    clearcart: (state,action) => {
       const itemId = action.payload;
       state.items = state.items.filter((item) => item?.info?.id !== itemId);
       delete state.itemQuantities[itemId];
