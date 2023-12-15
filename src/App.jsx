@@ -23,12 +23,17 @@ function App() {
     if (cartitems.length !== 0) {
       localStorage.setItem("Cart-data", JSON.stringify(cartitems));
       localStorage.setItem("Cart-freq", JSON.stringify(freq));
+      localStorage.setItem("cart-len",JSON.stringify(cartitems.length));
     }
   }, [cartitems])
 
 
   useEffect(() => {
-    if (cartitems.length === 0 && localStorage.getItem('Cart-freq') && localStorage.getItem('Cart-data')) {
+    console.log(localStorage.getItem('isCartEmptied'));
+    if (cartitems.length === 0 && localStorage.getItem('Cart-freq') && localStorage.getItem('Cart-data')  &&
+    localStorage.getItem('isCartEmptied')==='false'
+) {
+      console.log(localStorage.getItem('cart-len'));
       freq = JSON.parse(localStorage.getItem('Cart-freq'));
 
       cartitems = JSON.parse(localStorage.getItem('Cart-data'));
@@ -39,6 +44,7 @@ function App() {
         }
       })
     }
+    localStorage.setItem('isCartEmptied', 'false');
   }, [])
 
 

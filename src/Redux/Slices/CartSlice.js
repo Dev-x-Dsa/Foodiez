@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useContext } from "react";
 import { toast } from "react-toastify";
 
-const CartSlice = createSlice({
+
+
+const CartSlice = createSlice(
+  {
+  
   name: "cart",
   initialState: {
     items: [], // array of items
     itemQuantities: {}, // object to track the frequency of items
   },
-
   reducers: {
     additemtocart: (state, action) => {
       const newItem = action.payload;
@@ -41,13 +45,35 @@ const CartSlice = createSlice({
         toast.error("Removed from cart !", {
           position: toast.POSITION.TOP_RIGHT,
       });
+      console.log(state.items.length+"ji");
+      if(state.items.length===0){
+        console.log("Ku");
+        localStorage.setItem('isCartEmptied', 'true');
+        localStorage.removeItem('Cart-data');
+        localStorage.removeItem('Cart-freq');
+        localStorage.removeItem('cart-len');
+      }
+      else{
+        localStorage.setItem('isCartEmptied', 'false');
+      }
       }
     },
 
     clearcart: (state,action) => {
+      console.log("chla");
       const itemId = action.payload;
       state.items = state.items.filter((item) => item?.info?.id !== itemId);
       delete state.itemQuantities[itemId];
+      console.log(state.items.length);
+      if(state.items.length===0){
+        localStorage.setItem('isCartEmptied', 'true');
+        localStorage.removeItem('Cart-data');
+        localStorage.removeItem('Cart-freq');
+        localStorage.removeItem('cart-len');
+      }
+      else{
+        localStorage.setItem('isCartEmptied', 'false');
+      }
     },
   },
 });

@@ -18,7 +18,7 @@ export default function MenuContextProvider({ children }) {
     var cartitems = useSelector((store) => store.cart.items);
     var freq = useSelector((store) => store.cart.itemQuantities);
 
-
+   
 
 
     async function fetchdata(latitude, longitude) {
