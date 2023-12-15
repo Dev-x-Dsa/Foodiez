@@ -9,6 +9,7 @@ import { Outlet } from 'react-router';
 import useGeolocation from 'react-hook-geolocation';
 import { additemtocart } from './Redux/Slices/CartSlice';
 import { useDispatch } from 'react-redux';
+import { LocationContext } from './ContextAPI/LocationContext';
 
 function App() {
   const dispatch = useDispatch();
@@ -58,6 +59,8 @@ function App() {
   useEffect(() => {
     fetchdata(latitude, longitude);
   }, [latitude, longitude]);
+
+
 
 
   return (

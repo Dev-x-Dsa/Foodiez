@@ -13,6 +13,8 @@ import { Provider } from 'react-redux';
 import store from './Redux/store';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import LocationContext from './ContextAPI/LocationContext';
+import LocationContextProvider from './ContextAPI/LocationContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -43,9 +45,11 @@ const Approuter = createBrowserRouter([
 
 root.render(
   <Provider store={store}>
+    <LocationContextProvider>
     <MenuContextProvider>
       <ToastContainer />
       <RouterProvider router={Approuter} />
     </MenuContextProvider>
+    </LocationContextProvider>
   </Provider>
 );
