@@ -1,17 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.4220594d.css",
-    "main.js": "/static/js/main.ca856aec.js",
+    "main.css": "/static/css/main.770ec999.css",
+    "main.js": "/static/js/main.649bd10c.js",
     "static/media/loadcrop.gif": "/static/media/loadcrop.141175ce855732b6ad21.gif",
     "static/media/food.gif": "/static/media/food.e82ed025be91517a14f2.gif",
     "static/media/pup.png": "/static/media/pup.d363efe26fc06037d448.png",
-    "static/media/cartfinal.png": "/static/media/cartfinal.54382ccb4ad773b3d0a5.png",
+    "static/media/pizza.jpg": "/static/media/pizza.550b3d249271cd90a3ec.jpg",
+    "static/media/qr.png": "/static/media/qr.e7cc38c0aa5d49f74bb7.png",
+    "static/media/visa.png": "/static/media/visa.98bf09af1906abe9617e.png",
     "static/media/circle-right.png": "/static/media/circle-right.079076ace32fa2db08d7.png",
     "static/media/nonveg.png": "/static/media/nonveg.a369529efb60bbbd4b04.png",
     "static/media/x.png": "/static/media/x.fc2ba99f3d0e98e37247.png",
+    "static/media/mastercard.png": "/static/media/mastercard.8619e86c6afa82b9efd5.png",
+    "static/media/plate.png": "/static/media/plate.cae6e12ca2c2f4520678.png",
     "static/media/images.png": "/static/media/images.65e9bb5237b6f63f65b5.png",
     "static/media/finalcrop.gif": "/static/media/finalcrop.d4fcdf521cd82b1c8f9d.gif",
     "static/media/instagram.png": "/static/media/instagram.cec5736859c50a5a0dc7.png",
+    "static/media/rupay.png": "/static/media/rupay.61d70fa788464c2fd55c.png",
     "static/media/star.png": "/static/media/star.3f91171ea5a961f84ebb.png",
     "static/media/moon.png": "/static/media/moon.2e0ffaa7760f39cc2020.png",
     "static/media/youtube.png": "/static/media/youtube.023fa7c90329ce3ddf55.png",
@@ -19,11 +24,11 @@
     "static/media/facebook.png": "/static/media/facebook.9a6e212e214e7aef33e5.png",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
-    "main.4220594d.css.map": "/static/css/main.4220594d.css.map",
-    "main.ca856aec.js.map": "/static/js/main.ca856aec.js.map"
+    "main.770ec999.css.map": "/static/css/main.770ec999.css.map",
+    "main.649bd10c.js.map": "/static/js/main.649bd10c.js.map"
   },
   "entrypoints": [
-    "static/css/main.4220594d.css",
-    "static/js/main.ca856aec.js"
+    "static/css/main.770ec999.css",
+    "static/js/main.649bd10c.js"
   ]
 }
