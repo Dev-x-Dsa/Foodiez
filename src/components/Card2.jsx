@@ -5,18 +5,18 @@ import { additemtocart, removeitem, clearcart } from '../Redux/Slices/CartSlice'
 import { toast } from 'react-toastify';
 import defalt from "../images/default.png";
 
-const Card2 = ({ cartitem}) => {
+const Card2 = ({ cartitem }) => {
     const [pric, setpric] = useState(0);
     const dispatch = useDispatch();
-    var freq = useSelector(store => store.cart.itemQuantities) ;
+    var freq = useSelector(store => store.cart.itemQuantities);
 
 
-    useEffect(()=>{
-        localStorage.setItem("Cart-freq",JSON.stringify(freq));
-    },[freq]);
+    useEffect(() => {
+        localStorage.setItem("Cart-freq", JSON.stringify(freq));
+    }, [freq]);
 
-    if(JSON.stringify(freq)==='{}'){
-        freq=JSON.parse(localStorage.getItem('Cart-freq'));
+    if (JSON.stringify(freq) === '{}') {
+        freq = JSON.parse(localStorage.getItem('Cart-freq'));
     }
     useEffect(() => {
         setpric(cartitem?.info?.price);
@@ -77,8 +77,8 @@ const Card2 = ({ cartitem}) => {
                         <div className='flex justify-center items-center pt-4 dark:text-blue-300 text-[#252536] font-bold text-xl'>
                             <span>₹</span>{
                                 pric !== null && pric !== undefined ?
-                                freq[cartitem?.info?.id]*pric/100 :
-                                freq[cartitem?.info?.id]*130
+                                    freq[cartitem?.info?.id] * pric / 100 :
+                                    freq[cartitem?.info?.id] * 130
                             }
                         </div>
                     </div>

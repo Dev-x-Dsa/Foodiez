@@ -31,10 +31,10 @@ const RestaurantMenu = () => {
                         <div className="flex justify-between">
                             <p className="text-neutral-600 dark:text-neutral-400 text-2xl font-thin">{restaurant_info?.areaName}</p>
                             <span className="text-neutral-600 dark:text-neutral-400 text-2xl font-thin flex items-center">
-                                <img src={clock} alt="" className='w-[1.5rem] h-[1.5rem] dark:invert mx-2'/>
+                                <img src={clock} alt="" className='w-[1.5rem] h-[1.5rem] dark:invert mx-2' />
                                 <span className='lowercase'>{restaurant_info?.sla?.slaString}</span>
                             </span>
-                            
+
                         </div>
 
                         {

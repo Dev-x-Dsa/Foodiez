@@ -4,61 +4,61 @@ import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
 import { useContext, useEffect, useState } from 'react';
-import {MenuContext} from "./ContextAPI/MenuContext";
+import { MenuContext } from "./ContextAPI/MenuContext";
 import { Outlet } from 'react-router';
 import useGeolocation from 'react-hook-geolocation';
 import { additemtocart } from './Redux/Slices/CartSlice';
 import { useDispatch } from 'react-redux';
 
 function App() {
-const dispatch=useDispatch();
-  const {restaurant_data,setrestaurant_data,fetchdata}=useContext(MenuContext);
+  const dispatch = useDispatch();
+  const { restaurant_data, setrestaurant_data, fetchdata } = useContext(MenuContext);
   const [latitude, setlatitude] = useState(null);
   const [longitude, setlongitude] = useState(null);
-  const [head,sethead]=useState(null);
-   var {cartitems,freq}=useContext(MenuContext);
+  const [head, sethead] = useState(null);
+  var { cartitems, freq } = useContext(MenuContext);
   const geolocation = useGeolocation();
 
-  useEffect(()=>{
-    if(cartitems.length!==0)
-    {
-      localStorage.setItem("Cart-data",JSON.stringify(cartitems));
-      localStorage.setItem("Cart-freq",JSON.stringify(freq));
+  useEffect(() => {
+    if (cartitems.length !== 0) {
+      localStorage.setItem("Cart-data", JSON.stringify(cartitems));
+      localStorage.setItem("Cart-freq", JSON.stringify(freq));
     }
-  },[cartitems])
-
-  
-  useEffect(()=>{
-    if(cartitems.length===0){
-    freq=JSON.parse(localStorage.getItem('Cart-freq'));
-
-    cartitems=JSON.parse(localStorage.getItem('Cart-data'));  
-    JSON.parse(localStorage.getItem('Cart-data')).map((item)=>{
-      let value=freq[item?.info?.id]
-      while(value--){
-        dispatch(additemtocart(item));
-      }
-    })}
-  },[]);
+  }, [cartitems])
 
 
-  useEffect(()=>{
-    if(!geolocation.error){
+  useEffect(() => {
+    if (cartitems.length === 0 && localStorage.getItem('Cart-freq') && localStorage.getItem('Cart-data')) {
+      freq = JSON.parse(localStorage.getItem('Cart-freq'));
+
+      cartitems = JSON.parse(localStorage.getItem('Cart-data'));
+      JSON.parse(localStorage.getItem('Cart-data')).map((item) => {
+        let value = freq[item?.info?.id]
+        while (value--) {
+          dispatch(additemtocart(item));
+        }
+      })
+    }
+  }, [])
+
+
+  useEffect(() => {
+    if (!geolocation.error) {
       setlatitude(geolocation.latitude)
       setlongitude(geolocation.longitude)
     }
-  },[geolocation]);
-  
-  useEffect(()=>{
-    fetchdata(latitude,longitude);
-  },[latitude,longitude]);
+  }, [geolocation]);
+
+  useEffect(() => {
+    fetchdata(latitude, longitude);
+  }, [latitude, longitude]);
 
 
   return (
     <div>
-      <Header/>
-      <Outlet/>
-      <Footer/>
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 }

@@ -19,15 +19,15 @@ const Cart = () => {
   const [img, setimg] = useState(mastercard);
   const [bg1, setbg1] = useState("bg-[#232627] bg-[#858484]");
   const [bg2, setbg2] = useState("bg-[#141618] bg-[#bbbaba]");
-  const [upi,setupi]=useState(false);
-  const dispatch=useDispatch();
-  function changecolor(){
+  const [upi, setupi] = useState(false);
+  const dispatch = useDispatch();
+  function changecolor() {
     setbg1("bg-[#232627] bg-[#858484]");
     setbg2("bg-[#141618] bg-[#bbbaba]");
     setupi(false);
   }
-var {cartitems,freq}=useContext(MenuContext);
-  function changecolor2(){
+  var { cartitems, freq } = useContext(MenuContext);
+  function changecolor2() {
     setbg1("bg-[#141618] bg-[#bbbaba]");
     setbg2("bg-[#232627] bg-[#858484]");
     setupi(true);
@@ -64,8 +64,8 @@ var {cartitems,freq}=useContext(MenuContext);
   }
   function orderplaced() {
     toast.success("Order is placed successfully!", {
-          position: toast.POSITION.TOP_CENTER,
-      });
+      position: toast.POSITION.TOP_CENTER,
+    });
   }
 
 
@@ -73,9 +73,9 @@ var {cartitems,freq}=useContext(MenuContext);
   var freq1 = 0;
 
 
-  
 
-  
+
+
 
 
   return (
@@ -182,51 +182,51 @@ var {cartitems,freq}=useContext(MenuContext);
                       <div className="flex justify-between">
                         <p className="text-2xl font-semibold">Payment</p>
                         <div class="bg-[#bbbaba] dark:bg-[#141618] p-1.5 rounded-md flex text-base">
-                          <div onClick={()=>changecolor()} className={`dark:${bg1} rounded-md text-center w-[100%] cursor-pointer p-0.5 pr-1.5`}>Card</div>
-                          <div onClick={()=>changecolor2()} className={`dark:${bg2} rounded-md text-center w-[100%] cursor-pointer p-0.5 pl-1.5`}>UPI</div>
+                          <div onClick={() => changecolor()} className={`dark:${bg1} rounded-md text-center w-[100%] cursor-pointer p-0.5 pr-1.5`}>Card</div>
+                          <div onClick={() => changecolor2()} className={`dark:${bg2} rounded-md text-center w-[100%] cursor-pointer p-0.5 pl-1.5`}>UPI</div>
                         </div>
                       </div>
                       <div className="border-[#a8bbbf] border-t-2 my-5"></div>
                       {
-                          upi? 
+                        upi ?
                           (<p className="flex justify-center">
                             <img src={qr} className="w-[210px] aspect-square" />
-                          </p>):
+                          </p>) :
                           (
                             <div className="flex flex-col">
                               <div className="flex py-2">
                                 <div className="flex flex-col w-full">
                                   Card Holder*
-                                  <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                                  <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black" />
                                 </div>
                               </div>
                               <div className="flex justify-between py-2 gap-x-4">
                                 <div className="flex flex-col w-full">
                                   Card Number*
                                   <div className="flex flex-row gap-x-5">
-                                  <input maxLength={10} type="text" onChange={()=>{changeimage()}} className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
-                                  <img class="w-[3.25rem]" src={img}></img>
+                                    <input maxLength={10} type="text" onChange={() => { changeimage() }} className="outline-none rounded-md px-2 py-0.5 w-full text-black" />
+                                    <img class="w-[3.25rem]" src={img}></img>
                                   </div>
-                                  
+
                                 </div>
-                                </div>
-                                    
+                              </div>
+
                               <div className="flex justify-between py-2 gap-x-5">
                                 <div className="flex flex-col w-full">
                                   Expiry*
-                                  <input type="text" maxLength={4} className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                                  <input type="text" maxLength={4} className="outline-none rounded-md px-2 py-0.5 w-full text-black" />
                                 </div>
                                 <div className="flex flex-col w-full">
                                   CVV/CVC*
-                                  <input type="password" maxLength={3} className="outline-none rounded-md px-2 py-0.5 w-full text-black"/>
+                                  <input type="password" maxLength={3} className="outline-none rounded-md px-2 py-0.5 w-full text-black" />
                                 </div>
                               </div>
                             </div>
                           )
-                        }
+                      }
                     </div>
                     <div className="flex items-center justify-center pt-5">
-                      <button onClick={()=>orderplaced()} className=" bg-blue-700 w-1/3 rounded-lg px-auto py-3 text-lg text-white">Pay Now ₹{total+50}</button>
+                      <button onClick={() => orderplaced()} className=" bg-blue-700 w-1/3 rounded-lg px-auto py-3 text-lg text-white">Pay Now ₹{total + 50}</button>
                     </div>
                   </div>
                 </div>
