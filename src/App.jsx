@@ -57,6 +57,8 @@ function App() {
   }, [geolocation]);
 
   useEffect(() => {
+    console.log(latitude);
+    console.log(longitude);
     fetchdata(latitude, longitude);
   }, [latitude, longitude]);
 
