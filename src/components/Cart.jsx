@@ -197,14 +197,14 @@ const Cart = () => {
                               <div className="flex py-2">
                                 <div className="flex flex-col w-full">
                                   Card Holder*
-                                  <input type="text" className="outline-none rounded-md px-2 py-0.5 w-full text-black" />
+                                  <input type="text" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black" />
                                 </div>
                               </div>
                               <div className="flex justify-between py-2 gap-x-4">
                                 <div className="flex flex-col w-full">
                                   Card Number*
                                   <div className="flex flex-row gap-x-5">
-                                    <input maxLength={10} type="text" onChange={() => { changeimage() }} className="outline-none rounded-md px-2 py-0.5 w-full text-black" />
+                                    <input maxLength={10} type="text" onChange={() => { changeimage() }} className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black" />
                                     <img class="w-[3.25rem]" src={img}></img>
                                   </div>
 
@@ -214,11 +214,11 @@ const Cart = () => {
                               <div className="flex justify-between py-2 gap-x-5">
                                 <div className="flex flex-col w-full">
                                   Expiry*
-                                  <input type="text" maxLength={4} className="outline-none rounded-md px-2 py-0.5 w-full text-black" />
+                                  <input type="text" maxLength={4} className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black" />
                                 </div>
                                 <div className="flex flex-col w-full">
                                   CVV/CVC*
-                                  <input type="password" maxLength={3} className="outline-none rounded-md px-2 py-0.5 w-full text-black" />
+                                  <input type="password" maxLength={3} className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black" />
                                 </div>
                               </div>
                             </div>
