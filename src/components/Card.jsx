@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CDN_URL } from '../constants';
 import img1 from "../images/star.png"
+import { LocationContext } from '../ContextAPI/LocationContext';
+import { MenuContext } from '../ContextAPI/MenuContext';
 
 const Card = ({ data }) => {
 
@@ -8,11 +10,14 @@ const Card = ({ data }) => {
   const [best, setbest] = useState("hidden");
 
   useEffect(() => {
+    setbest("hidden");
     let value = parseFloat(data?.info?.avgRating);
+
     if (data?.info?.avgRating === NaN || value <= 0) {
       setavgrate("bg-[#78716c]");
     }
     else if (value >= 4.5) {
+      console.log(value);
       setavgrate("bg-[#16a32b]");
       setbest("visible");
     }
@@ -25,7 +30,7 @@ const Card = ({ data }) => {
     else {
       setavgrate("bg-[#e61e1e]");
     }
-  }, []);
+  }, [data?.info?.avgRating]);
 
   const [cusine, setcusine] = useState([]);
   useEffect(() => {

@@ -36,7 +36,6 @@ export default function MenuContextProvider({ children }) {
         setrestaurant_bannerdata(restaurant_bannerinfo);
         setrestaurant_data(restaurant_info);
         setemprestaurant_data(restaurant_info);
-        console.log(data);
     }
 
     async function fetchdata2() {
