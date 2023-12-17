@@ -3,11 +3,15 @@ import { CDN_URL } from '../constants';
 import img1 from "../images/star.png"
 import { LocationContext } from '../ContextAPI/LocationContext';
 import { MenuContext } from '../ContextAPI/MenuContext';
+import likeimg from "../images/like.png";
+import dislikeimg from "../images/dislike.png";
 
 const Card = ({ data }) => {
 
   const [avgrate, setavgrate] = useState("bg-[#ffffff]");
   const [best, setbest] = useState("hidden");
+
+  const [fav,setfav]=useState(false);
 
   useEffect(() => {
     setbest("hidden");
@@ -48,9 +52,18 @@ const Card = ({ data }) => {
 
 
           </div>
-          <img src={CDN_URL + data?.info?.cloudinaryImageId} />
+          <img className='pointer-events-none	' src={CDN_URL + data?.info?.cloudinaryImageId} />
           <div className='w-full absolute bottom-1 left-2 text text-slate-200 z-20 drop-shadow-xl'>
             <p className='text-left capitalize text-white-400 font-bold text-xl'>{data?.info?.aggregatedDiscountInfoV3?.header} {data?.info?.aggregatedDiscountInfoV3?.subHeader}</p>
+          </div>
+          <div className='w-full absolute bottom-1 left-48 text text-slate-200 z-20 drop-shadow-xl'>
+            <p onClick={(e)=>{e.preventDefault(); e.stopPropagation(); setfav(!fav)}} className='  text-left capitalize text-white-400 font-bold text-xl'>
+              {
+                !fav?
+                  (<img src={likeimg} className='w-10 h-10'/>):
+                  (<img src={dislikeimg} className='w-10 h-10'/>)
+              }
+            </p>
           </div>
         </div>
         <div className='flex flex-row mt-1 group'>
