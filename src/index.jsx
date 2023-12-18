@@ -15,6 +15,7 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import LocationContext from './ContextAPI/LocationContext';
 import LocationContextProvider from './ContextAPI/LocationContext';
+import Favres from './components/Favres';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -35,6 +36,10 @@ const Approuter = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />
+      },
+      {
+        path: "favourite restuarants",
+        element: <Favres/>
       }
     ]
   },

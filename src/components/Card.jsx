@@ -3,6 +3,9 @@ import { CDN_URL } from '../constants';
 import img1 from "../images/star.png"
 import { LocationContext } from '../ContextAPI/LocationContext';
 import { MenuContext } from '../ContextAPI/MenuContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { additemtocart } from '../Redux/Slices/CartSlice';
+import { additemtofav, removeitemfromfav } from '../Redux/Slices/FavresSlice';
 
 const Card = ({ data }) => {
 
@@ -38,6 +41,20 @@ const Card = ({ data }) => {
   useEffect(() => {
     setcusine(data?.info?.cuisines);
   }, [cusine]);
+  
+  const dispatch=useDispatch();
+  
+  function addtofave(data1){
+    dispatch(additemtofav(data1));
+  }
+  
+  function removefromfave(data1){
+    dispatch(removeitemfromfav(data1));
+  }
+  
+  const getfromcart=useSelector(store=>store.favres.items);
+  
+
   return (
     <div className='flex flex-col items-end font-Open'>
       <div className='hover:scale-105 ease-in-out duration-200'>
@@ -56,14 +73,18 @@ const Card = ({ data }) => {
             <p onClick={(e)=>{e.preventDefault(); e.stopPropagation(); setfav(!fav)}} className='px-3'>
               {
                 !fav?
-                  (<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  (<div onClick={()=>{addtofave(data); setfav(true)}}>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                  </svg>):
-                  (<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="#ff2825" stroke-linecap="round" stroke-linejoin="round">
+                  </svg>
+                  </div>):
+                  (<div onClick={()=>{removefromfave(data?.info?.id); setfav(false)}}>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="#ff2825" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                  </svg>)
+                  </svg>
+                  </div>)
               }
             </p>
           </div>

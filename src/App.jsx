@@ -8,7 +8,7 @@ import { MenuContext } from "./ContextAPI/MenuContext";
 import { Outlet } from 'react-router';
 import useGeolocation from 'react-hook-geolocation';
 import { additemtocart } from './Redux/Slices/CartSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LocationContext } from './ContextAPI/LocationContext';
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
   const [head, sethead] = useState(null);
   var { cartitems, freq } = useContext(MenuContext);
   const geolocation = useGeolocation();
+  const favres=useSelector(store=>store.favres.items);
 
   useEffect(() => {
     if (cartitems.length !== 0) {
@@ -26,11 +27,17 @@ function App() {
       localStorage.setItem("Cart-freq", JSON.stringify(freq));
       localStorage.setItem("cart-len",JSON.stringify(cartitems.length));
     }
+    
   }, [cartitems])
+
+  useEffect(() => {
+    if (favres.length !== 0) {
+      localStorage.setItem("fav-items",JSON.stringify(favres));
+    }
+  }, [favres]);
 
 
   useEffect(() => {
-    console.log(localStorage.getItem('isCartEmptied'));
     if (cartitems.length === 0 && localStorage.getItem('Cart-freq') && localStorage.getItem('Cart-data')  &&
     localStorage.getItem('isCartEmptied')==='false'
 ) {
