@@ -3,8 +3,6 @@ import { CDN_URL } from '../constants';
 import img1 from "../images/star.png"
 import { LocationContext } from '../ContextAPI/LocationContext';
 import { MenuContext } from '../ContextAPI/MenuContext';
-import likeimg from "../images/like.png";
-import dislikeimg from "../images/dislike.png";
 
 const Card = ({ data }) => {
 
@@ -53,15 +51,19 @@ const Card = ({ data }) => {
 
           </div>
           <img className='pointer-events-none	' src={CDN_URL + data?.info?.cloudinaryImageId} />
-          <div className='w-full absolute bottom-1 left-2 text text-slate-200 z-20 drop-shadow-xl'>
+          <div className='w-full absolute bottom-1 left-2 text text-slate-200 z-20 drop-shadow-xl flex justify-between'>
             <p className='text-left capitalize text-white-400 font-bold text-xl'>{data?.info?.aggregatedDiscountInfoV3?.header} {data?.info?.aggregatedDiscountInfoV3?.subHeader}</p>
-          </div>
-          <div className='w-full absolute bottom-1 left-48 text text-slate-200 z-20 drop-shadow-xl'>
-            <p onClick={(e)=>{e.preventDefault(); e.stopPropagation(); setfav(!fav)}} className='  text-left capitalize text-white-400 font-bold text-xl'>
+            <p onClick={(e)=>{e.preventDefault(); e.stopPropagation(); setfav(!fav)}} className='px-3'>
               {
                 !fav?
-                  (<img src={likeimg} className='w-10 h-10'/>):
-                  (<img src={dislikeimg} className='w-10 h-10'/>)
+                  (<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                  </svg>):
+                  (<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="#ff2825" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                  </svg>)
               }
             </p>
           </div>
