@@ -20,7 +20,7 @@ const Favres = () => {
     }, [])
 
     return (
-        <div className=' py-20 flex flex-wrap justify-evenly items-center gap-y-12 font-Open'>
+        <div className=' py-20 flex flex-wrap justify-evenly items-center gap-y-12 font-Open dark:bg-[#0d1117]'>
             {
                 favres &&
                 favres.map((data) => {
