@@ -8,6 +8,7 @@ const FavresSlice = createSlice(
   name: "favres",
   initialState: {
     items: [],
+    setfavitems:[]
   },
   reducers: {
     additemtofav: (state, action) => {
@@ -23,12 +24,13 @@ const FavresSlice = createSlice(
       }))
       if(!check)
       state.items.push(newItem);
+
+      
     },
 
     removeitemfromfav: (state, action) => {
       const itemId = action.payload;
       state.items = state.items.filter((item) => item?.info?.id !== itemId);
-
     },
 
   },

@@ -12,7 +12,6 @@ const Card = ({ data }) => {
   const [avgrate, setavgrate] = useState("bg-[#ffffff]");
   const [best, setbest] = useState("hidden");
 
-  const [fav,setfav]=useState(false);
 
   useEffect(() => {
     setbest("hidden");
@@ -52,8 +51,17 @@ const Card = ({ data }) => {
     dispatch(removeitemfromfav(data1));
   }
   
-  const getfromcart=useSelector(store=>store.favres.items);
-  
+  const getfromcart=useSelector(store=>store.favres.items) || JSON.parse(localStorage.getItem('fav-items'));
+  console.log(getfromcart);
+  console.log(JSON.parse(localStorage.getItem('fav-items')));
+  var check=false;
+  getfromcart.map((dat)=>{
+      if(dat?.info?.id===data?.info?.id) check=true;
+  });
+
+  JSON.parse(localStorage.getItem('fav-items')).map((dat)=>{
+    if(dat?.info?.id===data?.info?.id) check=true;
+  });
 
   return (
     <div className='flex flex-col items-end font-Open'>
@@ -70,21 +78,25 @@ const Card = ({ data }) => {
           <img className='pointer-events-none	' src={CDN_URL + data?.info?.cloudinaryImageId} />
           <div className='w-full absolute bottom-1 left-2 text text-slate-200 z-20 drop-shadow-xl flex justify-between'>
             <p className='text-left capitalize text-white-400 font-bold text-xl'>{data?.info?.aggregatedDiscountInfoV3?.header} {data?.info?.aggregatedDiscountInfoV3?.subHeader}</p>
-            <p onClick={(e)=>{e.preventDefault(); e.stopPropagation(); setfav(!fav)}} className='px-3'>
+            <p onClick={(e)=>{e.preventDefault(); e.stopPropagation();}} className='px-3'>
               {
-                !fav?
-                  (<div onClick={()=>{addtofave(data); setfav(true)}}>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                  </svg>
-                  </div>):
-                  (<div onClick={()=>{removefromfave(data?.info?.id); setfav(false)}}>
+                  
+                 !check?
+                 ( <div onClick={()=>{addtofave(data);}}>
+                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                 <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+               </svg>
+               </div>):
+                 (
+                  
+                  <div onClick={()=>{removefromfave(data?.info?.id);}}>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="#ff2825" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                   </svg>
-                  </div>)
+                  </div>
+                 )
               }
             </p>
           </div>
