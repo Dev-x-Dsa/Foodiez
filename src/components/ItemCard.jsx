@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CDN_URL } from '../constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { additemtocart } from '../Redux/Slices/CartSlice';
@@ -6,12 +6,15 @@ import { toast } from 'react-toastify';
 import vegimg from "../images/veg.png";
 import nonveg from "../images/nonveg.png";
 import defalt from "../images/default.png";
+import { MenuContext } from '../ContextAPI/MenuContext';
 
 const ItemCard = ({ data, visible }) => {
     const [pric, setpric] = useState(0);
     const [imgg, setimgg] = useState(null);
     const cartitems = useSelector(store => store.cart.items);
     const dispatch = useDispatch();
+
+    var { freq } = useContext(MenuContext);
 
     function handleadditem(item) {
         dispatch(additemtocart(item));
@@ -50,12 +53,14 @@ const ItemCard = ({ data, visible }) => {
                         (data?.card?.info?.imageId || data?.dish?.info?.imageId) ?
                             (<p className='ml-11'>
                                 <img src={CDN_URL + imgg} alt='' className=' rounded-lg' />
-                                <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
-                            </p>) :
+                                {freq[data?.card?.info?.id] === undefined && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
+                                }                  {freq[data?.card?.info?.id] && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">{freq[data?.card?.info?.id]}</span></button>
+                                }               </p>) :
                             (<p class="mr-9">
                                 <img src={defalt} alt='' className='rounded-lg w-full scale-125' />
-                                <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
-                            </p>)
+                                {freq[data?.card?.info?.id] === undefined && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
+                                }                   {freq[data?.card?.info?.id] && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">{freq[data?.card?.info?.id || data?.dish?.info?.id]}</span></button>
+                                }        </p>)
                     }
                 </div>
             </div>
