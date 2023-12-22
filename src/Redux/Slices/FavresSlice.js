@@ -8,7 +8,6 @@ const FavresSlice = createSlice(
   name: "favres",
   initialState: {
     items: [],
-    setfavitems:[]
   },
   reducers: {
     additemtofav: (state, action) => {
@@ -23,7 +22,7 @@ const FavresSlice = createSlice(
         }
       }))
       if(!check)
-      state.items.push(newItem);
+      {state.items.push(newItem); }
 
       
     },

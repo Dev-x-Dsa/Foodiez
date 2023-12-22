@@ -21,7 +21,6 @@ const Card = ({ data }) => {
       setavgrate("bg-[#78716c]");
     }
     else if (value >= 4.5) {
-      console.log(value);
       setavgrate("bg-[#16a32b]");
       setbest("visible");
     }
@@ -51,17 +50,26 @@ const Card = ({ data }) => {
     dispatch(removeitemfromfav(data1));
   }
   
-  const getfromcart=useSelector(store=>store.favres.items) || JSON.parse(localStorage.getItem('fav-items'));
-  console.log(getfromcart);
-  console.log(JSON.parse(localStorage.getItem('fav-items')));
-  var check=false;
-  getfromcart.map((dat)=>{
-      if(dat?.info?.id===data?.info?.id) check=true;
+  let getfromcart=useSelector(store=>store.favres.items);
+
+  let check=false;
+ 
+
+
+
+  getfromcart && getfromcart.map((dat)=>{
+    if(dat?.info?.id===data?.info?.id) check=check || true;
   });
 
-  JSON.parse(localStorage.getItem('fav-items')).map((dat)=>{
-    if(dat?.info?.id===data?.info?.id) check=true;
-  });
+    useEffect(()=>{
+      console.log(JSON.parse(localStorage.getItem('fav-items')));
+      if (getfromcart.length === 0 && localStorage.getItem("fav-items")) {
+          JSON.parse(localStorage.getItem('fav-items')).map((dat)=>{
+            if(dat?.info?.id===data?.info?.id) check=true;
+          });
+      }
+    },[])
+
 
   return (
     <div className='flex flex-col items-end font-Open'>

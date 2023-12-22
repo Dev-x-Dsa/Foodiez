@@ -12,7 +12,6 @@ const FavresCard = ({ data }) => {
   const [avgrate, setavgrate] = useState("bg-[#ffffff]");
   const [best, setbest] = useState("hidden");
 
-  const [fav,setfav]=useState(false);
 
   useEffect(() => {
     setbest("hidden");

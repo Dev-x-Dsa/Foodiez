@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { additemtofav } from "../Redux/Slices/FavresSlice";
 
 
 export const MenuContext = createContext();
@@ -66,6 +67,18 @@ export default function MenuContextProvider({ children }) {
     }, [resid]);
 
 
+    const dispatch = useDispatch();
+    var favres = useSelector(store => store.favres.items);
+    useEffect(() => {
+        if (favres.length === 0 && localStorage.getItem("fav-items")) {
+            favres = JSON.parse(localStorage.getItem('fav-items'));
+
+            favres.map((item) => {
+                dispatch(additemtofav(item));
+            })
+        }
+        localStorage.setItem('isCartEmptied', 'false');
+    }, [])
 
     const values = {
         restaurant_data,
@@ -84,7 +97,8 @@ export default function MenuContextProvider({ children }) {
         allrestaurants,
         restaurant_bannerdata,
         cartitems,
-        freq
+        freq,
+        favres
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>
