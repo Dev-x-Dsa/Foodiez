@@ -16,6 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import LocationContext from './ContextAPI/LocationContext';
 import LocationContextProvider from './ContextAPI/LocationContext';
 import Favres from './components/Favres';
+import UserAuth from './components/UserAuth';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -40,6 +41,10 @@ const Approuter = createBrowserRouter([
       {
         path: "favourite restuarants",
         element: <Favres/>
+      },
+      {
+        path: "login-signuppage",
+        element: <UserAuth/>
       }
     ]
   },

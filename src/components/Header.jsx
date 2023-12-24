@@ -78,9 +78,11 @@ const Header = () => {
           <div className='dark:hidden'><img onClick={() => { handlethemeswitch(); }} src={img1} className='w-7 h-7 cursor-pointer' /></div>
           <div className='hidden dark:block'><img onClick={() => { handlethemeswitch(); }} src={img2} className='w-7 h-7 cursor-pointer' /></div>
 
-          <div class="cursor-pointer">
-            <img class="rounded-full w-8" alt="profile" src={img3}></img>
-          </div>
+          <Link to="/login-signuppage">
+            <div class="cursor-pointer">
+              <img class="rounded-full w-8" alt="profile" src={img3}></img>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

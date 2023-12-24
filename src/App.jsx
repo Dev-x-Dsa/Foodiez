@@ -10,6 +10,7 @@ import useGeolocation from 'react-hook-geolocation';
 import { additemtocart } from './Redux/Slices/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { LocationContext } from './ContextAPI/LocationContext';
+import { auth } from './firebase';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,11 +31,25 @@ function App() {
     
   }, [cartitems])
 
+  const [userName,setuserName]=useState("");
+
   useEffect(() => {
     if (favres.length !== 0) {
       localStorage.setItem("fav-items",JSON.stringify(favres));
     }
   }, [favres]);
+
+  useEffect(()=>{
+    auth.onAuthStateChanged((user)=>{
+      if(user){
+        setuserName(user.displayName);
+      }
+      else{
+        setuserName("");
+      }
+
+    })
+  },[]);
 
 
   useEffect(() => {
