@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { additemtofav } from "../Redux/Slices/FavresSlice";
+import { auth } from "../firebase";
 
 
 export const MenuContext = createContext();
@@ -18,8 +19,19 @@ export default function MenuContextProvider({ children }) {
     const [restaurant_bannerdata, setrestaurant_bannerdata] = useState(null);
     var cartitems = useSelector((store) => store.cart.items);
     var freq = useSelector((store) => store.cart.itemQuantities);
-
-   
+    const [userName,setuserName]=useState("");
+  
+    useEffect(()=>{
+      auth.onAuthStateChanged((user)=>{
+        if(user){
+          setuserName(user.displayName);
+        }
+        else{
+          setuserName("");
+        }
+  
+      })
+    },[userName]);
 
 
     async function fetchdata(latitude, longitude) {
@@ -98,7 +110,9 @@ export default function MenuContextProvider({ children }) {
         restaurant_bannerdata,
         cartitems,
         freq,
-        favres
+        favres,
+        userName,
+        setuserName
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>

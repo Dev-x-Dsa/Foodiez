@@ -31,25 +31,13 @@ function App() {
     
   }, [cartitems])
 
-  const [userName,setuserName]=useState("");
-
+  
   useEffect(() => {
     if (favres.length !== 0) {
       localStorage.setItem("fav-items",JSON.stringify(favres));
     }
   }, [favres]);
-
-  useEffect(()=>{
-    auth.onAuthStateChanged((user)=>{
-      if(user){
-        setuserName(user.displayName);
-      }
-      else{
-        setuserName("");
-      }
-
-    })
-  },[]);
+  
 
 
   useEffect(() => {

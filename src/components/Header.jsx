@@ -8,6 +8,8 @@ import img1 from "../images/moon.png"
 import img2 from "../images/sun.png";
 import img3 from "../images/pup.png";
 import { MenuContext } from '../ContextAPI/MenuContext';
+import { FaCircleUser } from "react-icons/fa6";
+
 
 const Header = () => {
 
@@ -79,8 +81,9 @@ const Header = () => {
           <div className='hidden dark:block'><img onClick={() => { handlethemeswitch(); }} src={img2} className='w-7 h-7 cursor-pointer' /></div>
 
           <Link to="/login-signuppage">
-            <div class="cursor-pointer">
-              <img class="rounded-full w-8" alt="profile" src={img3}></img>
+            <div class="cursor-pointer pr-2">
+                <FaCircleUser className='w-8 h-8'/>
+              {/* <img class="rounded-full w-8" alt="profile" src={img3}></img> */}
             </div>
           </Link>
         </div>

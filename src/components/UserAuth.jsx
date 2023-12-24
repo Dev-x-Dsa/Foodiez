@@ -1,19 +1,29 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import img1 from "../images/123.png";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from "../firebase"
 import { useNavigate } from "react-router";
+import { MenuContext } from "../ContextAPI/MenuContext";
 
 const UserAuth = () => {
 
     const navigate=useNavigate();
     const [login, setlogin] = useState(false);
 
+    const {userName,setuserName}=useContext(MenuContext);
+
     const [value, setvalues] = useState({
         name: "",
         email: "",
         password: "",
     })
+
+    const [value1, setvalues1] = useState({
+        email: "",
+        password: "",
+    })
+
+
     function loginsignupsetup() {
         setlogin(prev => !prev);
     }
@@ -37,11 +47,30 @@ const UserAuth = () => {
                 await updateProfile(user,{
                     displayName:value.name,
                 });
+                setuserName(value.name);
                 navigate("/");
             }
         ).catch((err)=>{seterrMsg("Err: "+err.message); setsubmitbuttondisabled(false)})
     } 
     
+    function handlesubmissionlogin(){
+        if(!value1.email || !value1.password){
+            seterrMsg("Fill all fields");
+            return ;
+        }
+        seterrMsg("");
+        setsubmitbuttondisabled(true); 
+        console.log(value);
+        
+        signInWithEmailAndPassword(auth,value1.email,value1.password).then(
+            async(res)=>{
+                setsubmitbuttondisabled(false);
+                
+                navigate("/");
+            }
+        ).catch((err)=>{seterrMsg("Err: "+err.message); setsubmitbuttondisabled(false)})
+    } 
+
     return <div className="flex flex-col py-10 justify-center items-center bg-purple-300">
         {
             !login ?
@@ -89,14 +118,15 @@ const UserAuth = () => {
                     </button>
                     <div className="flex flex-col gap-x-5">
                         <div><label for="Email">Email</label></div>
-                        <div><input label="Email" placeholder="Enter Your Email" type="email" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
+                        <div><input onChange={(e) => { setvalues1(prev => ({ ...prev, email: e.target.value })) }} label="Email" placeholder="Enter Your Email" type="email" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
                     </div>
                     <div className="flex flex-col gap-x-5">
                         <div><label for="Password">Password</label></div>
-                        <div><input label="Password" placeholder="Enter Your Password" type="password" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
+                        <div><input onChange={(e) => { setvalues1(prev => ({ ...prev, password: e.target.value })) }} label="Password" placeholder="Enter Your Password" type="password" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
                     </div>
                     <div>
-                        <button className="bg-purple-300 px-6 py-2 w-full rounded-lg">Login</button>
+                        <p className="text-red-700">{errMsg}</p>
+                        <button disabled={submitbuttondisabled} onClick={()=>{handlesubmissionlogin()}} className="bg-purple-300 px-6 py-2 w-full rounded-lg disabled:bg-red-500">Login</button>
                         <p>
                             Not having an account?{" "}
                             <span className=" text-blue-700" onClick={() => { loginsignupsetup() }}>Sign Up</span>
