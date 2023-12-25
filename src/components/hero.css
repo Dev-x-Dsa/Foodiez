@@ -1,0 +1,28 @@
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    27%{
+        transform: rotate(0deg);
+    }
+    33% {
+        transform: rotate(120deg);
+    }
+    60%{
+        transform: rotate(120deg);
+    }
+    66% {
+        transform: rotate(240deg);
+    }
+    94%{
+        transform: rotate(240deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    animation: spinner infinite ease-in-out;
+    animation-duration: 30s;
+}
