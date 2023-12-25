@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import img1 from "../images/moon.png"
 import img2 from "../images/sun.png";
-import img3 from "../images/pup.png";
 import { MenuContext } from '../ContextAPI/MenuContext';
 import { FaCircleUser } from "react-icons/fa6";
 
