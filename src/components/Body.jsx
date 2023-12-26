@@ -15,6 +15,7 @@ const Body = () => {
     ref.current.scrollLeft += scrollOffset;
   };
   const { restaurant_data, restaurant_bannerdata } = useContext(MenuContext);
+  console.log(restaurant_data);
   return (
     <div className='py-12 dark:bg-[#0d1117]'>
       {

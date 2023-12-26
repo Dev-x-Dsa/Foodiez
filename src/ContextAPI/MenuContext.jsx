@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { additemtofav } from "../Redux/Slices/FavresSlice";
 import { auth } from "../firebase";
+import { Link } from "react-router-dom";
+import Card from "../components/Card";
 
 
 export const MenuContext = createContext();
@@ -19,45 +21,55 @@ export default function MenuContextProvider({ children }) {
     const [restaurant_bannerdata, setrestaurant_bannerdata] = useState(null);
     var cartitems = useSelector((store) => store.cart.items);
     var freq = useSelector((store) => store.cart.itemQuantities);
-    const [userName,setuserName]=useState("");
-  
-    useEffect(()=>{
-      auth.onAuthStateChanged((user)=>{
-        if(user){
-          setuserName(user.displayName);
-        }
-        else{
-          setuserName("");
-        }
-  
-      })
-    },[userName]);
+    const [userName, setuserName] = useState("");
+
+    useEffect(() => {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                setuserName(user.displayName);
+            }
+            else {
+                setuserName("");
+            }
+
+        })
+    }, [userName]);
 
 
     async function fetchdata(latitude, longitude) {
         setlati(latitude);
         setlongi(longitude);
-        let restaurant_listurl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`;
-        // let restaurant_listurl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0760&lng=72.8777&page_type=DESKTOP_WEB_LISTING`;
+        // let restaurant_listurl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`;
+        let restaurant_listurl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0760&lng=72.8777&page_type=DESKTOP_WEB_LISTING`;
         const output = await fetch(restaurant_listurl);
         const data = await output.json();
 
         const restaurant_info = data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
             data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
-        const restaurant_bannerinfo = data?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info;
+        const restaurant_bannerinfo = data?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info || data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.info;
         setrestaurant_bannerdata(restaurant_bannerinfo);
         setrestaurant_data(restaurant_info);
         setemprestaurant_data(restaurant_info);
     }
 
     async function fetchdata2() {
-        let restaurant_menuurl = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lati}&lng=${longi}&restaurantId=${resid}&submitAction=ENTER`;
-        // let restaurant_menuurl = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0760&lng=72.8777&restaurantId=${resid}&submitAction=ENTER`;
+        <div className='flex flex-wrap justify-evenly items-center gap-y-12 font-Open'>
+            {
+                restaurant_data.map((data) => {
+                    return <Link to={`/Restaurant/${data?.info?.id}`}>
+                        <Card data={data} />
+                    </Link>
+                })
+            }
+        </div>
+        // let restaurant_menuurl = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lati}&lng=${longi}&restaurantId=${resid}&submitAction=ENTER`;
+        let restaurant_menuurl = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0760&lng=72.8777&restaurantId=${resid}&submitAction=ENTER`;
         const output = await fetch(restaurant_menuurl);
         const data2 = await output.json();
         setrestaurant_info(data2?.data?.cards[0]?.card?.card?.info);
         setrestaurant_info2(data2);
+
     }
 
     function filterdata(search1) {

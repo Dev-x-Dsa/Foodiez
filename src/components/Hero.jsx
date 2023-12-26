@@ -18,7 +18,7 @@ const Hero = () => {
 
     const {userName}=useContext(MenuContext);
     
-    return (<div className="text-white bg-neutral-700 p-10 font-Open h-[500px] mb-10 bg-hero overflow-hidden text-3xl">
+    return (<div className="text-white bg-neutral-700 p-10 font-Open h-[500px] mb-10 bg-hero overflow-hidden text-3xl nice">
         <div className="flex items-stretch justify-between">
             <div className="flex flex-col">
                 <h2 className="my-2">Welcome {userName}!!</h2>
