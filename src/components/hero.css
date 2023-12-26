@@ -38,8 +38,7 @@
 }
 
 .nice{
-    background: linear-gradient(90deg, #6984ff, #f56262, #6eff86, #6984ff, #f56262);
-    background-size: 500% 500%;
+    
     animation: grade infinite ease-in-out;
     animation-duration: 21s;
 }
