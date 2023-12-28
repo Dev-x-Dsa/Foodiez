@@ -10,7 +10,6 @@ const UserAuth = () => {
 
     const navigate=useNavigate();
     const [login, setlogin] = useState(false);
-
     const {userName,setuserName}=useContext(MenuContext);
 
     const [value, setvalues] = useState({

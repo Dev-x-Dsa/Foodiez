@@ -27,7 +27,11 @@ const Body = () => {
                 <Hero />
               </div>
               <div>
-                <p className='font-bold text-4xl mx-14 px-3 text-slate-700 dark:text-slate-300 font-Open'>Best Offers for You...</p>
+                {
+                  restaurant_bannerdata!==undefined && restaurant_bannerdata.length>0?
+                  (
+                  <div>
+                    <p className='font-bold text-4xl mx-14 px-3 text-slate-700 dark:text-slate-300 font-Open'>Best Offers for You...</p>
                 <div className='flex items-center py-10 mb-10 overflow-x-scroll mx-10 flex-shrink-0 scroll-smooth ease-in-out' ref={ref}>
                   <div className='absolute right-5 z-20'>
                     <img src={img} className='w-10 cursor-pointer z-30' onClick={() => scroll(800)} />
@@ -36,7 +40,7 @@ const Body = () => {
                     <img src={img} className='w-10 cursor-pointer z-30' onClick={() => scroll(-800)} />
                   </div>
                   {
-                    restaurant_bannerdata.map((data) => {
+                    restaurant_bannerdata && restaurant_bannerdata.map((data) => {
                       let url = data?.entityId;
                       let collection_id = data?.entityId;
                       if (data?.entityId[0] === 's') {
@@ -49,6 +53,10 @@ const Body = () => {
                     })
                   }
                 </div>
+                  </div>
+                  ):
+                  (<p></p>)
+                }
               </div>
               <div className='flex flex-wrap justify-evenly items-center gap-y-12 font-Open'>
                 {
