@@ -17,6 +17,8 @@ import LocationContext from './ContextAPI/LocationContext';
 import LocationContextProvider from './ContextAPI/LocationContext';
 import Favres from './components/Favres';
 import UserAuth from './components/UserAuth';
+import Contact from './components/Contact';
+import About from './components/About';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -45,6 +47,14 @@ const Approuter = createBrowserRouter([
       {
         path: "login-signuppage",
         element: <UserAuth/>
+      },
+      {
+        path: "about",
+        element: <About/>
+      },
+      {
+        path: "contact",
+        element: <Contact/>
       }
     ]
   },
