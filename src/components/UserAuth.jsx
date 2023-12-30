@@ -73,50 +73,49 @@ const UserAuth = () => {
         ).catch((err)=>{seterrMsg1("Err: "+err.message); setsubmitbuttondisabled(false)})
     } 
 
-    return <div className="flex flex-col py-10 justify-center items-center bg-purple-300">
+    return <div className="flex flex-col py-10 justify-center items-center dark:bg-[#0d1117]">
         {
             !login ?
-                (<div className="flex flex-col p-10 rounded-lg gap-y-6 bg-white w-1/4">
-                    <h1 className="text-3xl text-bold">Sign Up</h1>
+                (<div className="flex flex-col p-10 rounded-lg gap-y-6 dark:bg-[#24292f] dark:text-slate-100 w-1/4">
+                    <h1 className="text-3xl text-bold dark:text-slate-200">Sign Up</h1>
                    
-                    <div className="flex flex-col gap-x-5">
-                        <div><label for="Name">Name</label></div>
-                        <div><input onChange={(e) => { setvalues(prev => ({ ...prev, name: e.target.value })) }} label="Name" placeholder="Name" type="text" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
-                    </div>
-                    <div className="flex flex-col gap-x-5">
-                        <div><label for="Email">Email</label></div>
-                        <div><input onChange={(e) => { setvalues(prev => ({ ...prev, email: e.target.value })) }} label="Email" placeholder="Email" type="email" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
-                    </div>
-                    <div className="flex flex-col gap-x-5">
-                        <div><label for="Password">Password</label></div>
-                        <div><input minLength={8} onChange={(e) => { setvalues(prev => ({ ...prev, password: e.target.value })) }} label="Password" placeholder="Password" type="password" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
+                    <div>
+                        <div className="pl-0.5"><label for="Name">Name</label></div>
+                        <div className="text-slate-600"><input onChange={(e) => { setvalues(prev => ({ ...prev, name: e.target.value })) }} label="Name" placeholder="Full Name" type="text" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
                     </div>
                     <div>
-                         <p className="text-red-700">{errMsg}</p>
-                        <button disabled={submitbuttondisabled} onClick={()=>{handlesubmission()}} className="bg-purple-300 px-6 py-2 w-full rounded-lg disabled:bg-red-500">Sign Up</button>
-                        <p>
-                            Already have an account?{" "}
-                            <span className=" text-blue-700" onClick={() => { loginsignupsetup() }}>Login In</span>
+                        <div className="pl-0.5"><label for="Email">Email</label></div>
+                        <div className="text-slate-600"><input onChange={(e) => { setvalues(prev => ({ ...prev, email: e.target.value })) }} label="Email" placeholder="Enter Email" type="email" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
+                    </div>
+                    <div>
+                        <div className="pl-0.5"><label for="Password">Password</label></div>
+                        <div className="text-slate-600"><input minLength={8} onChange={(e) => { setvalues(prev => ({ ...prev, password: e.target.value })) }} label="Password" placeholder="Enter Password" type="password" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
+                    </div>
+                    <div>
+                         <p className="text-red-500">{errMsg}</p>
+                        <button disabled={submitbuttondisabled} onClick={() => { handlesubmission() }} className="bg-[#c46b04] text-lg px-6 py-2 w-full rounded-lg disabled:bg-red-500">Sign Up</button>
+                        <p className="pt-2">
+                            <span className="pr-3">Already have an account?</span>
+                            <span className=" text-blue-400" onClick={() => { loginsignupsetup() }}>Login</span>
                         </p>
                     </div>
                 </div>) :
-                (<div className="flex flex-col bg-white p-10 rounded-lg gap-y-6  w-1/4">
-                    <h1 className="text-3xl text-bold">Login</h1>
-                   
+                (<div className="flex flex-col dark:bg-[#24292f] dark:text-slate-100 p-10 rounded-lg gap-y-6  w-1/4">
+                    <h1 className="text-3xl text-bold dark:text-slate-200">Login</h1>
                     <div className="flex flex-col gap-x-5">
-                        <div><label for="Email">Email</label></div>
-                        <div><input onChange={(e) => { setvalues1(prev => ({ ...prev, email: e.target.value })) }} label="Email" placeholder="Enter Your Email" type="email" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
+                        <div className="pl-0.5"><label for="Email">Email</label></div>
+                        <div className="text-slate-600"><input onChange={(e) => { setvalues1(prev => ({ ...prev, email: e.target.value })) }} label="Email" placeholder="Enter Email" type="email" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
                     </div>
                     <div className="flex flex-col gap-x-5">
-                        <div><label for="Password">Password</label></div>
-                        <div><input onChange={(e) => { setvalues1(prev => ({ ...prev, password: e.target.value })) }} label="Password" placeholder="Enter Your Password" type="password" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
+                        <div className="pl-0.5"><label for="Password">Password</label></div>
+                        <div className="text-slate-600"><input onChange={(e) => { setvalues1(prev => ({ ...prev, password: e.target.value })) }} label="Password" placeholder="Enter Password" type="password" className="outline-none border-2 border-black rounded-md px-2 py-1 w-full" /></div>
                     </div>
                     <div>
-                        <p className="text-red-700">{errMsg1}</p>
-                        <button disabled={submitbuttondisabled} onClick={()=>{handlesubmissionlogin()}} className="bg-purple-300 px-6 py-2 w-full rounded-lg disabled:bg-red-500">Login</button>
-                        <p>
-                            Not having an account?{" "}
-                            <span className=" text-blue-700" onClick={() => { loginsignupsetup() }}>Sign Up</span>
+                        <p className="text-red-500">{errMsg1}</p>
+                        <button disabled={submitbuttondisabled} onClick={() => { handlesubmissionlogin() }} className="bg-[#c46b04] px-6 py-2 w-full rounded-lg disabled:bg-red-500">Login</button>
+                        <p className="pt-2">
+                            <span className="pr-3">Don't have an account?</span>
+                            <span className=" text-blue-400" onClick={() => { loginsignupsetup() }}>Sign Up</span>
                         </p>
                     </div>
                 </div>)
