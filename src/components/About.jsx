@@ -1,21 +1,23 @@
-import img from "../images/loadcrop.gif"
-const About = () => {
+import img from "../images/instagram.png"
+const Contact = () => {
     return <div className="py-12 dark:bg-[#0d1117] dark:text-slate-200 flex flex-col">
-        <h1 className="dark:text-slate-200 text-5xl"> About Us </h1>
+        <h1 className="dark:text-slate-200 text-5xl"> Get in Touch </h1>
         <br /><br />
-            <div className="flex">
+        <div className="flex">
             <img src={img} alt="" className="m-5"/>
-                <div className="flex flex-col text-2xl w-[50rem] gap-2">
-                    <h2 className="dark:text-slate-300 text-3xl">🍽️  Foodiez - The best way to order food 🍽️</h2>
-                    <br /><br />
-                    <p>Foodiez is a food delivery platform that connects you with your favorite local restaurants and cuisines. Whether you are craving pizza, sushi, burgers, or salads, we have it all. You can browse through our menu, select your items, and place your order in just a few clicks. We deliver your food fast and fresh, right to your doorstep.</p>
-                    <br />
-                    <p>Our mission is to make food ordering easy, convenient, and enjoyable. We are passionate about food and customer satisfaction. We partner with hundreds of restaurants across the city, offering a wide range of cuisines and dishes to suit your taste and budget.</p>
-                    <br />
-                    <p>Whether you are looking for a quick snack, a family meal, or a special occasion, we have you covered. Order from Foodiez today and enjoy the best food delivery service in town.</p>
-                </div>
+            <div className="flex flex-col text-2xl w-[50rem] gap-2">
+                <h2 className="dark:text-slate-300 text-3xl">Phone No: 123456789 📞</h2>
+                <h2 className="dark:text-slate-300 text-3xl">Email   : Foodiez@email.com ✉</h2>
+                <br /><br />
+                <form action="">
+                    <label for="fname">First name : </label><input type="text" id="fname" name="fname" className="outline-none px-2 mx-2 my-2 "></input><br />
+                    <label for="lname">Last name : </label><input type="text" id="lname" name="lname" className="outline-none px-2 mx-2 my-2 "></input><br />
+                    <label for="cnt">Contact Number : </label><input type="phone" id="cnt" name="cnt" className="outline-none px-2 mx-2 my-2 "></input><br />
+                    <label for="eml">Email Id : </label><input type="mail" id="eml" name="eml" className="outline-none px-2 mx-2 my-2 "></input><br />
+                </form>
             </div>
         </div>
+    </div>
 }
 
-export default About;
+export default Contact;

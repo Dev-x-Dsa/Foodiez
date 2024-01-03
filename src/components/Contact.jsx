@@ -1,23 +1,62 @@
-import img from "../images/instagram.png"
-const Contact = () => {
-    return <div className="py-12 dark:bg-[#0d1117] dark:text-slate-200 flex flex-col">
-        <h1 className="dark:text-slate-200 text-5xl"> Get in Touch </h1>
-        <br /><br />
-        <div className="flex">
-            <img src={img} alt="" className="m-5"/>
-            <div className="flex flex-col text-2xl w-[50rem] gap-2">
-                <h2 className="dark:text-slate-300 text-3xl">Phone No: 123456789 📞</h2>
-                <h2 className="dark:text-slate-300 text-3xl">Email   : Foodiez@email.com ✉</h2>
-                <br /><br />
-                <form action="">
-                    <label for="fname">First name : </label><input type="text" id="fname" name="fname" className="outline-none px-2 mx-2 my-2 "></input><br />
-                    <label for="lname">Last name : </label><input type="text" id="lname" name="lname" className="outline-none px-2 mx-2 my-2 "></input><br />
-                    <label for="cnt">Contact Number : </label><input type="phone" id="cnt" name="cnt" className="outline-none px-2 mx-2 my-2 "></input><br />
-                    <label for="eml">Email Id : </label><input type="mail" id="eml" name="eml" className="outline-none px-2 mx-2 my-2 "></input><br />
-                </form>
+import img from "../images/loadcrop.gif"
+import img1 from "../images/first.png";
+import img2 from "../images/last.png";
+import { toast } from "react-toastify";
+
+const About = () => {
+
+
+    function feedbacksub(){
+        toast.success("Feedback Submitted !!",{
+            position: toast.POSITION.TOP_CENTER,
+        })
+    }
+    return <div className="dark:bg-[#0d1117] dark:text-slate-200 flex flex-col">
+        
+            <div className="hidden dark:block w-screen">
+                <img src={img2} className="w-full"/>
+            </div>
+            <div className="dark:hidden w-screen">
+                <img src={img1} className="w-full"/>
+            </div>
+
+            <div className="flex flex-row w-10/12 mx-auto">
+                <div className="flex flex-col w-1/2 px-16 text-black gap-y-5">
+                    <p className=" text-3xl font-bold text-black dark:text-white">Lets level up your brand, together</p>
+                    <p>You can reach us anytime</p>
+                    <div className="flex flex-row gap-x-5">
+                        <div className="w-full">
+                            <p className="text-black dark:text-white">First Name</p>
+                            <input type="text" className="outline-none border border-black w-full rounded-lg px-2 py-1 text-xl"/>
+                        </div>
+                        <div className="w-full">
+                            <p className="text-black dark:text-white">Last Name</p>
+                            <input type="text" className="outline-none border border-black w-full rounded-lg px-2 py-1 text-xl"/>
+                        </div>
+                    </div>
+                    <div className="flex flex-col">
+                        <p className="text-black dark:text-white">Email</p>
+                        <input type="email" className="outline-none border border-black rounded-lg px-2 py-1 text-xl"/>
+                    </div>
+                    <div className="flex flex-col">
+                        <p className="text-black dark:text-white">Phone number</p>
+                        <input type="text" className="outline-none border border-black rounded-lg px-2 py-1 text-xl"/>
+                    </div>
+                    <div className="flex flex-col">
+                            <p className="text-black dark:text-white">Message</p>
+                            <textarea placeholder="Leave us a message" className="outline-none h-48 border border-black rows={4} cols={50} rounded-lg px-2 py-1 text-xl"/>
+                    </div>
+                    <div className="w-full py-4">
+                        <button onClick={()=>{feedbacksub()}} className="w-full bg-yellow-600 py-1 px-2 rounded-lg text-2xl">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                <div className="w-1/2">
+                    <img src={img2}/>
+                </div>
             </div>
         </div>
-    </div>
 }
 
-export default Contact;
+export default About;
