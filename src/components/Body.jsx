@@ -14,8 +14,12 @@ const Body = () => {
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
   };
-  const { restaurant_data, restaurant_bannerdata } = useContext(MenuContext);
-  console.log(restaurant_data);
+  const { restaurant_data, restaurant_bannerdata,filterdataonratings } = useContext(MenuContext);
+  
+
+  function filterdataratings(){
+    filterdataonratings();
+  }
   return (
     <div className='py-12 dark:bg-[#0d1117]'>
       {
@@ -53,9 +57,16 @@ const Body = () => {
                     })
                   }
                 </div>
+
+                <div>
+                  <button onClick={()=>{filterdataratings();}} className='border py-1 px-2 border-black text-xl'>
+                    Ratings 4.0+
+                  </button>
+                </div>
                   </div>
                   ):
                   (<p></p>)
+
                 }
               </div>
               <div className='flex flex-wrap justify-evenly items-center gap-y-12 font-Open'>

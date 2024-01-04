@@ -69,7 +69,6 @@ export default function MenuContextProvider({ children }) {
         
         setrestaurant_bannerdata(restaurant_bannerinfo);
         setrestaurant_data(restaurant_info);
-        console.log(data);
         setemprestaurant_data(restaurant_info);
     }
 
@@ -100,6 +99,18 @@ export default function MenuContextProvider({ children }) {
         if (filterdata1 !== undefined && filterdata1 !== null)
             setrestaurant_data(filterdata1);
     }
+
+
+    function filterdataonratings() {
+        const filterdata2 = temprestaurant_data.filter((data) => {
+            return parseFloat(data?.info?.avgRating)>=4.0;
+        })
+        if (filterdata2 !== undefined && filterdata2 !== null)
+            setrestaurant_data(filterdata2);
+    }
+
+
+
 
     function allrestaurants() {
         setrestaurant_data(temprestaurant_data);
@@ -144,7 +155,8 @@ export default function MenuContextProvider({ children }) {
         freq,
         favres,
         userName,
-        setuserName
+        setuserName,
+        filterdataonratings
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>
