@@ -22,7 +22,9 @@ export default function MenuContextProvider({ children }) {
     var cartitems = useSelector((store) => store.cart.items);
     var freq = useSelector((store) => store.cart.itemQuantities);
     const [userName, setuserName] = useState("");
+    const [filterapplied,setfilterapplied]=useState(false);
 
+    console.log(filterapplied);
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
             if (user) {
@@ -100,47 +102,96 @@ export default function MenuContextProvider({ children }) {
     }
 
     function filterdataonratings() {
-        const filterdata2 = temprestaurant_data.filter((data) => {
-            return parseFloat(data?.info?.avgRating)>=4.0;
-        })
-        if (filterdata2 !== undefined && filterdata2 !== null)
-            setrestaurant_data(filterdata2);
+        if(filterapplied===false){
+            setfilterapplied(true);
+            const filterdata2 = temprestaurant_data.filter((data) => {
+                return parseFloat(data?.info?.avgRating)>=4.0;
+            })
+            if (filterdata2 !== undefined && filterdata2 !== null)
+                setrestaurant_data(filterdata2);
+        }
+        else{
+            setfilterapplied(false);
+            setrestaurant_data(temprestaurant_data);
+        }
     }
     function filterAbove3() {
-        const filterdata = temprestaurant_data.filter((data) => {
-            return parseFloat(data?.info?.avgRating) >= 3.0;
-        })
-        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+        if(filterapplied===false){
+            setfilterapplied(true);
+            const filterdata = temprestaurant_data.filter((data) => {
+                return parseFloat(data?.info?.avgRating) >= 3.0;
+            })
+            if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+        }
+        else{
+            setfilterapplied(false);
+            setrestaurant_data(temprestaurant_data);
+        }
     }
     function filterAbove2() {
-        const filterdata = temprestaurant_data.filter((data) => {
-            return parseFloat(data?.info?.avgRating) >= 2.0;
-        })
-        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+        if(filterapplied===false){
+            setfilterapplied(true);
+            const filterdata = temprestaurant_data.filter((data) => {
+                return parseFloat(data?.info?.avgRating) >= 2.0;
+            })
+            if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)    
+        }
+        else{
+            setfilterapplied(false);
+            setrestaurant_data(temprestaurant_data);
+        }
     }
     function filterAbove1() {
-        const filterdata = temprestaurant_data.filter((data) => {
-            return parseFloat(data?.info?.avgRating) >= 1.0;
-        })
-        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+        if(filterapplied===false){
+            setfilterapplied(true);
+            const filterdata = temprestaurant_data.filter((data) => {
+                return parseFloat(data?.info?.avgRating) >= 1.0;
+            })
+            if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)    
+        }
+        else{
+            setfilterapplied(false);
+            setrestaurant_data(temprestaurant_data);
+        }
     }
     function filterBest() {
-        const filterdata = temprestaurant_data.filter((data) => {
-            return parseFloat(data?.info?.avgRating) >= 4.5;
-        })
-        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+        if(filterapplied===false){
+            setfilterapplied(true);
+            const filterdata = temprestaurant_data.filter((data) => {
+                return parseFloat(data?.info?.avgRating) >= 4.5;
+            })
+            if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+        }
+        else{
+            setfilterapplied(false);
+            setrestaurant_data(temprestaurant_data);
+        }
     }
     function filterUnder30() {
-        const filterdata = temprestaurant_data.filter((data) => {
-            return parseFloat(data?.info?.sla?.deliveryTime) <= 30.0;
-        })
-        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+        if(filterapplied===false){
+            setfilterapplied(true);
+            const filterdata = temprestaurant_data.filter((data) => {
+                return parseFloat(data?.info?.sla?.deliveryTime) <= 30.0;
+            })
+            if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)    
+        }
+        else{
+            setfilterapplied(false);
+            setrestaurant_data(temprestaurant_data);
+        }
     }
     function filterVegi() {
-        const filterdata = temprestaurant_data.filter((data) => {
-            return data?.info?.veg;
-        })
-        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+        if(filterapplied===false){
+            setfilterapplied(true);
+            const filterdata = temprestaurant_data.filter((data) => {
+                return data?.info?.veg;
+            })
+            if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)    
+        }
+        else{
+            setfilterapplied(false);
+            setrestaurant_data(temprestaurant_data);
+        }
     }
 
     function allrestaurants() {
