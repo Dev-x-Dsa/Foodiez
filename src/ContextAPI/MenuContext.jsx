@@ -43,7 +43,6 @@ export default function MenuContextProvider({ children }) {
         // let restaurant_listurl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0760&lng=72.8777&page_type=DESKTOP_WEB_LISTING`;
         const output = await fetch(restaurant_listurl);
         const data = await output.json();
-
         let restaurant_info=[];
         let cards_length = data?.data?.cards?.length || 0;
 
@@ -100,7 +99,6 @@ export default function MenuContextProvider({ children }) {
             setrestaurant_data(filterdata1);
     }
 
-
     function filterdataonratings() {
         const filterdata2 = temprestaurant_data.filter((data) => {
             return parseFloat(data?.info?.avgRating)>=4.0;
@@ -108,19 +106,38 @@ export default function MenuContextProvider({ children }) {
         if (filterdata2 !== undefined && filterdata2 !== null)
             setrestaurant_data(filterdata2);
     }
-
-
-
+    function filterAbove3() {
+        const filterdata = temprestaurant_data.filter((data) => {
+            return parseFloat(data?.info?.avgRating) >= 3.0;
+        })
+        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+    }
+    function filterAbove2() {
+        const filterdata = temprestaurant_data.filter((data) => {
+            return parseFloat(data?.info?.avgRating) >= 2.0;
+        })
+        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+    }
+    function filterAbove1() {
+        const filterdata = temprestaurant_data.filter((data) => {
+            return parseFloat(data?.info?.avgRating) >= 1.0;
+        })
+        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+    }
+    function filterBest() {
+        const filterdata = temprestaurant_data.filter((data) => {
+            return parseFloat(data?.info?.avgRating) >= 4.5;
+        })
+        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+    }
 
     function allrestaurants() {
         setrestaurant_data(temprestaurant_data);
     }
 
-
     useEffect(() => {
         fetchdata2();
     }, [resid]);
-
 
     const dispatch = useDispatch();
     var favres = useSelector(store => store.favres.items);
@@ -156,7 +173,11 @@ export default function MenuContextProvider({ children }) {
         favres,
         userName,
         setuserName,
-        filterdataonratings
+        filterdataonratings,
+        filterAbove3,
+        filterBest,
+        filterAbove2,
+        filterAbove1
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>
