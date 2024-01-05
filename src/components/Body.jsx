@@ -14,8 +14,8 @@ const Body = () => {
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
   };
-  const { restaurant_data, restaurant_bannerdata, filterdataonratings, filterAbove3, filterBest, filterAbove2, filterAbove1} = useContext(MenuContext);
-
+  const { restaurant_data, restaurant_bannerdata, filterdataonratings, filterAbove3, filterBest, filterAbove2, filterAbove1, filterUnder30,filterVegi } = useContext(MenuContext);
+  console.log(restaurant_data);
   function filterdataratings(){
     filterdataonratings();
   }
@@ -30,6 +30,12 @@ const Body = () => {
   }
   function filterAb1() {
     filterAbove1()
+  }
+  function filter30() {
+    filterUnder30()
+  }
+  function filterVeg() {
+    filterVegi()
   }
   return (
     <div className='py-12 dark:bg-[#0d1117]'>
@@ -70,7 +76,16 @@ const Body = () => {
                 </div>
 
                 <div className='flex gap-x-4 font-semibold'>
-                  <button onClick={()=>{filterdataratings();}} className='mb-5 ml-4 border py-1 px-2 dark:text-slate-200 bg-slate-100 text-slate-900 dark:border-slate-800 dark:bg-[#24292f] rounded-lg text-xl'>
+                  <button onClick={() => { filterBst(); }} className='mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
+                    Top Restaurants
+                  </button>
+                  <button onClick={()=>{filter30();}} className='mb-5 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
+                    Under 30 Min
+                  </button>
+                  <button onClick={()=>{filterVeg();}} className='mb-5 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
+                    Veg Only
+                  </button>
+                  <button onClick={()=>{filterdataratings();}} className='mb-5 border py-1 px-2 dark:text-slate-200 bg-slate-100 text-slate-900 dark:border-slate-800 dark:bg-[#24292f] rounded-lg text-xl'>
                     Rating 4.0+
                   </button>
                   <button onClick={()=>{filterAb3();}} className='mb-5 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
@@ -81,9 +96,6 @@ const Body = () => {
                   </button>
                   <button onClick={()=>{filterAb1();}} className='mb-5 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
                     Rating 1.0+
-                  </button>
-                  <button onClick={()=>{filterBst();}} className='mb-5 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
-                    Top Restaurants
                   </button>
                 </div>
                   </div>

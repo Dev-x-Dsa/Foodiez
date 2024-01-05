@@ -130,6 +130,18 @@ export default function MenuContextProvider({ children }) {
         })
         if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
     }
+    function filterUnder30() {
+        const filterdata = temprestaurant_data.filter((data) => {
+            return parseFloat(data?.info?.sla?.deliveryTime) <= 30.0;
+        })
+        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+    }
+    function filterVegi() {
+        const filterdata = temprestaurant_data.filter((data) => {
+            return data?.info?.veg;
+        })
+        if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
+    }
 
     function allrestaurants() {
         setrestaurant_data(temprestaurant_data);
@@ -177,7 +189,9 @@ export default function MenuContextProvider({ children }) {
         filterAbove3,
         filterBest,
         filterAbove2,
-        filterAbove1
+        filterAbove1,
+        filterUnder30,
+        filterVegi
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>
