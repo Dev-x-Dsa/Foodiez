@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { MenuContext } from '../ContextAPI/MenuContext';
 import Card from './Card';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,15 @@ import { useRef } from 'react';
 
 const Body = () => {
   const ref = useRef(null);
+
+  const [b1,setb1]=useState(false);
+  const [b2,setb2]=useState(false);
+  const [b3,setb3]=useState(false);
+  const [b4,setb4]=useState(false);
+  const [b5,setb5]=useState(false);
+  const [b6,setb6]=useState(false);
+  const [b7,setb7]=useState(false);
+
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
   };
@@ -38,7 +47,7 @@ const Body = () => {
     filterVegi()
   }
   return (
-    <div className='py-12 dark:bg-[#0d1117]'>
+    <div className='dark:bg-[#0d1117]'>
       {
         restaurant_data === null || restaurant_data === undefined ?
           (<p><Shimmer /></p>) :
@@ -76,25 +85,25 @@ const Body = () => {
                 </div>
 
                 <div className='flex gap-x-4 font-semibold'>
-                  <button onClick={() => { filterBst(); }} className='mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
+                  <button onClick={() => {setb1(!b1); filterBst(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b1?"bg-slate-100":"bg-red-700"}  text-slate-900 ${b1?"dark:bg-red-700":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Top Restaurants
                   </button>
-                  <button onClick={()=>{filter30();}} className='mb-5 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
+                  <button onClick={() => {setb2(!b2); filterBst(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b2?"bg-slate-100":"bg-red-700"}  text-slate-900 ${b2?"dark:bg-red-700":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Under 30 Min
                   </button>
-                  <button onClick={()=>{filterVeg();}} className='mb-5 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
+                  <button onClick={() => {setb3(!b3); filterBst(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b3?"bg-slate-100":"bg-red-700"}  text-slate-900 ${b3?"dark:bg-red-700":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Veg Only
                   </button>
-                  <button onClick={()=>{filterdataratings();}} className='mb-5 border py-1 px-2 dark:text-slate-200 bg-slate-100 text-slate-900 dark:border-slate-800 dark:bg-[#24292f] rounded-lg text-xl'>
+                  <button onClick={() => {setb4(!b4); filterBst(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b4?"bg-slate-100":"bg-red-700"}  text-slate-900 ${b4?"dark:bg-red-700":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Rating 4.0+
                   </button>
-                  <button onClick={()=>{filterAb3();}} className='mb-5 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
+                  <button onClick={() => {setb5(!b5); filterBst(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b5?"bg-slate-100":"bg-red-700"}  text-slate-900 ${b5?"dark:bg-red-700":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Rating 3.0+
                   </button>
-                  <button onClick={()=>{filterAb2();}} className='mb-5 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
+                  <button onClick={() => {setb6(!b6); filterBst(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b6?"bg-slate-100":"bg-red-700"}  text-slate-900 ${b6?"dark:bg-red-700":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Rating 2.0+
                   </button>
-                  <button onClick={()=>{filterAb1();}} className='mb-5 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 bg-slate-100 text-slate-900 dark:bg-[#24292f] rounded-lg text-xl'>
+                  <button onClick={() => {setb7(!b7); filterBst(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b7?"bg-slate-100":"bg-red-700"}  text-slate-900 ${b7?"dark:bg-red-700":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Rating 1.0+
                   </button>
                 </div>
