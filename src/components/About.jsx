@@ -1,40 +1,38 @@
 import img from "../images/download.jpg"
 
 const Contact = () => {
-    return <div className="dark:bg-[#0d1117] dark:text-white">
-            <div className="flex flex-col w-3/4 px-10 mx-auto py-16 gap-y-20">
+    return <div className="dark:bg-[#0c111d] dark:text-white">
+            <div className="flex flex-col w-[82%] px-10 mx-auto py-10 gap-y-10">
             <div className="flex flex-row gap-x-2">
-            <p className="min-w-[15%] text-2xl">Who we are</p>
-                <p className="text-2xl text-justify">
-                He ordered his regular breakfast. Two eggs sunnyside up, hash browns, and two strips of bacon. He continued to look at the menu wondering if this would be the day he added something new. This was also part of the routine. A few seconds of hesitation to see if something else would be added to the order before demuring and saying that would be all. It was the same exact meal that he had ordered every day for the past two years
-                He ordered his regular breakfast. Two eggs sunnyside up, hash browns, and two strips of bacon. He continued to look at the menu wondering if this would be the day he added something new. This was also part of the routine. A few seconds of hesitation to see if something else would be added to the order before demuring and saying that would be all. It was the same exact meal that he had ordered every day for the past two years
-                </p>
+            <p className="min-w-[22%] text-3xl text-slate-200">Who we are</p>
+                <p className="text-xl text-justify text-slate-100"> 
+                    <span className="font-bold">Foodiez</span> is driven by four values: customer satisfaction, culinary innovation, operational efficiency, and long-term vision. Foodiez aims to be the world's most convenient and reliable food delivery service, the best partner for restaurants and chefs, and the most enjoyable place to work. Customer ratings, easy ordering, personalized suggestions, Foodiez Plus, Foodiez Express, Foodiez Kitchen, Foodiez Fresh, Foodiez Rewards, Foodiez Box, Foodiez Go, Foodiez Voice, Foodiez Pay, and The Foodiez Promise are some of the features and initiatives launched by Foodiez.</p>
             </div>
-            <div className="flex justify-between">
-                <div className="w-[30%] bg-[#0d1097] text-2xl bg-red-700 p-10 gap-y-6 flex flex-col">
-                   <h2 className="text-yellow-600">Leadership Principles</h2>
+            <div className="flex justify-between text-xl">
+                <div className="w-[31.5%] rounded-lg bg-[#24292f] text-xl p-5 py-6 gap-y-6 flex flex-col text-black dark:text-[#e5d8fa] text-justify">
+                   <h2 className="text-violet-400 text-3xl font-semibold">Top Restaurants</h2>
                    <p>
-                        Our Leadership Principles are more than inspirational wall hangings. The 16 principles guide our discussions and decisions every day.
+                        Our Quality Standards are more than catchy slogans. The 12 standards reflect our commitment to delivering the best food and service to our customers every day from day one.
                    </p>
-                   <button className="w-fit border border-grey-300 rounded-full py-3 px-3">Learn More➡️</button>
+                    <button className="w-fit border border-grey-300 rounded-full py-3 px-3 flex gap-x-3"><span>Learn More</span><span className="w-[30px] p-0.5"><svg viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="arrowRightTopIconTitle" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#e2e8f0"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title id="arrowRightTopIconTitle">Arrow Right Top</title> <path d="M19 13V5h-8"></path> <path stroke-linecap="round" d="M19 5l-1 1"></path> <path d="M18 6L5 19"></path> </g></svg></span></button>
                 </div>
-                <div className="w-[30%] bg-[#0d1097] text-2xl bg-red-700 p-10 gap-y-6 flex flex-col">
-                    <h2 className="text-yellow-600">Leadership Principles</h2>
+                <div className="w-[31.5%] rounded-lg bg-[#24292f] text-xl p-5 py-6 gap-y-6 flex flex-col text-black dark:text-[#e5d8fa] text-justify">
+                    <h2 className="text-violet-400 text-3xl font-semibold">Best in class service</h2>
                     <p>
-                            Our Leadership Principles are more than inspirational wall hangings. The 16 principles guide our discussions and decisions every day.
+                        At Foodiez, we deliver delicious meals from your favorite restaurants in minutes, with no hidden fees or extra charges. Best thing is that we have a consumer first approach everyday.
                     </p>
-                    <button className="w-fit border border-grey-300 rounded-full py-3 px-3">Learn More➡️</button>
+                    <button className="w-fit border border-grey-300 rounded-full py-3 px-3 flex gap-x-3"><span>Learn More</span><span className="w-[30px] p-0.5"><svg viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="arrowRightTopIconTitle" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#e2e8f0"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title id="arrowRightTopIconTitle">Arrow Right Top</title> <path d="M19 13V5h-8"></path> <path stroke-linecap="round" d="M19 5l-1 1"></path> <path d="M18 6L5 19"></path> </g></svg></span></button>
                 </div>
-                <div className="w-[30%] bg-[#0d1097] text-2xl bg-red-700 p-10 gap-y-6 flex flex-col">
-                    <h2 className="text-yellow-600"> Leadership Principles</h2>
+                <div className="w-[31.5%] rounded-lg bg-[#24292f] text-xl p-5 py-6 gap-y-6 flex flex-col text-black dark:text-[#e5d8fa] text-justify">
+                    <h2 className="text-violet-400 text-3xl font-semibold">Customer First</h2>
                     <p>
-                            Our Leadership Principles are more than inspirational wall hangings. The 16 principles guide our discussions and decisions every day.
+                            Our consumers have made us what we are today, and so they are our first priority. They are the real Foodiez, join us in our mission to make this world a better place for the next generation.
                     </p>
-                    <button className="w-fit border border-grey-300 rounded-full py-3 px-3">Learn More➡️</button>
+                    <button className="w-fit border border-grey-300 rounded-full py-3 px-3 flex gap-x-3"><span>Learn More</span><span className="w-[30px] p-0.5"><svg viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="arrowRightTopIconTitle" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#e2e8f0"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title id="arrowRightTopIconTitle">Arrow Right Top</title> <path d="M19 13V5h-8"></path> <path stroke-linecap="round" d="M19 5l-1 1"></path> <path d="M18 6L5 19"></path> </g></svg></span></button>
                 </div>
             </div>
             <div className="w-full">
-                <img src={img} className="w-full"/>
+                <img src={img} className="w-full overflow-clip rounded-lg"/>
             </div>
         </div>
     </div>

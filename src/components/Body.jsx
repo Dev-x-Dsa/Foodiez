@@ -47,7 +47,7 @@ const Body = () => {
     filterVegi()
   }
   return (
-    <div className='dark:bg-[#0d1117]'>
+    <div className='dark:bg-[#0c111d]'>
       {
         restaurant_data === null || restaurant_data === undefined ?
           (<p><Shimmer /></p>) :
