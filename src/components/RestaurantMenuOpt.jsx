@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ItemCard from './ItemCard';
 import img from "../images/down-arrow.png"
 import img2 from "../images/uparrow.png"
@@ -13,6 +13,7 @@ const RestaurantMenuOpt = ({ rest }) => {
     setitemcard(rest?.card?.card?.itemCards || rest?.card?.card?.carousel || rest?.card?.card?.categories?.[0]?.itemCards);
   }, [rest]);
   const [visible, setvisible] = useState(true);
+
   function visiblehandler() {
     setvisible(prev => !prev);
     setarrow(prev => !prev)

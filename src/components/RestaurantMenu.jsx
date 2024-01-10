@@ -8,15 +8,19 @@ import { CDN_URL } from '../constants';
 const RestaurantMenu = () => {
 
     let { id } = useParams();
-    const { resid, setresid, fetchdata2, restaurant_menu, restaurant_info, restaurant_info2 } = useContext(MenuContext);
+    const { resid, setresid, fetchdata2, restaurant_menu, restaurant_info, restaurant_info2, vegonly, setvegonly } = useContext(MenuContext);
     const [cusine, setcusine] = useState([]);
     const [data, setdata] = useState(restaurant_info2);
     console.log(restaurant_info)
     const item = "burger";
+    
 
     useEffect(() => {
+        setvegonly(false);
         setresid(id);
     }, [id]);
+
+
 
     return (
         restaurant_info2 !== null && restaurant_info2 !== undefined ?
@@ -24,7 +28,7 @@ const RestaurantMenu = () => {
                 <div className='w-full min-h-screen h-full dark:bg-[#0d1117] py-10 dark:text-white font-Open'>
                     <div className='w-[800px] mx-auto flex flex-col'>
                         <p className=' font-semibold text-3xl capitalize w-full text-zinc-700 dark:text-slate-300'>{restaurant_info?.name}</p>
-                        <img className='h-48 w-72' src={CDN_URL+restaurant_info?.cloudinaryImageId}/>
+                        <img className='h-48 w-72' src={CDN_URL + restaurant_info?.cloudinaryImageId} />
                         <p className='flex flex-row gap-x-2'>{
                             cusine.map((cusin) => {
                                 return <p>{cusin}</p>
@@ -36,7 +40,23 @@ const RestaurantMenu = () => {
                                 <img src={clock} alt="" className='w-[1.5rem] h-[1.5rem] dark:invert mx-2' />
                                 <span className='lowercase'>{restaurant_info?.sla?.slaString}</span>
                             </span>
+                            <div className='flex flex-row'>
+                                <p>Veg only</p>
+                                    {vegonly ?
+                                        (
+                                            <button onClick={() => { setvegonly(prev => !prev) }} className="h-[25px] bg-white rounded-full border border-black w-[50px] flex flex-row">
+                                                <div className='rounded-full bg-white min-h-full min-w-[50%]'></div>
+                                                <div className='rounded-full min-w-[50%] min-h-full bg-green-700'></div>
+                                            </button>
+                                        ) :
+                                        (
+                                            <button onClick={() => { setvegonly(prev => !prev) }} className="h-[25px] bg-white rounded-full border border-black w-[50px] flex flex-row">
+                                                <div className='rounded-full min-w-[50%] min-h-full bg-red-700'></div>
+                                            </button>
+                                        )
 
+                                    }
+                            </div>
                         </div>
 
                         {

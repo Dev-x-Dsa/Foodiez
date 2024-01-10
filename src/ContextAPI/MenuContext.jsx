@@ -23,6 +23,7 @@ export default function MenuContextProvider({ children }) {
     var freq = useSelector((store) => store.cart.itemQuantities);
     const [userName, setuserName] = useState("");
     const [filterapplied,setfilterapplied]=useState(false);
+    const [vegonly,setvegonly]=useState(false);
 
     console.log(filterapplied);
     useEffect(() => {
@@ -242,7 +243,9 @@ export default function MenuContextProvider({ children }) {
         filterAbove2,
         filterAbove1,
         filterUnder30,
-        filterVegi
+        filterVegi,
+        vegonly,
+        setvegonly
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>

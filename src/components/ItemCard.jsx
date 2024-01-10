@@ -15,6 +15,7 @@ const ItemCard = ({ data, visible }) => {
     const dispatch = useDispatch();
 
     var { freq } = useContext(MenuContext);
+    const {vegonly,setvegonly}=useContext(MenuContext);
 
     function handleadditem(item) {
         dispatch(additemtocart(item));
@@ -35,12 +36,16 @@ const ItemCard = ({ data, visible }) => {
         }
     }, [data]);
 
+    if(vegonly===true && !(data?.card?.info?.isVeg || data?.dish?.info?.isVeg)){
+        return ;
+    }
+
     return (
-        <div className={`${visible ? 'hidden' : 'flex'} font-Open`}>
+         <div className={`${visible ? 'hidden' : 'flex'} font-Open`}>
             <div className='flex border-b-2 py-10 justify-between items-center w-[800px] mx-auto'>
                 <div>
-                    <div>{data?.card?.info?.isVeg ?
-                        (data?.card?.info?.isVeg === 1 ? (<p><img src={vegimg} className='w-4 h-4' alt="veg" /></p>)
+                    <div>{data?.card?.info?.isVeg || data?.dish?.info?.isVeg ?
+                        (data?.card?.info?.isVeg || data?.dish?.info?.isVeg === 1 ? (<p><img src={vegimg} className='w-4 h-4' alt="veg" /></p>)
                             : (<p><img src={nonveg} className='w-4 h-4' alt="non-veg" /></p>)) :
                         (<p></p>)
                     }
@@ -81,6 +86,7 @@ const ItemCard = ({ data, visible }) => {
                 </div>
             </div>
         </div>
+        
     )
 }
 
