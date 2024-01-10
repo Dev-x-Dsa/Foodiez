@@ -42,22 +42,17 @@ const RestaurantMenu = () => {
                             })
                         }</p>
                         <div className="flex justify-between">
-                            {/* <p className="text-neutral-600 dark:text-neutral-400 text-2xl font-thin">{restaurant_info?.areaName}</p>
-                            <span className="text-neutral-600 dark:text-neutral-400 text-2xl font-thin flex items-center">
-                                <img src={clock} alt="" className='w-[1.5rem] h-[1.5rem] dark:invert mx-2' />
-                                <span className='lowercase'>{restaurant_info?.sla?.slaString}</span>
-                            </span> */}
                             <div className='flex flex-row items-center'>
-                                <p className='pr-5 text-slate-100 text-2xl font-thin'>Veg Only</p>
+                                <p className='pr-5 dark:text-slate-100 text-slate-800 text-2xl font-thin'>Veg Only</p>
                                     {vegonly ?
                                         (
-                                            <button onClick={() => { setvegonly(prev => !prev) }} className="h-[25px] bg-white rounded-full w-[50px] flex flex-row">
-                                                <div className='rounded-full bg-white min-h-full min-w-[50%]'></div>
+                                            <button onClick={() => { setvegonly(prev => !prev) }} className="h-[25px] dark:bg-neutral-100 bg-neutral-300 rounded-full w-[50px] flex flex-row">
+                                                <div className='rounded-full dark:bg-neutral-100 min-h-full min-w-[50%]'></div>
                                                 <div className='rounded-full min-w-[50%] min-h-full bg-green-500'></div>
                                             </button>
                                         ) :
                                         (
-                                            <button onClick={() => { setvegonly(prev => !prev) }} className="h-[25px] bg-white rounded-full w-[50px] flex flex-row">
+                                            <button onClick={() => { setvegonly(prev => !prev) }} className="h-[25px] dark:bg-neutral-100 bg-neutral-300 rounded-full w-[50px] flex flex-row">
                                                 <div className='rounded-full min-w-[50%] min-h-full bg-red-600'></div>
                                             </button>
                                         )

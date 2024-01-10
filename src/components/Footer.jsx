@@ -8,7 +8,7 @@ import img6 from "../images/github-mark.png";
 
 const Footer = () => {
   return (
-    <div className='bg-slate-100 px-32 pt-12 py-8 dark:bg-[#24292f] dark:text-white font-Open'>
+    <div className='bg-[#f6f8fc] px-32 pt-12 py-8 dark:bg-[#24292f] dark:text-white font-Open'>
       <div className='font-bold text-3xl ml-8 text-zinc-700 dark:text-slate-300'>Foodiez</div>
       <div className='flex flex-row w-full justify-evenly'>
         <div>

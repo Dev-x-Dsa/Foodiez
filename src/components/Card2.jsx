@@ -37,7 +37,7 @@ const Card2 = ({ cartitem }) => {
     }
 
     return (
-        <div>
+        <div className=''>
             <div className="relative">
                 <div className='flex dark:border-[#798283] py-[1.825rem] justify-between items-center w-[720px] mx-auto font-Open'>
                     <button onClick={() => handleclearcart(cartitem?.info?.id)} className='h-7 w-7 absolute top-[0.75rem] z-10  right-[1.125rem] text-lg font-extrabold'>

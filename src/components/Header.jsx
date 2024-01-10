@@ -47,7 +47,7 @@ const Header = () => {
   }
   return (
     <div>
-      <div className='flex flex-row justify-between shadow-lg text-2xl bg-slate-100 dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
+      <div className='flex flex-row justify-between text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
         <Link to="/"><div><img src={image} className='cursor-pointer  w-40 h-20 dark:invert' /></div></Link>
         <div className='flex gap-x-10 items-center'>
           <Link to="/" onClick={() => { allrestaurants() }}><div className='cursor-pointer p-3'>Home</div></Link>
@@ -70,7 +70,7 @@ const Header = () => {
             </div></Link>
           </div>
           <Link to="/favourite restuarants">
-            <div>
+            <div className='dark:invert-0 invert'>
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#d1cdcd" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
