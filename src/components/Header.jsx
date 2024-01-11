@@ -8,6 +8,8 @@ import img1 from "../images/moon.png"
 import img2 from "../images/sun.png";
 import { MenuContext } from '../ContextAPI/MenuContext';
 import { FaCircleUser } from "react-icons/fa6";
+import {auth} from "../firebase"
+
 
 
 const Header = () => {
@@ -45,9 +47,24 @@ const Header = () => {
   const handlethemeswitch = () => {
     setusertheme(usertheme === "dark" ? "light" : "dark");
   }
+
+  const generateInitials = (name) => {
+    const words = name.split(' ');
+    const initials = words.map((word) => word.charAt(0).toUpperCase());
+    return initials.join('');
+  };
+
+  const user = auth.currentUser;
+
+  
+  var name="";
+  if(user!==null && user!==undefined){
+    name=generateInitials(user.displayName);
+  }
+
   return (
     <div>
-      <div className='flex flex-row justify-between text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
+      <div className='fixed z-50 top-0 w-full flex flex-row justify-between text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
         <Link to="/"><div><img src={image} className='cursor-pointer  w-40 h-20 dark:invert' /></div></Link>
         <div className='flex gap-x-10 items-center'>
           <Link to="/" onClick={() => { allrestaurants() }}><div className='cursor-pointer p-3'>Home</div></Link>
@@ -80,9 +97,11 @@ const Header = () => {
           <div className='hidden dark:block'><img onClick={() => { handlethemeswitch(); }} src={img2} className='w-7 h-7 cursor-pointer' /></div>
 
           <Link to="/login-signuppage">
-            <div class="cursor-pointer pr-2">
-                <FaCircleUser className='w-8 h-8'/>
-              {/* <img class="rounded-full w-8" alt="profile" src={img3}></img> */}
+            <div class="cursor-pointer pr-2">{
+                name===""? 
+                (<FaCircleUser className='w-8 h-8'/>):
+                (<p className="text-center bg-white text-black rounded-full w-[35px] h-[35px] flex items-center text-lg justify-center mx-auto">{name}</p>)
+              }
             </div>
           </Link>
         </div>

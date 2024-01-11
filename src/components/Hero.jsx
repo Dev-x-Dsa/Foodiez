@@ -24,11 +24,11 @@ const Hero = () => {
     const {userName}=useContext(MenuContext);
     
     return (
-    <div className="relative pb-10 overflow-y-hidden">
+    <div className="relative pb-10 overflow-y-hidden max-h-[750px]">
         <Carousel showArrows={true} autoPlay showStatus={false} infiniteLoop showThumbs={false}>
-            <img src={img} className="max-h-[750px]"/>
-            <img src={img1} className="max-h-[750px]"/> 
-            <img src={img2} className="max-h-[750px]"/>
+            <img src={img} className=""/>
+            <img src={img1} className=""/> 
+            <img src={img2} className=""/>
         </Carousel>
 
         <div className="absolute top-10 left-10">

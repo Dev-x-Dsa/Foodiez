@@ -25,7 +25,7 @@ const RestaurantMenu = () => {
     return (
         restaurant_info2 !== null && restaurant_info2 !== undefined ?
             (
-                <div className='w-full min-h-screen h-full dark:bg-[#0d1117] py-10 dark:text-white font-Open'>
+                <div className='w-full min-h-screen h-full dark:bg-[#0d1117] py-10 pt-36 dark:text-white font-Open'>
                     <div className='w-[800px] mx-auto flex flex-col'>
                         <p className=' font-semibold text-3xl capitalize w-full text-zinc-700 dark:text-slate-100'>{restaurant_info?.name}</p>
                         <div className="h-[250px] w-full rounded-lg overflow-clip my-5 relative before:absolute before:left-0 before:right-0 before:top-0 before:z-10 before:h-full before:w-full before:bg-gradient-to-t  from-black to-40% text-lg group text-white">

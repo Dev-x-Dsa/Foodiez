@@ -53,7 +53,7 @@ const Body = () => {
           (<p><Shimmer /></p>) :
           (
             <div>
-              <div className='text-white'>
+              <div className='text-white mt-20'>
                 <Hero />
               </div>
               <div>

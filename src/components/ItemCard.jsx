@@ -7,6 +7,8 @@ import vegimg from "../images/veg.png";
 import nonveg from "../images/nonveg.png";
 import defalt from "../images/default.png";
 import { MenuContext } from '../ContextAPI/MenuContext';
+import {auth} from "../firebase"
+
 
 const ItemCard = ({ data, visible }) => {
     const [pric, setpric] = useState(0);
@@ -17,11 +19,16 @@ const ItemCard = ({ data, visible }) => {
     var { freq } = useContext(MenuContext);
     const {vegonly,setvegonly}=useContext(MenuContext);
 
+    const user = auth.currentUser;
+
     function handleadditem(item) {
-        dispatch(additemtocart(item));
-        toast.success("Added to cart !", {
-            position: toast.POSITION.BOTTOM_RIGHT,
-        });
+
+        if(user!==null && user!==undefined){
+            dispatch(additemtocart(item));
+            toast.success("Added to cart !", {
+                position: toast.POSITION.BOTTOM_RIGHT,
+            });
+        }
     }
 
     function handleremoveitem(item) {

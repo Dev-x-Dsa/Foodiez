@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import img1 from "../images/123.png";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import {auth} from "../firebase"
 import { useNavigate } from "react-router";
 import { MenuContext } from "../ContextAPI/MenuContext";
@@ -73,7 +73,43 @@ const UserAuth = () => {
         ).catch((err)=>{seterrMsg1("Err: "+err.message); setsubmitbuttondisabled(false)})
     } 
 
-    return <div className="flex flex-col py-10 justify-center items-center dark:bg-[#0d1117]">
+
+    function handlelogout(){
+        signOut(auth).then(() => {
+            toast.success("Log Out Successfully", {
+                position: toast.POSITION.TOP_CENTER
+              })
+          }).catch((error) => {
+            toast.failure("Error has been Occured", {
+                position: toast.POSITION.TOP_CENTER
+              })
+          });          
+    }
+    const user = auth.currentUser;
+
+
+    const generateInitials = (name) => {
+        const words = name.split(' ');
+        const initials = words.map((word) => word.charAt(0).toUpperCase());
+        return initials.join('');
+      };
+
+
+    if (user !== null && user!==undefined) {
+
+        const nam=generateInitials(user.displayName);
+        return (<div className="flex flex-col  py-36 justify-center items-center dark:bg-[#0d1117]">
+                <div className="flex flex-col p-10 rounded-lg gap-y-6 dark:bg-[#24292f] dark:text-slate-100 w-1/4">
+                    <p className="text-center bg-white text-black rounded-full w-[40px] h-[40px] flex items-center justify-center mx-auto">{nam}</p>
+                    <p>Name: {user.displayName}</p>
+                    <p>Email: {user.email}</p>
+                    <button onClick={() => {handlelogout()}} className="bg-[#c46b04] px-6 py-2 w-full rounded-lg disabled:bg-red-500">Log Out</button>
+                </div>
+            </div>
+        )
+    }
+
+    return <div className="flex flex-col py-10 pt-36 justify-center items-center dark:bg-[#0d1117]">
         {
             !login ?
                 (<div className="flex flex-col p-10 rounded-lg gap-y-6 dark:bg-[#24292f] dark:text-slate-100 w-1/4">
