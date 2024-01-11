@@ -79,7 +79,7 @@ const Cart = () => {
 
 
   return (
-    <div className="dark:bg-[#020305] dark:text-white py-10 font-Open min-h-[370px] max-h-full">
+    <div className="dark:bg-[#020305] dark:text-white py-10 pt-36 font-Open min-h-[370px] max-h-full">
       <div>
         {cartitems.length !== 0 ? (
           <div className="flex flex-row w-10/12 mx-auto gap-x-10 justify-around">
