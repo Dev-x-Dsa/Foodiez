@@ -95,7 +95,7 @@ const UserAuth = () => {
       };
 
 
-    if (user !== null && user!==undefined) {
+    if (user && user !== null && user!==undefined && user.displayName) {
 
         const nam=generateInitials(user.displayName);
         return (<div className="flex flex-col  py-36 justify-center items-center dark:bg-[#0d1117]">
@@ -107,6 +107,11 @@ const UserAuth = () => {
                 </div>
             </div>
         )
+    }
+
+    function demologin(){
+        setvalues1({email:"12@gmail.com",password:"123456"});
+        handlesubmissionlogin();
     }
 
     return <div className="flex flex-col py-10 pt-36 justify-center items-center dark:bg-[#0d1117]">
@@ -132,7 +137,8 @@ const UserAuth = () => {
                         <button disabled={submitbuttondisabled} onClick={() => { handlesubmission() }} className="bg-[#c46b04] text-lg px-6 py-2 w-full rounded-lg disabled:bg-red-500">Sign Up</button>
                         <p className="pt-2">
                             <span className="pr-3">Already have an account?</span>
-                            <span className=" text-blue-400" onClick={() => { loginsignupsetup() }}>Login</span>
+                            <span className=" text-blue-400 cursor-pointer" onClick={() => { loginsignupsetup() }}>Login</span>
+                            <span className="cursor-pointer text-blue-400 pl-10" onClick={() => { demologin() }}>Demo-login</span>
                         </p>
                     </div>
                 </div>) :

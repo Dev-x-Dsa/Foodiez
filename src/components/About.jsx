@@ -1,8 +1,8 @@
 import img from "../images/download.jpg"
 
 const Contact = () => {
-    return <div className="dark:bg-[#0c111d] dark:text-white text-neutral-900">
-            <div className="flex flex-col w-[82%] px-10 mx-auto py-10 gap-y-10">
+    return <div className="dark:bg-[#0c111d] dark:text-white text-neutral-900 pt-24">
+            <div className="flex flex-col w-[82%] px-10 mx-auto py-10 gap-y-12">
             <div className="flex flex-row gap-x-2">
             <p className="min-w-[22%] text-3xl dark:text-slate-200">Who we are</p>
                 <p className="text-xl text-justify dark:text-slate-100"> 

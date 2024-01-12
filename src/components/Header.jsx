@@ -58,7 +58,7 @@ const Header = () => {
 
   
   var name="";
-  if(user!==null && user!==undefined){
+  if(user && user!==null && user!==undefined && user.displayName){
     name=generateInitials(user.displayName);
   }
 

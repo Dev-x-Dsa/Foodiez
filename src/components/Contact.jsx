@@ -10,7 +10,7 @@ const About = () => {
             position: toast.POSITION.TOP_CENTER,
         })
     }
-    return <div className="dark:bg-[#0c111d] dark:text-slate-200 flex flex-col pt-6 overflow-clip">
+    return <div className="dark:bg-[#0c111d] dark:text-slate-200 flex flex-col pt-24 overflow-clip">
         
             <div className="hidden dark:block w-screen">
                 <img src={img2} className="w-full"/>

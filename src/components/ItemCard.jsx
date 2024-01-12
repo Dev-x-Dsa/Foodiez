@@ -29,6 +29,11 @@ const ItemCard = ({ data, visible }) => {
                 position: toast.POSITION.BOTTOM_RIGHT,
             });
         }
+        else{
+            toast.success("Login/Use Demo Login !", {
+                position: toast.POSITION.TOP_CENTER,
+            });
+        }
     }
 
     function handleremoveitem(item) {
