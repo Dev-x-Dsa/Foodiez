@@ -24,6 +24,8 @@ export default function MenuContextProvider({ children }) {
     const [userName, setuserName] = useState("");
     const [filterapplied,setfilterapplied]=useState(false);
     const [vegonly,setvegonly]=useState(false);
+    const [logout,setlogout]=useState(true);
+
 
     console.log(filterapplied);
     useEffect(() => {
@@ -245,7 +247,9 @@ export default function MenuContextProvider({ children }) {
         filterUnder30,
         filterVegi,
         vegonly,
-        setvegonly
+        setvegonly,
+        setlogout,
+        logout
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>

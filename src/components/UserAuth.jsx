@@ -10,7 +10,7 @@ const UserAuth = () => {
 
     const navigate=useNavigate();
     const [login, setlogin] = useState(false);
-    const {userName,setuserName}=useContext(MenuContext);
+    const {userName,setuserName,setlogout}=useContext(MenuContext);
 
     const [value, setvalues] = useState({
         name: "",
@@ -78,12 +78,18 @@ const UserAuth = () => {
         signOut(auth).then(() => {
             toast.success("Log Out Successfully", {
                 position: toast.POSITION.TOP_CENTER
-              })
-          }).catch((error) => {
+            })
+            
+        }).catch((error) => {
             toast.failure("Error has been Occured", {
                 position: toast.POSITION.TOP_CENTER
-              })
-          });          
+            })
+        });          
+        setlogout(false);
+        localStorage.removeItem("fav-items");
+        localStorage.removeItem("Cart-data");
+        localStorage.removeItem("Cart-freq");
+        localStorage.removeItem("Cart-len");
     }
     const user = auth.currentUser;
 
@@ -111,7 +117,7 @@ const UserAuth = () => {
 
     function demologin(){
         setvalues1({email:"12@gmail.com",password:"123456"});
-        handlesubmissionlogin();
+            handlesubmissionlogin();
     }
 
     return <div className="flex flex-col py-10 pt-36 justify-center items-center dark:bg-[#0d1117]">
@@ -138,8 +144,8 @@ const UserAuth = () => {
                         <p className="pt-2">
                             <span className="pr-3">Already have an account?</span>
                             <span className=" text-blue-400 cursor-pointer" onClick={() => { loginsignupsetup() }}>Login</span>
-                            <span className="cursor-pointer text-blue-400 pl-10" onClick={() => { demologin() }}>Demo-login</span>
                         </p>
+                        <span className="cursor-pointer text-blue-400" onClick={(e) => { demologin() }}>Demo-login(Double-click here)</span>
                     </div>
                 </div>) :
                 (<div className="flex flex-col dark:bg-[#24292f] dark:text-slate-100 p-10 rounded-lg gap-y-6  w-1/4">

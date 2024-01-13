@@ -26,7 +26,7 @@ const Cart = () => {
     setbg2("bg-[#141618] bg-[#bbbaba]");
     setupi(false);
   }
-  var { cartitems, freq } = useContext(MenuContext);
+  var { cartitems, freq,logout } = useContext(MenuContext);
   function changecolor2() {
     setbg1("bg-[#141618] bg-[#bbbaba]");
     setbg2("bg-[#232627] bg-[#858484]");
@@ -72,8 +72,8 @@ const Cart = () => {
   var total = 0;
   var freq1 = 0;
 
-
-
+  
+  
 
 
 

@@ -10,17 +10,18 @@ import useGeolocation from 'react-hook-geolocation';
 import { additemtocart } from './Redux/Slices/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { LocationContext } from './ContextAPI/LocationContext';
-import { auth } from './firebase';
+
 
 function App() {
   const dispatch = useDispatch();
-  const { restaurant_data, setrestaurant_data, fetchdata } = useContext(MenuContext);
+  const { restaurant_data, setrestaurant_data, fetchdata,logout } = useContext(MenuContext);
   const [latitude, setlatitude] = useState(null);
   const [longitude, setlongitude] = useState(null);
   const [head, sethead] = useState(null);
   var { cartitems, freq } = useContext(MenuContext);
   const geolocation = useGeolocation();
   const favres=useSelector(store=>store.favres.items);
+  
 
   useEffect(() => {
     if (cartitems.length !== 0) {
@@ -59,6 +60,7 @@ function App() {
   }, [])
 
 
+
   useEffect(() => {
     if (!geolocation.error) {
       setlatitude(geolocation.latitude)
@@ -71,8 +73,6 @@ function App() {
     console.log(longitude);
     fetchdata(latitude, longitude);
   }, [latitude, longitude]);
-
-
 
 
   return (
