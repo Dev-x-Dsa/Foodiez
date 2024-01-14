@@ -32,8 +32,11 @@ const FavresSlice = createSlice(
       state.items = state.items.filter((item) => item?.info?.id !== itemId);
     },
 
+    clearFavres: (state) => {
+      state.items = [];
+  },
   },
 });
 
-export const { additemtofav, removeitemfromfav } = FavresSlice.actions;
+export const { additemtofav, removeitemfromfav,clearFavres} = FavresSlice.actions;
 export default FavresSlice.reducer;

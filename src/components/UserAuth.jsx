@@ -5,12 +5,14 @@ import {auth} from "../firebase"
 import { useNavigate } from "react-router";
 import { MenuContext } from "../ContextAPI/MenuContext";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { clearFavres } from "../Redux/Slices/FavresSlice";
 
 const UserAuth = () => {
 
     const navigate=useNavigate();
     const [login, setlogin] = useState(false);
-    const {userName,setuserName,setlogout}=useContext(MenuContext);
+    const {userName,setuserName}=useContext(MenuContext);
 
     const [value, setvalues] = useState({
         name: "",
@@ -39,7 +41,6 @@ const UserAuth = () => {
         }
         seterrMsg("");
         setsubmitbuttondisabled(true); 
-        console.log(value);
         
         createUserWithEmailAndPassword(auth,value.email,value.password).then(
             async(res)=>{
@@ -62,7 +63,6 @@ const UserAuth = () => {
         }
         seterrMsg1("");
         setsubmitbuttondisabled(true); 
-        console.log(value);
         
         signInWithEmailAndPassword(auth,value1.email,value1.password).then(
             async(res)=>{
@@ -72,9 +72,10 @@ const UserAuth = () => {
             }
         ).catch((err)=>{seterrMsg1("Err: "+err.message); setsubmitbuttondisabled(false)})
     } 
-
+    const dispatch=useDispatch();
 
     function handlelogout(){
+
         signOut(auth).then(() => {
             toast.success("Log Out Successfully", {
                 position: toast.POSITION.TOP_CENTER
@@ -85,11 +86,12 @@ const UserAuth = () => {
                 position: toast.POSITION.TOP_CENTER
             })
         });          
-        setlogout(false);
         localStorage.removeItem("fav-items");
         localStorage.removeItem("Cart-data");
         localStorage.removeItem("Cart-freq");
         localStorage.removeItem("Cart-len");
+
+        window.location.reload();
     }
     const user = auth.currentUser;
 
@@ -119,7 +121,7 @@ const UserAuth = () => {
         setvalues1({email:"12@gmail.com",password:"123456"});
             handlesubmissionlogin();
     }
-
+    
     return <div className="flex flex-col py-10 pt-36 justify-center items-center dark:bg-[#0d1117]">
         {
             !login ?

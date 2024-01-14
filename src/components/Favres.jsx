@@ -12,9 +12,7 @@ const Favres = () => {
 
 
     var favres = useSelector(store => store.favres.items);
-
-
-
+    
     if(!favres){
         return <div className='py-20 flex flex-wrap justify-evenly items-center gap-y-12 font-Open dark:bg-[#0d1117]'>
             <img src={imgg}/>
@@ -29,6 +27,9 @@ const Favres = () => {
         }
         localStorage.setItem('isCartEmptied', 'false');
     }, [])
+
+
+
     return (
         <div className='py-20 pt-36 flex flex-wrap justify-evenly items-center gap-y-12 font-Open dark:bg-[#0d1117]'>
            

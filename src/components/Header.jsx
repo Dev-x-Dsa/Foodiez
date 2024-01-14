@@ -9,6 +9,7 @@ import img2 from "../images/sun.png";
 import { MenuContext } from '../ContextAPI/MenuContext';
 import { FaCircleUser } from "react-icons/fa6";
 import {auth} from "../firebase"
+import { toast } from 'react-toastify';
 
 
 
@@ -62,6 +63,12 @@ const Header = () => {
     name=generateInitials(user.displayName);
   }
 
+  function favclick(){
+      toast.success("Login/Use Demo Login !", {
+        position: toast.POSITION.TOP_CENTER,
+    });
+  }
+
   return (
     <div>
       <div className='fixed z-50 top-0 w-full flex flex-row justify-between text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
@@ -86,13 +93,27 @@ const Header = () => {
               </div>
             </div></Link>
           </div>
-          <Link to="/favourite restuarants">
-            <div className='dark:invert-0 invert'>
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#d1cdcd" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-              </svg>
-            </div></Link>
+          {
+            (user && user!==null && user!==undefined && user.displayName)?
+            (
+              <Link to="/favourite restuarants">
+                <div className='cursor-pointer dark:invert-0 invert'>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#d1cdcd" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                  </svg>
+                </div>
+              </Link>
+            ):
+            (
+              <div onClick={()=>{favclick()}} className='cursor-pointer dark:invert-0 invert'>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#d1cdcd" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                </svg>
+              </div>
+            )
+          }
           <div className='dark:hidden'><img onClick={() => { handlethemeswitch(); }} src={img1} className='w-7 h-7 cursor-pointer' /></div>
           <div className='hidden dark:block'><img onClick={() => { handlethemeswitch(); }} src={img2} className='w-7 h-7 cursor-pointer' /></div>
 

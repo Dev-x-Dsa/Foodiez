@@ -60,7 +60,6 @@ const CartSlice = createSlice(
     },
 
     clearcart: (state,action) => {
-      console.log("chla");
       const itemId = action.payload;
       state.items = state.items.filter((item) => item?.info?.id !== itemId);
       delete state.itemQuantities[itemId];
