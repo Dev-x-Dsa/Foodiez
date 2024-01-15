@@ -125,7 +125,7 @@ const UserAuth = () => {
     return <div className="flex flex-col py-10 pt-36 justify-center items-center dark:bg-[#0d1117]">
         {
             !login ?
-                (<div className="flex flex-col p-10 rounded-lg gap-y-6 dark:bg-[#24292f] dark:text-slate-100 w-1/4">
+                (<div className="flex flex-col p-10 rounded-lg gap-y-6 dark:bg-[#24292f] bg-[#f6f8fc] dark:text-slate-100 w-1/4">
                     <h1 className="text-3xl text-bold dark:text-slate-200">Sign Up</h1>
                    
                     <div>

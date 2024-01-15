@@ -35,8 +35,8 @@ const Favres = () => {
            
             {
                 favres && favres.length===0?
-                (<div className='py-20 flex flex-wrap justify-evenly items-center gap-y-12 font-Open dark:bg-[#0d1117]'>
-                <img src={imgg}/>
+                (<div className='py-20 flex flex-wrap justify-evenly items-center gap-y-12 font-Open dark:bg-[#0d1117] animate-pulse'>
+                <img src={imgg} alt=""/>
             </div>):(
                 favres.map((data) => {
                     return <FavresCard data={data} />

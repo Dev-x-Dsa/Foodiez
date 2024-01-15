@@ -13,32 +13,7 @@
     }
 }
 
-@keyframes grade {
-
-    0%, 27% {
-        background-position: 0% 33%;
-    }
-
-    33%, 60% {
-        background-position: 33% 66%;
-    }
-
-    66%, 94% {
-        background-position: 66% 100%;
-    }
-
-    100% {
-        background-position: 100% 0%;
-    }
-}
-
 .spinner {
     animation: spinner infinite ease-in-out;
-    animation-duration: 21s;
-}
-
-.nice{
-    
-    animation: grade infinite ease-in-out;
-    animation-duration: 21s;
+    animation-duration: 11s;
 }
