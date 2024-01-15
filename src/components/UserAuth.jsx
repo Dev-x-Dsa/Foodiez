@@ -106,8 +106,8 @@ const UserAuth = () => {
     if (user && user !== null && user!==undefined && user.displayName) {
 
         const nam=generateInitials(user.displayName);
-        return (<div className="flex flex-col  py-52 justify-center items-center dark:bg-[#0d1117]">
-                <div className="flex flex-col p-10 rounded-lg gap-y-6 dark:bg-[#24292f] dark:text-slate-100 w-1/4">
+        return (<div className="flex flex-col  py-52 justify-center items-center  dark:bg-[#0d1117]">
+                <div className="flex flex-col  bg-[#f6f8fc] p-10 rounded-lg gap-y-6 dark:bg-[#24292f] dark:text-slate-100 w-1/4">
                     <p className="text-center bg-white text-black rounded-full w-[40px] h-[40px] flex items-center justify-center mx-auto">{nam}</p>
                     <p>Name: {user.displayName}</p>
                     <p>Email: {user.email}</p>
@@ -150,7 +150,7 @@ const UserAuth = () => {
                         <span className="cursor-pointer text-blue-400" onClick={(e) => { demologin() }}>Demo-login(Double-click here)</span>
                     </div>
                 </div>) :
-                (<div className="flex flex-col dark:bg-[#24292f] dark:text-slate-100 p-10 rounded-lg gap-y-6  w-1/4">
+                (<div className="flex flex-col  bg-[#f6f8fc] dark:bg-[#24292f] dark:text-slate-100 p-10 rounded-lg gap-y-6  w-1/4">
                     <h1 className="text-3xl text-bold dark:text-slate-200">Login</h1>
                     <div className="flex flex-col gap-x-5">
                         <div className="pl-0.5"><label for="Email">Email</label></div>
