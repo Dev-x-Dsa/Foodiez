@@ -114,7 +114,7 @@ const Cart = () => {
                         Subtotal :{" "}
                       </span>
                       <span class="text-neutral-700 font-thin dark:text-gray-300">
-                        ₹{total}.00
+                        ₹{parseFloat(total)}
                       </span>
                     </div>
                     <div className="flex items justify-between items-stretch">
@@ -131,7 +131,7 @@ const Cart = () => {
                         Total Price :{" "}
                       </span>
                       <span class="text-neutral-700 font-thin dark:text-gray-300">
-                        ₹{total + 50}.00
+                        ₹{total + 50}
                       </span>
                     </div>
                   </div>

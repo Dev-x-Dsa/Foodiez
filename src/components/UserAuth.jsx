@@ -106,7 +106,7 @@ const UserAuth = () => {
     if (user && user !== null && user!==undefined && user.displayName) {
 
         const nam=generateInitials(user.displayName);
-        return (<div className="flex flex-col  py-36 justify-center items-center dark:bg-[#0d1117]">
+        return (<div className="flex flex-col  py-52 justify-center items-center dark:bg-[#0d1117]">
                 <div className="flex flex-col p-10 rounded-lg gap-y-6 dark:bg-[#24292f] dark:text-slate-100 w-1/4">
                     <p className="text-center bg-white text-black rounded-full w-[40px] h-[40px] flex items-center justify-center mx-auto">{nam}</p>
                     <p>Name: {user.displayName}</p>
