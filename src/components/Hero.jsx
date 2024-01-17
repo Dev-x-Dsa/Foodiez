@@ -14,8 +14,6 @@ const Hero = () => {
     const [locationdata,setlocationdata]=useState("Ludhiana");
     const {latitude,longitude,getlatlong}=useContext(LocationContext);
     const {fetchdata}=useContext(MenuContext);
-    console.log(latitude);
-    console.log(longitude);
     useEffect(()=>{
         if(latitude!==null && longitude!==null){
             fetchdata(latitude,longitude);

@@ -11,7 +11,6 @@ const RestaurantMenu = () => {
     const { resid, setresid, fetchdata2, restaurant_menu, restaurant_info, restaurant_info2, vegonly, setvegonly } = useContext(MenuContext);
     const [cusine, setcusine] = useState([]);
     const [data, setdata] = useState(restaurant_info2);
-    console.log(restaurant_info)
     const item = "burger";
     
 

@@ -29,7 +29,6 @@ const Header = () => {
       localStorage.setItem('Mode', usertheme);
     }
     else {
-      console.log(localStorage.getItem('Mode'));
       document.documentElement.classList.add(localStorage.getItem('Mode'));
     }
   }, [])

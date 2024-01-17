@@ -26,7 +26,6 @@ export default function MenuContextProvider({ children }) {
     const [vegonly,setvegonly]=useState(false);
 
 
-    console.log(filterapplied);
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
             if (user) {

@@ -63,7 +63,6 @@ const CartSlice = createSlice(
       const itemId = action.payload;
       state.items = state.items.filter((item) => item?.info?.id !== itemId);
       delete state.itemQuantities[itemId];
-      console.log(state.items.length);
       if(state.items.length===0){
         localStorage.setItem('isCartEmptied', 'true');
         localStorage.removeItem('Cart-data');

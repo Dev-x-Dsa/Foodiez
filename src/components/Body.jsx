@@ -97,7 +97,7 @@ const Body = () => {
                   <button onClick={() => {setb4(!b4); filterdataonratings(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b4?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b4?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Rating 4.0+
                   </button>
-                  <button disabled={b4} onClick={() => {setb5(!b5); filterAb3(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b5?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b5?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
+                  <button disabled={b4} onClick={() => {setb5(!b5); filterAb3(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b5?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b5?"dark:bg-green-600":"dark:bg-[#24292f]"}  rounded-lg text-xl`}>
                     Rating 3.0+
                   </button>
                   <button disabled={b4 || b5} onClick={() => { setb6(!b6); filterAb2(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b6?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b6?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
