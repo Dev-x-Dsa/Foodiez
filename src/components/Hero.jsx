@@ -23,7 +23,7 @@ const Hero = () => {
     const {userName}=useContext(MenuContext);
     
     return (
-        <div className="relative pb-10 overflow-y-hidden max-h-[700px] hover:before:to-10%  before:absolute before:left-0 before:right-0 before:top-0 before:z-10 before:h-full before:w-full before:bg-gradient-to-br  from-[#333333] to-40% text-lg group mt-10">
+        <div className="relative pb-10 overflow-y-hidden max-h-[575px] hover:before:to-10%  before:absolute before:left-0 before:right-0 before:top-0 before:z-10 before:h-full before:w-full before:bg-gradient-to-br  from-[#333333] to-40% text-lg group mt-10">
             <Carousel showArrows={true} autoPlay showStatus={false} infiniteLoop showThumbs={false} interval={3950}>
             <img src={img} className=""/>
             <img src={img1} className=""/> 
