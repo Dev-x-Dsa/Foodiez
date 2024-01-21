@@ -7,13 +7,13 @@ Welcome to Foodiez, a sleek and modern food delivery web app. Crafted meticulous
 - **Discover & Dine:** Explore a diverse array of restaurants and their enticing menus at your fingertips.
 - **Cart Convenience:** Effortlessly add and manage your meal selections with our dynamic cart system.
 - **Location-Based Menus:** Enjoy personalized menu options dynamically tailored to your location for a truly local dining experience.
-
+- **Filter Options:** Narrow down your choices by applying various filters such as rating, delivery time, and more.
+- **Firebase Authentication:** Securely sign up and log in with your email and password for faster access.
+- **Demo Login:** Try out the app without creating an account by using our demo login feature.
+- **Add Your Favourites:** You can also add your favourite restaurants to your profile and access them anytime.
 ---
+ **Development Stage:** FIRST_RELEASE
 
-**Development Stage:** *PRE_ALPHA*
-
-**NOTE :** The current build is in its early stages, and while it's brimming with potential, it's still undergoing rigorous testing and refinement to ensure stability and performance, and is not stable at the moment. Stay tuned for further releases.
-
----
+ **NOTE:** The current build is our first release, and we are proud to present it to you. We have tested and refined the app to ensure stability and performance, but we are always open to feedback and suggestions. Please let us know if you encounter any issues or have any ideas to improve the app.
 
 Feel free to use or modify this project to fit your needs 😄
