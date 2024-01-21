@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { MenuContext } from '../ContextAPI/MenuContext';
 import Card from './Card';
 import { Link } from 'react-router-dom';
@@ -23,8 +23,8 @@ const Body = () => {
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
   };
-  const { restaurant_data, restaurant_bannerdata, filterdataonratings, filterAbove3, filterBest, filterAbove2, filterAbove1, filterUnder30,filterVegi } = useContext(MenuContext);
-  console.log(restaurant_data);
+  const { restaurant_data,filterunderVegi, restaurant_bannerdata, filterdataonratings, filterAbove3, filterBest, filterAbove2, filterAbove1, filterUnder30,filterVegi,filterBestunder,filterBestVegi,filterAll,filterBestundervegi} = useContext(MenuContext);
+
   function filterdataratings(){
     filterdataonratings();
   }
@@ -32,7 +32,34 @@ const Body = () => {
     filterAbove3()
   }
   function filterBst() {
-    filterBest()
+    if(b1){
+        if(b2 && b3){
+          filterBestundervegi();
+        }
+        else if(b2){
+          filterBestunder();
+        }
+        else if(b3){
+          filterBestVegi();
+        }
+        else{
+          filterBest();
+        }
+    }
+    else{
+      if(b2 && b2){
+        filterunderVegi();
+      }
+      else if(b3){
+        filterVegi();
+      }
+      else if(b2){
+        filterUnder30();
+      }
+      else{
+        filterAll();
+      }
+    }
   }
   function filterAb2() {
     filterAbove2()
@@ -41,11 +68,82 @@ const Body = () => {
     filterAbove1()
   }
   function filter30() {
-    filterUnder30()
+    if(b2){
+      if(b1 && b3){
+        filterBestundervegi();
+      }
+      else if(b1){
+        filterBestunder();
+      }
+      else if(b3){
+        filterunderVegi();
+      }
+      else{
+        filterUnder30()
+      }
+  }
+  else{
+    if(b1 && b3){
+      filterBestVegi();
+    }
+    else if(b1){
+      filterBest();
+    }
+    else if(b3){
+      filterVegi();
+    }
+    else{
+      filterAll();
+    }
+  }
   }
   function filterVeg() {
-    filterVegi()
+    if(b3){
+      if(b1 && b2){
+        filterBestundervegi();
+      }
+      else if(b1){
+        filterBestVegi();
+      }
+      else if(b2){
+        filterunderVegi();
+      }
+      else{
+        filterVegi()
+      }
   }
+  else{
+    if(b1 && b2){
+      filterBestunder();
+    }
+    else if(b1){
+      filterBest();
+    }
+    else if(b2){
+      filterUnder30();
+    }
+    else{
+      filterAll();
+    }
+  }
+}
+
+
+
+  useEffect(() => {
+      filterBst();
+  }, [b1]);
+
+  useEffect(() => {
+    filter30();
+}, [b2]);
+
+  useEffect(() => {
+    filterVeg();
+}, [b3]);
+
+
+
   return (
     <div className='dark:bg-[#0c111d]'>
       {
@@ -85,25 +183,25 @@ const Body = () => {
                 </div>
 
                 <div className='flex gap-x-4 font-semibold'>
-                  <button onClick={() => {setb1(!b1); filterBst(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b1?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b1?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
+                  <button onClick={() => {setb1(!b1); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b1?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b1?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Top Restaurants
                   </button>
-                  <button onClick={() => {setb2(!b2); filter30(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b2?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b2?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
+                  <button onClick={() => {setb2(!b2); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b2?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b2?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Under 30 Min
                   </button>
-                  <button onClick={() => {setb3(!b3); filterVeg(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b3?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b3?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
+                  <button onClick={() => {setb3(!b3); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b3?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b3?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Veg Only
                   </button>
                   <button onClick={() => {setb4(!b4); filterdataonratings(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b4?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b4?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
                     Rating 4.0+
                   </button>
-                  <button disabled={b4} onClick={() => {setb5(!b5); filterAb3(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b5?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b5?"dark:bg-green-600":"dark:bg-[#24292f]"}  rounded-lg text-xl`}>
+                  <button disabled={b4} onClick={() => {setb5(!b5); filterAb3(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b4?("bg-yellow-600"):(b5?"bg-green-600":"bg-slate-100")}  text-slate-900  ${b4?("dark:bg-yellow-600"):(b5?"dark:bg-green-600":"dark:bg-[#24292f]")}   rounded-lg text-xl`}>
                     Rating 3.0+
                   </button>
-                  <button disabled={b4 || b5} onClick={() => { setb6(!b6); filterAb2(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b6?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b6?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
+                  <button disabled={b4 || b5} onClick={() => { setb6(!b6); filterAb2(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b4 || b5?("bg-yellow-600"):(b6?"bg-green-600":"bg-slate-100")} text-slate-900 ${(b4 || b5)?("dark:bg-yellow-600"):(b6?"dark:bg-green-600":"dark:bg-[#24292f]")} rounded-lg text-xl`}>
                     Rating 2.0+
                   </button>
-                  <button disabled={b4 || b5 || b6} onClick={() => {setb7(!b7); filterAb1(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b7?"bg-green-600":"bg-slate-100"}  text-slate-900 ${b7?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
+                  <button disabled={b4 || b5 || b6} onClick={() => {setb7(!b7); filterAb1(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b4 || b5 || b6?("bg-yellow-600"):(b7?"bg-green-600":"bg-slate-100")}  text-slate-900 ${b4  || b5 || b6?("dark:bg-yellow-600"):(b7?"dark:bg-green-600":"dark:bg-[#24292f]")} rounded-lg text-xl`}>
                     Rating 1.0+
                   </button>
                 </div>

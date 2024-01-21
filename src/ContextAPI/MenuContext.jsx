@@ -24,7 +24,7 @@ export default function MenuContextProvider({ children }) {
     const [userName, setuserName] = useState("");
     const [filterapplied,setfilterapplied]=useState(false);
     const [vegonly,setvegonly]=useState(false);
-
+    
 
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
@@ -102,6 +102,42 @@ export default function MenuContextProvider({ children }) {
             setrestaurant_data(filterdata1);
     }
 
+    function filterBestunder() {
+        const filterdata2 = temprestaurant_data.filter((data) => {
+            return parseFloat(data?.info?.avgRating)>=4.5 && parseFloat(data?.info?.sla?.deliveryTime) <= 30.0;
+        })
+        if (filterdata2 !== undefined && filterdata2 !== null)
+            setrestaurant_data(filterdata2);
+    }
+
+    function filterBestVegi() {
+        const filterdata2 = temprestaurant_data.filter((data) => {
+            return parseFloat(data?.info?.avgRating)>=4.5 &&  data?.info?.veg;
+        })
+        if (filterdata2 !== undefined && filterdata2 !== null)
+            setrestaurant_data(filterdata2) 
+    }
+
+    function filterBestundervegi() {
+        const filterdata2 = temprestaurant_data.filter((data) => {
+            return parseFloat(data?.info?.avgRating)>=4.5 &&  data?.info?.veg && parseFloat(data?.info?.sla?.deliveryTime) <= 30.0;
+        })
+        if (filterdata2 !== undefined && filterdata2 !== null)
+            setrestaurant_data(filterdata2) 
+    }
+
+    function filterunderVegi() {
+        const filterdata2 = temprestaurant_data.filter((data) => {
+            return parseFloat(data?.info?.avgRating)>=4.5 &&  data?.info?.veg && parseFloat(data?.info?.sla?.deliveryTime) <= 30.0;
+        })
+        if (filterdata2 !== undefined && filterdata2 !== null)
+            setrestaurant_data(filterdata2) 
+    }
+
+    function filterAll() {
+        setrestaurant_data(temprestaurant_data);
+    }
+
     function filterdataonratings() {
         if(filterapplied===false){
             setfilterapplied(true);
@@ -116,6 +152,9 @@ export default function MenuContextProvider({ children }) {
             setrestaurant_data(temprestaurant_data);
         }
     }
+
+
+
     function filterAbove3() {
         if(filterapplied===false){
             setfilterapplied(true);
@@ -156,17 +195,10 @@ export default function MenuContextProvider({ children }) {
         }
     }
     function filterBest() {
-        if(filterapplied===false){
-            setfilterapplied(true);
             const filterdata = temprestaurant_data.filter((data) => {
                 return parseFloat(data?.info?.avgRating) >= 4.5;
             })
             if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)
-        }
-        else{
-            setfilterapplied(false);
-            setrestaurant_data(temprestaurant_data);
-        }
     }
     function filterUnder30() {
         if(filterapplied===false){
@@ -182,18 +214,12 @@ export default function MenuContextProvider({ children }) {
         }
     }
     function filterVegi() {
-        if(filterapplied===false){
-            setfilterapplied(true);
             const filterdata = temprestaurant_data.filter((data) => {
                 return data?.info?.veg;
             })
             if (filterdata!==undefined && filterdata!=null) setrestaurant_data(filterdata)    
-        }
-        else{
-            setfilterapplied(false);
-            setrestaurant_data(temprestaurant_data);
-        }
     }
+
 
     function allrestaurants() {
         setrestaurant_data(temprestaurant_data);
@@ -245,7 +271,12 @@ export default function MenuContextProvider({ children }) {
         filterUnder30,
         filterVegi,
         vegonly,
-        setvegonly
+        setvegonly,
+        filterBestunder,
+        filterBestVegi,
+        filterAll,
+        filterunderVegi,
+        filterBestundervegi
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>
