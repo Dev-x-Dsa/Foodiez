@@ -1,7 +1,7 @@
 import img from "../images/loadcrop.gif"
-import img1 from "../images/first.png";
-import img2 from "../images/last.png";
-import img3 from "../images/r_aside.jpg";
+import img1 from "../images/first.webp";
+import img2 from "../images/last.webp";
+import img3 from "../images/r_aside.webp";
 import { toast } from "react-toastify";
 import { useState } from "react";
 

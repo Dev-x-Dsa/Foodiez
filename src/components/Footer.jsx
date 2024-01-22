@@ -1,10 +1,10 @@
 import React from 'react'
-import img1 from "../images/facebook.png";
-import img2 from "../images/instagram.png";
-import img3 from "../images/linkedin.png";
-import img4 from "../images/x.png";
-import img5 from "../images/youtube.png";
-import img6 from "../images/github-mark.png";
+import img1 from "../images/facebook.webp";
+import img2 from "../images/instagram.webp";
+import img3 from "../images/linkedin.webp";
+import img4 from "../images/x.webp";
+import img5 from "../images/youtube.webp";
+import img6 from "../images/github-mark.webp";
 
 const Footer = () => {
   return (

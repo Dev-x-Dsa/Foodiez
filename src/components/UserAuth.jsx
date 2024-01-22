@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import img1 from "../images/123.png";
+import img1 from "../images/123.webp";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import {auth} from "../firebase"
 import { useNavigate } from "react-router";

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ItemCard from './ItemCard';
-import img from "../images/down-arrow.png"
-import img2 from "../images/uparrow.png"
+import img from "../images/down-arrow.webp"
+import img2 from "../images/uparrow.webp"
 
 
 const RestaurantMenuOpt = ({ rest }) => {

@@ -3,9 +3,9 @@ import { CDN_URL } from '../constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { additemtocart, removeitem } from '../Redux/Slices/CartSlice';
 import { toast } from 'react-toastify';
-import vegimg from "../images/veg.png";
-import nonveg from "../images/nonveg.png";
-import defalt from "../images/default.png";
+import vegimg from "../images/veg.webp";
+import nonveg from "../images/nonveg.webp";
+import defalt from "../images/default.webp";
 import { MenuContext } from '../ContextAPI/MenuContext';
 import {auth} from "../firebase"
 

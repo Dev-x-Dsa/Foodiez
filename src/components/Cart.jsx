@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import img1 from "../images/loadcrop.gif";
 import img2 from "../images/finalcrop.gif";
-import visa from "../images/visa.png"
-import mastercard from "../images/mastercard.png"
-import rupay from "../images/rupay.png"
-import qr from "../images/qr.png"
+import visa from "../images/visa.webp"
+import mastercard from "../images/mastercard.webp"
+import rupay from "../images/rupay.webp"
+import qr from "../images/qr.webp"
 import { toast } from "react-toastify";
 import { additemtocart } from "../Redux/Slices/CartSlice";
 import { MenuContext } from "../ContextAPI/MenuContext";

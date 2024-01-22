@@ -3,7 +3,7 @@ import { CDN_URL } from '../constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { additemtocart, removeitem, clearcart } from '../Redux/Slices/CartSlice';
 import { toast } from 'react-toastify';
-import defalt from "../images/default.png";
+import defalt from "../images/default.webp";
 
 const Card2 = ({ cartitem }) => {
     const [pric, setpric] = useState(0);

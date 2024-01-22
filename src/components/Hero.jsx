@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import best from "../images/hero.png"
+import best from "../images/hero.webp"
 import { LocationContext } from "../ContextAPI/LocationContext";
 import { MenuContext } from "../ContextAPI/MenuContext";
 import './hero.css'
-import img from "../images/ramen.png";
-import img1 from "../images/pizza.jpg"
-import img2 from "../images/salad.png";
-import img3 from "../images/fpin.png";
+import img from "../images/ramen.webp";
+import img1 from "../images/pizza.webp"
+import img2 from "../images/salad.webp";
+import img3 from "../images/fpin.webp";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 

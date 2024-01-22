@@ -1,4 +1,4 @@
-import img from "../images/download.jpg"
+import img from "../images/download.webp"
 
 const Contact = () => {
     return <div className="dark:bg-[#0c111d] dark:text-white text-neutral-900 pt-24">

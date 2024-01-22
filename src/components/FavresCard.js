@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { CDN_URL } from '../constants';
-import img1 from "../images/star.png"
+import img1 from "../images/star.webp"
 import { LocationContext } from '../ContextAPI/LocationContext';
 import { MenuContext } from '../ContextAPI/MenuContext';
 import { useDispatch, useSelector } from 'react-redux';

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { redirect, useParams, useSearchParams } from 'react-router-dom';
 import { MenuContext } from '../ContextAPI/MenuContext';
 import RestaurantMenuOpt from './RestaurantMenuOpt';
-import clock from '../images/clock.png'
+import clock from '../images/clock.webp'
 import { CDN_URL } from '../constants';
 
 const RestaurantMenu = () => {

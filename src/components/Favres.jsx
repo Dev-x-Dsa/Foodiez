@@ -4,7 +4,7 @@ import { additemtofav } from "../Redux/Slices/FavresSlice";
 import { useContext, useEffect } from "react";
 import FavresCard from "./FavresCard";
 import { MenuContext } from "../ContextAPI/MenuContext";
-import imgg from "../images/notfound.png"
+import imgnormal from "../images/notfound.webp"
 
 
 
@@ -24,7 +24,7 @@ const Favres = () => {
 
     if(!favres){
         return <div className='py-20 flex flex-wrap justify-evenly items-center gap-y-12 font-Open dark:bg-[#0d1117]'>
-            <img src={imgg}/>
+            <img src={imgnormal} className="dark:invert"/>
         </div>
     }
 
@@ -34,7 +34,7 @@ const Favres = () => {
             {
                 favres && favres.length===0?
                 (<div className='py-20 flex flex-wrap justify-evenly items-center gap-y-12 font-Open dark:bg-[#0d1117] animate-pulse'>
-                <img src={imgg} alt=""/>
+                        <img src={imgnormal} alt="" className="dark:invert"/>
             </div>):(
                 favres.map((data) => {
                     return <FavresCard data={data} />

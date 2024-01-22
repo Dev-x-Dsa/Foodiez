@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
-import image from "../images/images.png";
+import image from "../images/images.webp";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import img1 from "../images/moon.png"
-import img2 from "../images/sun.png";
+import img1 from "../images/moon.webp"
+import img2 from "../images/sun.webp";
 import { MenuContext } from '../ContextAPI/MenuContext';
 import { FaCircleUser } from "react-icons/fa6";
 import {auth} from "../firebase"

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Shimmer from './Shimmer';
 import { CDN_URL } from '../constants';
 import './style.css'
-import img from "../images/circle-right.png";
+import img from "../images/circle-right.webp";
 import Hero from './Hero';
 import { useRef } from 'react';
 
