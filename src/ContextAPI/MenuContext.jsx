@@ -42,9 +42,7 @@ export default function MenuContextProvider({ children }) {
     async function fetchdata(latitude, longitude) {
         setlati(latitude);
         setlongi(longitude);
-        const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
-        let restaurant_listurl = `${corsAnywhereUrl}https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`;
-        // let restaurant_listurl = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0760&lng=72.8777&page_type=DESKTOP_WEB_LISTING`;
+        let restaurant_listurl = `https://corsproxy.org/?${encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lati}&lng=${longi}&page_type=DESKTOP_WEB_LISTING`)}`;
         const output = await fetch(restaurant_listurl);
         const data = await output.json();
         let restaurant_info=[];
@@ -85,10 +83,7 @@ export default function MenuContextProvider({ children }) {
                 })
             }
         </div>
-        
-        const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
-        let restaurant_menuurl = `${corsAnywhereUrl}https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lati}&lng=${longi}&restaurantId=${resid}&submitAction=ENTER`;
-        // let restaurant_menuurl = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0760&lng=72.8777&restaurantId=${resid}&submitAction=ENTER`;
+        let restaurant_menuurl = `https://corsproxy.org/?${encodeURIComponent(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lati}&lng=${longi}&restaurantId=${resid}&submitAction=ENTER`)}`;
         const output = await fetch(restaurant_menuurl);
         const data2 = await output.json();
         setrestaurant_info(data2?.data?.cards[0]?.card?.card?.info);
