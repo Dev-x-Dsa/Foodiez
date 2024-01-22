@@ -42,7 +42,7 @@ export default function MenuContextProvider({ children }) {
     async function fetchdata(latitude, longitude) {
         setlati(latitude);
         setlongi(longitude);
-        let restaurant_listurl = `https://corsproxy.org/?${encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lati}&lng=${longi}&page_type=DESKTOP_WEB_LISTING`)}`;
+        let restaurant_listurl = `https://corsproxy.org/?${encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`)}`;
         const output = await fetch(restaurant_listurl);
         const data = await output.json();
         let restaurant_info=[];
