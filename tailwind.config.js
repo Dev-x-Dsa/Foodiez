@@ -6,6 +6,10 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      containers: {
+        xss: '16rem',
+        // etc...
+      },
       fontFamily: {
         'Open': ['Open Sans', 'sans- serif'],
         'Roboto': ['Roboto', 'sans- serif']

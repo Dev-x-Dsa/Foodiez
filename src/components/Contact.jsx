@@ -4,6 +4,7 @@ import img2 from "../images/last.webp";
 import img3 from "../images/r_aside.webp";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import "./hero.css";
 
 const About = () => {
 
@@ -35,7 +36,7 @@ const About = () => {
                 <img src={img1} className="w-full"/>
             </div>
 
-            <div className="flex flex-row justify-between w-full">
+            <div className="flex contact justify-between w-full">
                 <div className="flex flex-col mx-auto mt-10 text-black gap-y-2.5">
                 <p className=" text-3xl font-bold text-black dark:text-[#e5d8fa]">Lets level up your brand, together</p>
                 <p className="dark:text-[#f1f0f6]">You can reach us anytime</p>
@@ -67,7 +68,7 @@ const About = () => {
                         </button>
                     </div>
                 </div>
-                <div className="overflow-clip">
+                <div className="overflow-clip contact-img">
                     <img src={img3}/>
                 </div>
             </div>

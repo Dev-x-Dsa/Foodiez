@@ -5,15 +5,16 @@ import img3 from "../images/linkedin.webp";
 import img4 from "../images/x.webp";
 import img5 from "../images/youtube.webp";
 import img6 from "../images/github-mark.webp";
+import "./hero.css";
 
 const Footer = () => {
   return (
     <div className='bg-[#f6f8fc] px-32 pt-12 py-8 dark:bg-[#24292f] dark:text-white font-Open'>
       <div className='font-bold text-3xl ml-8 text-zinc-700 dark:text-slate-300'>Foodiez</div>
-      <div className='flex flex-row w-full justify-evenly'>
+      <div className='flex footer w-full justify-evenly'>
         <div>
           <p className='font-semibold mb-3 text-zinc-700 dark:text-slate-300 text-xl'>About Foodiez</p>
-          <div className='flex flex-col gap-y-2'>
+          <div className='flex flex-col gap-y-2 footer-div'>
             <p className='cursor-pointer'>Who We Are</p>
             <p className='cursor-pointer'>Blog</p>
             <p className='cursor-pointer'>Work With Us</p>
@@ -24,7 +25,7 @@ const Footer = () => {
         </div>
         <div>
           <p className='font-semibold mb-3 text-zinc-700 dark:text-slate-300 text-xl'>Company</p>
-          <div className='flex flex-col gap-y-2'>
+          <div className='flex flex-col gap-y-2 footer-div'>
             <p className='cursor-pointer'>Careers</p>
             <p className='cursor-pointer'>Team</p>
             <p className='cursor-pointer'>Values</p>
@@ -33,7 +34,7 @@ const Footer = () => {
         </div>
         <div>
           <p className='font-semibold mb-3 text-zinc-700 dark:text-slate-300 text-xl'>Contact Us</p>
-          <div className='flex flex-col gap-y-2'>
+          <div className='flex flex-col gap-y-2 footer-div'>
             <p className='cursor-pointer'>Help & Support</p>
             <p className='cursor-pointer'>Partner with us</p>
             <p className='cursor-pointer'>Register as Restaurant</p>
