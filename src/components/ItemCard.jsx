@@ -54,7 +54,7 @@ const ItemCard = ({ data, visible }) => {
 
     return (
          <div className={`${visible ? 'hidden' : 'flex'} font-Open`}>
-            <div className='flex border-b-2 py-10 justify-between items-center w-[800px] mx-auto'>
+            <div className='flex border-b-2 py-10 justify-between items-center w-[400px] sm:w-[500px] md:w-[650px] lg:w-[800px] mx-auto'>
                 <div>
                     <div>{data?.card?.info?.isVeg || data?.dish?.info?.isVeg ?
                         (data?.card?.info?.isVeg || data?.dish?.info?.isVeg === 1 ? (<p><img src={vegimg} className='w-4 h-4' alt="veg" /></p>)
@@ -68,12 +68,12 @@ const ItemCard = ({ data, visible }) => {
                             <p class="text-[#206213] text-lg font-thin dark:text-green-500">₹{pric / 100}</p> :
                             <p></p>
                     }</div>
-                    <p className='w-[590px] capitalize text-[17px] text-neutral-500 dark:text-neutral-400'>{data?.card?.info?.description || data?.dish?.info?.description}</p>
+                    <p className='w-[250px] sm:w-[300px] md:w-[450px] lg:w-[590px] capitalize text-[17px] text-neutral-500 dark:text-neutral-400'>{data?.card?.info?.description || data?.dish?.info?.description}</p>
                 </div>
                 <div className='rounded-lg relative'>
                     {
                         (data?.card?.info?.imageId || data?.dish?.info?.imageId) ?
-                            (<p className='ml-11'>
+                            (<p className='ml-3 md:ml-11'>
                                 <img src={CDN_URL + imgg} alt='' className=' rounded-lg' />
                                 {freq[data?.card?.info?.id] === undefined && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'>
                                     <span>ADD</span>

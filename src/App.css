@@ -1,0 +1,18 @@
+@media (min-width:720px){
+    .header-main{
+        font-size: 1rem; /* 24px */
+        line-height: 2rem; /* 32px */
+    }
+    .header-main-c{
+        padding: 8px;
+    }
+}
+@media (min-width:1420px){
+    .header-main{
+        font-size: 1.5rem; /* 24px */
+        line-height: 2rem; /* 32px */
+    }
+    .header-main-c{
+        padding:20px;
+    }
+}

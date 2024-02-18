@@ -82,7 +82,7 @@ const Cart = () => {
     <div className="dark:bg-[#020305] dark:text-white py-10 pt-36 font-Open min-h-[370px] max-h-full">
       <div>
         {cartitems.length !== 0 ? (
-          <div className="flex flex-row w-10/12 mx-auto gap-x-10 justify-around">
+          <div className="flex flex-col 2xl:flex-row w-[90%] sm:w-3/4 md:w-2/3 2xl:w-10/12 mx-auto gap-y-10 lg:gap-x-10 lg:justify-around">
             <div className="dark:bg-[#24292f] px-4 py-4 h-[777px] rounded-xl bg-[#faf9f9]">
               <div className="text-2xl mb-5 ml-2 flex">
                 <p className="mr-2">Shopping Cart</p>
@@ -94,7 +94,7 @@ const Cart = () => {
                   <path d="M6 5l14 1l-1 7h-13" />
                 </svg>
               </div>
-              <div className="min-w-[800px]  h-[510px] overflow-x-hidden overflow-y-scroll dark:bg-[#21252b] bg-[#f5f4f4] border-b-2 border-t-2 border-[#a8bbbf] rounded-sm">
+              <div className="w-[100%]  h-[510px] overflow-x-hidden overflow-y-scroll dark:bg-[#21252b] bg-[#f5f4f4] border-b-2 border-t-2 border-[#a8bbbf] rounded-sm">
                 {cartitems.map((cartitem) => {
                   freq1 += freq[cartitem?.info?.id];
                   cartitem?.info?.price
@@ -142,7 +142,7 @@ const Cart = () => {
             </div>
             <div>
               {
-                <div className="flex flex-col gap-y-6 h-[571px] items-stretch justify-stretch w-[654px]">
+                <div className="flex flex-col md:flex-row 2xl:flex-col gap-y-6 2xl:h-[571px] items-stretch justify-stretch w-full 2xl:w-[654px] gap-x-10 2xl:gap-x-0">
                   <div className="dark:bg-[#24292f] pb-9 pt-4 px-10 rounded-xl bg-[#faf9f9]">
                     <div>
                       <p className="text-2xl font-semibold">Delivery Info</p>
@@ -154,7 +154,7 @@ const Cart = () => {
                             <input type="text" maxLength={50} className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" />
                           </div>
                         </div>
-                        <div className="flex justify-between py-2 w-full gap-x-5">
+                        <div className="flex flex-col 2xl:flex-row justify-between py-2 w-full gap-x-5">
                           <div className="flex flex-col w-full">
                             <div className="flex">City<span class='text-red-500'>*</span></div>
                             <input type="text" className="dark:bg-[#757575]  bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" />
@@ -164,7 +164,7 @@ const Cart = () => {
                             <input type="text" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" />
                           </div>
                         </div>
-                        <div className="flex justify-between py-2 w-full gap-x-5">
+                        <div className="flex flex-col 2xl:flex-row justify-between py-2 w-full gap-x-5">
                           <div className="flex flex-col w-full">
                             <div className="flex">Pin Code<span class='text-red-500'>*</span></div>
                             <input type="number" className="dark:bg-[#757575] bg-neutral-200 outline-none rounded-md px-2 py-0.5 w-full text-black dark:text-white" min="000000" max="999999" />
@@ -226,7 +226,7 @@ const Cart = () => {
                       }
                     </div>
                     <div className="flex items-center justify-center pt-5">
-                      <button onClick={() => orderplaced()} className=" bg-blue-700 w-1/3 rounded-lg px-auto py-3 text-lg text-white">Pay Now ₹{total + 50}</button>
+                      <button onClick={() => orderplaced()} className=" bg-blue-700 w-2/3 lg:w-1/3 rounded-lg px-auto py-3 text-lg text-white">Pay Now ₹{total + 50}</button>
                     </div>
                   </div>
                 </div>

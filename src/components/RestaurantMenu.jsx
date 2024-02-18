@@ -25,12 +25,12 @@ const RestaurantMenu = () => {
         restaurant_info2 !== null && restaurant_info2 !== undefined ?
             (
                 <div className='w-full min-h-screen h-full dark:bg-[#0d1117] py-10 pt-36 dark:text-white font-Open'>
-                    <div className='w-[800px] mx-auto flex flex-col'>
+                    <div className='w-[400px] sm:w-[500px] md:w-[650px] lg:w-[800px] mx-auto flex flex-col'>
                         <p className=' font-semibold text-3xl capitalize w-full text-zinc-700 dark:text-slate-100'>{restaurant_info?.name}</p>
                         <div className="h-[250px] w-full rounded-lg overflow-clip my-5 relative before:absolute before:left-0 before:right-0 before:top-0 before:z-10 before:h-full before:w-full before:bg-gradient-to-t  from-black to-40% text-lg group text-white">
                             <img className='overflow-hidden w-full absolute -top-3' src={CDN_URL + restaurant_info?.cloudinaryImageId} />
-                                <div className="absolute left-4 bottom-4 text-2xl text-slate-100 z-20">{restaurant_info?.areaName}</div>
-                            <div className="absolute right-4 bottom-4 text-2xl text-slate-100 z-20"><span className="text-slate-100 text-2xl font-thin flex items-center">
+                                <div className="absolute left-4 bottom-4 text-md md:text-xl lg:text-2xl text-slate-100 z-20">{restaurant_info?.areaName}</div>
+                            <div className="absolute right-4 bottom-4 text-md md:text-xl lg:text-2xl text-slate-100 z-20"><span className="text-slate-100 text-2xl font-thin flex items-center">
                                 <img src={clock} alt="" className='w-[1.5rem] h-[1.5rem] dark:invert mx-2' />
                                 <span className='lowercase'>{restaurant_info?.sla?.slaString}</span>
                             </span></div>

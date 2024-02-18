@@ -150,7 +150,7 @@ const Body = () => {
         restaurant_data === null || restaurant_data === undefined ?
           (<p><Shimmer /></p>) :
           (
-            <div>
+            <div className='overflow-x-hidden'>
               <div className='text-white mt-20'>
                 <Hero />
               </div>
@@ -159,7 +159,7 @@ const Body = () => {
                   restaurant_bannerdata!==undefined && restaurant_bannerdata.length>0?
                   (
                   <div>
-                    <p className='font-bold text-4xl mx-14 px-3 text-slate-700 dark:text-slate-300 font-Open pt-10'>Best Offers for You...</p>
+                    <p className='font-bold text-2xl md:text-3xl lg:text-4xl mx-14 px-1 md:px-3 text-slate-700 dark:text-slate-300 font-Open pt-10'>Best Offers for You...</p>
                 <div className='flex items-center py-10 mb-10 overflow-x-scroll mx-10 flex-shrink-0 scroll-smooth ease-in-out' ref={ref}>
                   <div className='absolute right-5 z-20'>
                     <img src={img} className='w-10 cursor-pointer z-30' onClick={() => scroll(800)} />
@@ -177,35 +177,35 @@ const Body = () => {
                         const urlSearchParams = new URLSearchParams(queryString);
                         collection_id = urlSearchParams.get('collection_id');
                       }
-                      return <div className='cursor-pointer rounded-2xl hover:scale-105  ease-in-out duration-200 overflow-hidden w-[400px] mx-7 flex-shrink-0'><Link to={`/Restaurant/${collection_id}`}><img src={CDN_URL + data.imageId} /></Link></div>
+                      return <div className='cursor-pointer rounded-2xl hover:scale-105  ease-in-out duration-200 overflow-hidden w-[250px] md:w-[300px] lg:w-[400px] mx-7 flex-shrink-0'><Link to={`/Restaurant/${collection_id}`}><img src={CDN_URL + data.imageId} /></Link></div>
                     })
                   }
                 </div>
 
-                <div className='flex gap-x-4 font-semibold ml-7'>
-                  <button onClick={() => {setb1(!b1); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b1?"bg-green-600 text-neutral-100":"bg-slate-100"}  text-slate-900 ${b1?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
+                <div className='flex gap-x-2 lg:gap-x-4 font-semibold ml-3 md:ml-5 lg:ml-7 overflow-x-scroll px-2'>
+                  <button onClick={() => {setb1(!b1); }} className={`mb-5 ml-1 md:ml-2 lg:ml-4 border py-1 px-1 lg:px-2 dark:text-slate-200 dark:border-slate-800 ${b1?"bg-green-600 text-neutral-100":"bg-slate-100"}  text-slate-900 ${b1?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xs md:text-sm lg:text-xl`}>
                     Top Restaurants
                   </button>
-                  <button onClick={() => {setb2(!b2); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b2?"bg-green-600 text-neutral-100":"bg-slate-100"}  text-slate-900 ${b2?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
+                  <button onClick={() => {setb2(!b2); }} className={`mb-5  ml-1 md:ml-2 lg:ml-4 border py-1 px-1 lg:px-2 dark:text-slate-200 dark:border-slate-800  ${b2?"bg-green-600 text-neutral-100":"bg-slate-100"}  text-slate-900 ${b2?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg  text-xs md:text-sm lg:text-xl`}>
                     Under 30 Min
                   </button>
-                  <button onClick={() => {setb3(!b3); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b3?"bg-green-600 text-neutral-100":"bg-slate-100"}  text-slate-900 ${b3?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
+                  <button onClick={() => {setb3(!b3); }} className={`mb-5  ml-1 md:ml-2 lg:ml-4 border py-1 px-1 lg:px-2 dark:text-slate-200 dark:border-slate-800  ${b3?"bg-green-600 text-neutral-100":"bg-slate-100"}  text-slate-900 ${b3?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xs md:text-sm lg:text-xl`}>
                     Veg Only
                   </button>
-                  <button onClick={() => {setb4(!b4); filterdataonratings(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800  ${b4?"bg-green-600 text-neutral-100":"bg-slate-100"}  text-slate-900 ${b4?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xl`}>
+                  <button onClick={() => {setb4(!b4); filterdataonratings(); }} className={`mb-5  ml-1 md:ml-2 lg:ml-4 border py-1 px-1 lg:px-2 dark:text-slate-200 dark:border-slate-800  ${b4?"bg-green-600 text-neutral-100":"bg-slate-100"}  text-slate-900 ${b4?"dark:bg-green-600":"dark:bg-[#24292f]"} rounded-lg text-xs md:text-sm lg:text-xl`}>
                     Rating 4.0+
                   </button>
-                  <button disabled={b4} onClick={() => {setb5(!b5); filterAb3(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b4?("dark:bg-neutral-500 text-slate-400"):(b5?"bg-green-600 text-neutral-100":"bg-slate-100")}  text-slate-900  ${b4?("dark:bg-neutral-500 text-slate-400"):(b5?"dark:bg-green-600":"dark:bg-[#24292f]")}   rounded-lg text-xl`}>
+                  <button disabled={b4} onClick={() => {setb5(!b5); filterAb3(); }} className={`mb-5  ml-1 md:ml-2 lg:ml-4 border py-1 px-1 lg:px-2 dark:text-slate-200 dark:border-slate-800 ${b4?("dark:bg-neutral-500 text-slate-400"):(b5?"bg-green-600 text-neutral-100":"bg-slate-100")}  text-slate-900  ${b4?("dark:bg-neutral-500 text-slate-400"):(b5?"dark:bg-green-600":"dark:bg-[#24292f]")}   rounded-lg  text-xs md:text-sm lg:text-xl`}>
                     Rating 3.0+
                   </button>
-                  <button disabled={b4 || b5} onClick={() => { setb6(!b6); filterAb2(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b4 || b5?("dark:bg-neutral-500 text-slate-400"):(b6?"bg-green-600 text-neutral-100":"bg-slate-100")} text-slate-900 ${(b4 || b5)?("dark:bg-neutral-500 text-slate-400"):(b6?"dark:bg-green-600":"dark:bg-[#24292f]")} rounded-lg text-xl`}>
+                  <button disabled={b4 || b5} onClick={() => { setb6(!b6); filterAb2(); }} className={`mb-5 ml-1 md:ml-2 lg:ml-4 border py-1 px-1 lg:px-2 dark:text-slate-200 dark:border-slate-800 ${b4 || b5?("dark:bg-neutral-500 text-slate-400"):(b6?"bg-green-600 text-neutral-100":"bg-slate-100")} text-slate-900 ${(b4 || b5)?("dark:bg-neutral-500 text-slate-400"):(b6?"dark:bg-green-600":"dark:bg-[#24292f]")} rounded-lg  text-xs md:text-sm lg:text-xl`}>
                     Rating 2.0+
                   </button>
-                  <button disabled={b4 || b5 || b6} onClick={() => {setb7(!b7); filterAb1(); }} className={`mb-5  ml-4 border py-1 px-2 dark:text-slate-200 dark:border-slate-800 ${b4 || b5 || b6?("dark:bg-neutral-500 text-slate-400"):(b7?"bg-green-600 text-neutral-100":"bg-slate-100")}  text-slate-900 ${b4  || b5 || b6?("dark:bg-neutral-500 text-slate-400"):(b7?"dark:bg-green-600":"dark:bg-[#24292f]")} rounded-lg text-xl`}>
+                  <button disabled={b4 || b5 || b6} onClick={() => {setb7(!b7); filterAb1(); }} className={`mb-5 ml-1 md:ml-2 lg:ml-4 border py-1 px-1 lg:px-2 dark:text-slate-200 dark:border-slate-800 ${b4 || b5 || b6?("dark:bg-neutral-500 text-slate-400"):(b7?"bg-green-600 text-neutral-100":"bg-slate-100")}  text-slate-900 ${b4  || b5 || b6?("dark:bg-neutral-500 text-slate-400"):(b7?"dark:bg-green-600":"dark:bg-[#24292f]")} rounded-lg  text-xs md:text-sm lg:text-xl`}>
                     Rating 1.0+
                   </button>
                 </div>
-                  </div>
+              </div>
                   ):
                   (<p></p>)
 

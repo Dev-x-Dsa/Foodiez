@@ -39,7 +39,7 @@ const Card2 = ({ cartitem }) => {
     return (
         <div className=''>
             <div className="relative">
-                <div className='flex dark:border-[#798283] py-[1.825rem] justify-between items-center w-[720px] mx-auto font-Open'>
+                <div className='flex  2xl:flex-row dark:border-[#798283] py-[1.825rem] justify-between items-center mx-auto font-Open'>
                     <button onClick={() => handleclearcart(cartitem?.info?.id)} className='h-7 w-7 absolute top-[0.75rem] z-10  right-[1.125rem] text-lg font-extrabold'>
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="22" height="22" viewBox="-2 -1 23 24" stroke-width="3" stroke="#e60b0b" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -47,11 +47,11 @@ const Card2 = ({ cartitem }) => {
                             <path d="M6 6l12 12" />
                         </svg>
                     </button>
-                    <div className='rounded-lg  mr-4 relative'>
+                    <div className='rounded-lg mr-1 lg:mr-2 2xl:mr-4 hidden md:block relative md:min-w-[25%] lg:w-[20%]'>
                         {
                             cartitem?.info?.imageId ?
                                 (<p>
-                                    <img src={CDN_URL + cartitem?.info?.imageId} alt='' className='rounded-lg  border-red-400 border-5' />
+                                    <img src={CDN_URL + cartitem?.info?.imageId} alt='' className=' rounded-lg  border-red-400 border-5' />
                                 </p>) :
                                 (<p>
                                     <img src={defalt} alt='' className='rounded-lg w-full scale-[130%] pl-9 pr-10  border-red-400 border-5' />
@@ -66,7 +66,7 @@ const Card2 = ({ cartitem }) => {
                                 <p class="text-[#206213] text-lg font-thin dark:text-green-500">₹{pric / 100}</p> :
                                 <p class="text-[#206213] text-lg font-thin dark:text-green-500" >₹{130}</p>
                         }</div>
-                        <p className='w-[400px] capitalize dark:text-[#a6abb3] text-zinc-600'>{cartitem?.info?.description}</p>
+                        <p className='w-[225px] md:w-[300px] lg:w-[400px]  text-sm lg:text-xl capitalize dark:text-[#a6abb3] text-zinc-600'>{cartitem?.info?.description}</p>
                     </div>
                     <div className="flex flex-col mx-3">
                         <div className='flex justify-center items-center mx-5'>
