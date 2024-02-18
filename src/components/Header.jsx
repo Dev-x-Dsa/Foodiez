@@ -71,16 +71,16 @@ const Header = () => {
 
   return (
     <div>
-      <div className='fixed z-50 top-0 w-full flex flex-row justify-between header-main text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
+      <div className='fixed z-50 top-0 w-full hidden md:flex flex-row justify-between header-main text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
         <Link to="/"><div><img src={image} className='cursor-pointer  w-40 h-20 dark:invert' /></div></Link>
-        <div className='flex gap-x-20 items-center justify-end '>
+        <div className='flex gap-x-1  md:gap-x-2 lg:gap-x-6 xl:gap-x-12 2xl:gap-x-20 items-center justify-end '>
           <Link to="/" onClick={() => { allrestaurants() }}><div className='cursor-pointer header-main-c'>Home</div></Link>
           <Link to="/about"><p className='cursor-pointer header-main-c'>About Us</p></Link>
           <Link to="/contact"><div className='cursor-pointer header-main-c'>Contact</div></Link>
         </div>
-        <div className='flex flex-row gap-x-5 mx-2 items-center ml-20'>
+        <div className='flex flex-row gap-x-2 md:gap-x-3 lg:gap-x-5 mx-2 items-center ml-4 md:ml-6 lg:ml-12 2xl:ml-20'>
           <div>
-            <input value={search} onChange={(e) => setsearch(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') filterdata(search) }} type='text' placeholder='Search' className='outline-none border-b-2 rounded-full w-[8rem] md:w-[16rem] lg:w-[24rem] dark:text-black py-1 font-medium leading-tight px-4 mx-3 box-border' />
+            <input value={search} onChange={(e) => setsearch(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') filterdata(search) }} type='text' placeholder='Search' className='outline-none border-b-2 rounded-full w-[8rem] lg:w-[12rem] xl:w-[16rem] 2xl:w-[24rem] dark:text-black py-1 font-medium leading-tight px-2 lg:px-4 mx-1 lg:mx-3 box-border' />
           </div>
           <div className='flex'>
             <Link to="./cart"><div><AiOutlineShoppingCart size={33} className='cursor-pointer text-2xl' />
@@ -126,6 +126,9 @@ const Header = () => {
             </div>
           </Link>
         </div>
+      </div>
+      <div className='fixed z-50 top-0 w-full flex flex-row md:hidden bg-yellow-700 text-white'>
+        {/* Hamburger code will be there */}
       </div>
     </div>
   )
