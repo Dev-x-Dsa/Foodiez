@@ -11,6 +11,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import { auth } from "../firebase"
 import { toast } from 'react-toastify';
 import "../App.css";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 
 
@@ -127,8 +128,16 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className='fixed z-50 top-0 w-full flex flex-row md:hidden bg-yellow-700 text-white'>
+      <div className='fixed z-50 top-0 w-full flex flex-row md:hidden justify-between header-main text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
         {/* Hamburger code will be there */}
+        {/* left side icon of hamburger will be there */}
+        <div className='pt-5 pl-5'>
+          <RxHamburgerMenu />
+        </div>
+        {/* right side image fav icon will be there only */}
+        <div>
+          <img src={image} className='cursor-pointer  w-40 h-20 dark:invert'/>
+        </div>
       </div>
     </div>
   )
