@@ -11,12 +11,13 @@ import { FaCircleUser } from "react-icons/fa6";
 import { auth } from "../firebase"
 import { toast } from 'react-toastify';
 import "../App.css";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 
 
 
 const Header = () => {
 
+  const [showham,setshowham]=useState(false);
   const { filterdata, allrestaurants } = useContext(MenuContext);
   const cartitems = useSelector(store => store.cart.items);
   const uniquecartitems = [...new Set(cartitems)];
@@ -131,9 +132,26 @@ const Header = () => {
       <div className='fixed z-50 top-0 w-full flex flex-row md:hidden justify-between header-main text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
         {/* Hamburger code will be there */}
         {/* left side icon of hamburger will be there */}
-        <div className='pt-5 pl-5'>
-          <RxHamburgerMenu />
+        <div className={`${showham?"hidden":"block"} pt-5 pl-5`}>
+          <RxHamburgerMenu onClick={()=>setshowham(prev=>!prev)}/>
         </div>
+        <div className={`${showham?"flex":"hidden"} flex-row text-sm relative`}>
+          <div className='pt-5 pl-5'>
+            <RxCross2 className='w-6 h-6' onClick={()=>setshowham(prev=>!prev)}/>
+          </div>
+          <div className='absolute top-8 left-12 bg-[#f6f8fc] dark:bg-[#24292f] w-[150px] border-grey-600 border-2 rounded-md px-4 py-2 flex flex-col gap-y-2 pt-5'>
+            <Link to="/" onClick={() => { allrestaurants() }}><div className='cursor-pointer hover:text-red-600'>Home</div></Link>
+            <Link to="/about"><p className='cursor-pointer header-main-c'>About Us</p></Link>
+            <Link to="/contact"><div className='cursor-pointer header-main-c'>Contact</div></Link>
+            <div>
+              Light/Dark Mode
+            </div>
+            <div>
+              Favourites
+            </div>
+          </div>
+        </div>
+
         {/* right side image fav icon will be there only */}
         <div>
           <img src={image} className='cursor-pointer  w-40 h-20 dark:invert'/>
