@@ -54,7 +54,7 @@ const ItemCard = ({ data, visible }) => {
 
     return (
          <div className={`${visible ? 'hidden' : 'flex'} font-Open`}>
-            <div className='flex border-b-2 py-10 justify-between items-center w-[400px] sm:w-[500px] md:w-[650px] lg:w-[800px] mx-auto'>
+            <div className='flex border-b-2 py-10 justify-between items-center w-[350px] sm:w-[500px] md:w-[650px] lg:w-[800px] mx-auto'>
                 <div>
                     <div>{data?.card?.info?.isVeg || data?.dish?.info?.isVeg ?
                         (data?.card?.info?.isVeg || data?.dish?.info?.isVeg === 1 ? (<p><img src={vegimg} className='w-4 h-4' alt="veg" /></p>)
