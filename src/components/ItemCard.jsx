@@ -75,24 +75,26 @@ const ItemCard = ({ data, visible }) => {
                         (data?.card?.info?.imageId || data?.dish?.info?.imageId) ?
                             (<p className='ml-3 md:ml-11'>
                                 <img src={CDN_URL + imgg} alt='' className=' rounded-lg' />
-                                {freq[data?.card?.info?.id] === undefined && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'>
+                                {freq[data?.card?.info?.id] === undefined && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-1 sm:px-2 md:px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-4 sm:right-10'>
                                     <span>ADD</span>
                                     </button>
                                 }
                                 {(freq[data?.card?.info?.id] || freq[data?.dish?.info?.id]) && 
-                                <button className='border-2 dark:border-gray-950 text-green-500 rounded-md px-2 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10 flex justify-between'>
-                                    <span onClick={() => handleremoveitem(data?.card?.info?.id || data?.dish?.info?.id)} className="font-extrabold px-1.5">-</span>
-                                    <span className="font-extrabold px-1.5 text-center">{freq[data?.card?.info?.id] || freq[data?.dish?.info?.id]}</span>
-                                    <span onClick={() => handleadditem(data?.card || data?.dish)} className="font-extrabold px-1.5">+</span>
+                                <button className='border-2 dark:border-gray-950 text-green-500 rounded-md px-1 md:px-2 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-4 sm:right-10 flex justify-between'>
+                                    <span onClick={() => handleremoveitem(data?.card?.info?.id || data?.dish?.info?.id)} className="font-extrabold px-1 md:px-1.5">-</span>
+                                    <span className="font-extrabold px-1 md:px-1.5 text-center">{freq[data?.card?.info?.id] || freq[data?.dish?.info?.id]}</span>
+                                    <span onClick={() => handleadditem(data?.card || data?.dish)} className="font-extrabold px-1 md:px-1.5">+</span>
                                 </button>}</p>) :
                             (<p class="mr-9">
                                 <img src={defalt} alt='' className='rounded-lg w-full scale-125' />
-                                {freq[data?.card?.info?.id] === undefined && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10'><span className="relative -top-3 left-14 font-extrabold">+</span><span className="mr-3 font-extrabold">ADD</span></button>
+                                {freq[data?.card?.info?.id] === undefined && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-1 sm:px-2 md:px-3 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-8 sm:right-10'>
+                                    <span>ADD</span>
+                                    </button>
                                 }
-                                {freq[data?.card?.info?.id] && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-2 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-10 flex justify-between'>
-                                    <span className="font-extrabold px-1.5">-</span>
-                                    <span className="font-extrabold px-1.5 text-center">{freq[data?.card?.info?.id]}</span>
-                                    <span className="font-extrabold px-1.5">+</span>
+                                {freq[data?.card?.info?.id] && <button onClick={() => handleadditem(data?.card || data?.dish)} className='border-2 dark:border-gray-950 text-green-500 rounded-md px-1 md:px-2 py-1 absolute -bottom-4 z-10 bg-slate-100 dark:dark:bg-[#1f2020] right-8 sm:right-10 flex justify-between'>
+                                <span onClick={() => handleremoveitem(data?.card?.info?.id || data?.dish?.info?.id)} className="font-extrabold px-1 md:px-1.5">-</span>
+                                    <span className="font-extrabold px-1 md:px-1.5 text-center">{freq[data?.card?.info?.id] || freq[data?.dish?.info?.id]}</span>
+                                    <span onClick={() => handleadditem(data?.card || data?.dish)} className="font-extrabold px-1 md:px-1.5">+</span>
                                 </button>}</p>)
                     }
                 </div>
