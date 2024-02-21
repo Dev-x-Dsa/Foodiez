@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import img1 from "../images/facebook.webp";
 import img2 from "../images/instagram.webp";
 import img3 from "../images/linkedin.webp";
@@ -6,10 +6,12 @@ import img4 from "../images/x.webp";
 import img5 from "../images/youtube.webp";
 import img6 from "../images/github-mark.webp";
 import "./hero.css";
+import { MenuContext } from '../ContextAPI/MenuContext';
+
 
 const Footer = () => {
   return (
-    <div className='bg-[#f6f8fc] footer-pad dark:bg-[#24292f] dark:text-white font-Open'>
+    <div className={`bg-[#f6f8fc] footer-pad dark:bg-[#24292f] dark:text-white font-Open`}>
       <div className='font-bold text-3xl footer-text ml-6 text-zinc-700 dark:text-slate-300 mb-3'>Foodiez</div>
       <div className='flex footer w-full'>
         <div className="flex footer-inner">

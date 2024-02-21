@@ -23,7 +23,7 @@ const Body = () => {
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
   };
-  const { restaurant_data,filterunderVegi, restaurant_bannerdata, filterdataonratings, filterAbove3, filterBest, filterAbove2, filterAbove1, filterUnder30,filterVegi,filterBestunder,filterBestVegi,filterAll,filterBestundervegi} = useContext(MenuContext);
+  const {onsidebarclick,restaurant_data,filterunderVegi, restaurant_bannerdata, filterdataonratings, filterAbove3, filterBest, filterAbove2, filterAbove1, filterUnder30,filterVegi,filterBestunder,filterBestVegi,filterAll,filterBestundervegi} = useContext(MenuContext);
 
   function filterdataratings(){
     filterdataonratings();
@@ -145,7 +145,7 @@ const Body = () => {
 
 
   return (
-    <div className='dark:bg-[#0c111d]'>
+    <div className={`dark:bg-[#0c111d] ${onsidebarclick?("blur-sm brightness-50"):("blur-none")}`}>
       {
         restaurant_data === null || restaurant_data === undefined ?
           (<p><Shimmer /></p>) :

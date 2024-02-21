@@ -16,3 +16,12 @@
         padding:20px;
     }
 }
+
+.activeSidenav {
+    position: "fixed";
+    width: "100%";
+    height: "100vh";
+    background: "linear-gradient(150deg, #b1bfd8 0%, #667eaa 74%)";
+    transform: "translateX(50%)";
+    transition: "all 0.5s ease-in-out";
+  }

@@ -24,7 +24,7 @@ export default function MenuContextProvider({ children }) {
     const [userName, setuserName] = useState("");
     const [filterapplied,setfilterapplied]=useState(false);
     const [vegonly,setvegonly]=useState(false);
-    
+    const [onsidebarclick,setonsidebarclick]=useState(false);    
 
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
@@ -86,7 +86,7 @@ export default function MenuContextProvider({ children }) {
         let restaurant_menuurl = `https://corsproxy.org/?${encodeURIComponent(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lati}&lng=${longi}&restaurantId=${resid}&submitAction=ENTER`)}`;
         const output = await fetch(restaurant_menuurl);
         const data2 = await output.json();
-        setrestaurant_info(data2?.data?.cards[0]?.card?.card?.info);
+        setrestaurant_info(data2?.data?.cards[0]?.card?.card?.info || data2?.data?.cards[1]?.card?.card?.info || data2?.data?.cards[2]?.card?.card?.info || data2?.data?.cards[3]?.card?.card?.info);
         setrestaurant_info2(data2);
 
     }
@@ -274,7 +274,9 @@ export default function MenuContextProvider({ children }) {
         filterBestVegi,
         filterAll,
         filterunderVegi,
-        filterBestundervegi
+        filterBestundervegi,
+        onsidebarclick,
+        setonsidebarclick
     };
 
     return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>

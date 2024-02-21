@@ -18,7 +18,7 @@ import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 const Header = () => {
 
   const [showham,setshowham]=useState(false);
-  const { filterdata, allrestaurants } = useContext(MenuContext);
+  const { filterdata, allrestaurants,onsidebarclick,setonsidebarclick} = useContext(MenuContext);
   const cartitems = useSelector(store => store.cart.items);
   const uniquecartitems = [...new Set(cartitems)];
 
@@ -71,6 +71,10 @@ const Header = () => {
     });
   }
 
+  function setvalue(){
+    setonsidebarclick(prev=>!prev);
+    setshowham(prev=>!prev)
+  }
   return (
     <div>
       <div className='fixed z-50 top-0 w-full hidden md:flex flex-row justify-between header-main text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
@@ -129,33 +133,65 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className='fixed z-50 top-0 w-full flex flex-row md:hidden justify-between header-main text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
+      <div className=' fixed z-50 top-0 w-full flex flex-row md:hidden justify-between header-main text-2xl bg-[#f6f8fc] dark:bg-[#24292f]  text-zinc-700 dark:text-slate-300 font-Open font-semibold'>
         {/* Hamburger code will be there */}
         {/* left side icon of hamburger will be there */}
         <div className={`${showham?"hidden":"block"} pt-5 pl-5`}>
-          <RxHamburgerMenu onClick={()=>setshowham(prev=>!prev)}/>
+          <RxHamburgerMenu onClick={()=>setvalue()} />
         </div>
-        <div className={`${showham?"flex":"hidden"} flex-row text-sm relative`}>
-          <div className='pt-5 pl-5'>
-            <RxCross2 className='w-6 h-6' onClick={()=>setshowham(prev=>!prev)}/>
-          </div>
-          <div className='absolute top-8 left-12 bg-[#f6f8fc] dark:bg-[#24292f] w-[150px] border-grey-600 border-2 rounded-md px-4 py-2 flex flex-col gap-y-2 pt-5'>
-            <Link to="/" onClick={() => { allrestaurants() }}><div className='cursor-pointer hover:text-red-600'>Home</div></Link>
-            <Link to="/about"><p className='cursor-pointer header-main-c'>About Us</p></Link>
-            <Link to="/contact"><div className='cursor-pointer header-main-c'>Contact</div></Link>
-            <div>
-              Light/Dark Mode
-            </div>
-            <div>
-              Favourites
-            </div>
+        <div on className={`${showham?"flex":"hidden"} flex-row`}>
+            <div className='fixed h-full w-[50%] top-0 left-0 bg-[#f6f8fc] dark:bg-[#24292f]   rounded-md px-4 py-2 flex flex-col gap-y-2 pt-5'>
+              <RxCross2 className='w-7 h-7' onClick={()=>setvalue()}/>
+              <div className='flex flex-col mx-auto gap-y-3'>
+              <Link to="/login-signuppage">
+                  {
+                    (user && user !== null && user !== undefined && user.displayName) ?
+                    (<div>
+                      <div class="cursor-pointer pr-2 my-5">{
+                          name === "" ?
+                            (<FaCircleUser className='w-8 h-8' />) :
+                            (<p className="text-center bg-white text-black rounded-full w-[35px] h-[35px] flex items-center text-lg justify-center mx-auto">{name}</p>)
+                        }
+                      </div>
+                        MyProfile
+                    </div>):
+                    (<div>
+                      SignUp
+                    </div>)
+                  }
+              </Link>
+                <Link to="/" onClick={() => { allrestaurants() }}><div className='cursor-pointer'>Home</div></Link>
+                <Link to="/about"><p className='cursor-pointer'>About Us</p></Link>
+                <Link to="/contact"><div className='cursor-pointer'>Contact</div></Link>
+                <div className='relative dark:hidden'>
+                  <div>Theme</div>
+                  <img onClick={() => { handlethemeswitch(); }} src={img1} className='w-7 h-7 cursor-pointer absolute right-0 -top-[0.01rem]' />
+                </div>
+                <div className='relative hidden dark:block'>
+                  <div>Theme</div>
+                  <img onClick={() => { handlethemeswitch(); }} src={img2} className='w-7 h-7 cursor-pointer absolute right-0 -top-[0.01rem]' />
+                </div>
+
+                <Link to="./cart"><div>Cart</div></Link>
+                {
+                  (user && user !== null && user !== undefined && user.displayName) ?
+                  (
+                    <Link to="/favourite restuarants"><div>Favourites</div></Link>
+                  ):
+                  (<div onClick={()=>favclick()}>
+                    <div>Favourites</div>
+                  </div>)
+                }
+              </div>
           </div>
         </div>
 
         {/* right side image fav icon will be there only */}
-        <div>
-          <img src={image} className='cursor-pointer  w-40 h-20 dark:invert'/>
-        </div>
+        <Link to="/">
+          <div>
+            <img src={image} className='cursor-pointer  w-40 h-20 dark:invert'/>
+          </div>
+        </Link>
       </div>
     </div>
   )

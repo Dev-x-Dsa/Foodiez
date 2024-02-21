@@ -74,12 +74,16 @@ function App() {
     fetchdata(latitude, longitude);
   }, [latitude, longitude]);
 
+  const {onsidebarclick}=useContext(MenuContext);
+
 
   return (
     <div>
       <Header />
-      <Outlet />
-      <Footer />
+      <div className={`${onsidebarclick?("blur-sm brightness-50"):("blur-none")}`}>
+        <Outlet />
+        <Footer/>
+      </div>
     </div>
   );
 }

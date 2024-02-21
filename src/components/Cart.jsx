@@ -82,7 +82,7 @@ const Cart = () => {
     <div className="dark:bg-[#020305] dark:text-white py-10 pt-36 font-Open min-h-[370px] max-h-full">
       <div>
         {cartitems.length !== 0 ? (
-          <div className="flex flex-col 2xl:flex-row w-[90%] sm:w-3/4 md:w-2/3 2xl:w-10/12 mx-auto gap-y-10 lg:gap-x-10 lg:justify-around">
+          <div className="flex flex-col 2xl:flex-row w-[95%] w-3/4 md:w-3/4 2xl:w-10/12 mx-auto gap-y-10 lg:gap-x-10 lg:justify-around">
             <div className="dark:bg-[#24292f] px-4 py-4 h-[777px] rounded-xl bg-[#faf9f9]">
               <div className="text-2xl mb-5 ml-2 flex">
                 <p className="mr-2">Shopping Cart</p>

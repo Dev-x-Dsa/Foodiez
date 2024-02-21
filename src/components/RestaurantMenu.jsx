@@ -18,8 +18,8 @@ const RestaurantMenu = () => {
         setvegonly(false);
         setresid(id);
     }, [id]);
-
-
+    console.log(restaurant_info)
+    console.log(restaurant_info2);
 
     return (
         restaurant_info2 !== null && restaurant_info2 !== undefined ?
@@ -64,6 +64,25 @@ const RestaurantMenu = () => {
                             restaurant_info2?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((rest) => {
                                 return <RestaurantMenuOpt key={id} rest={rest} />
                             })
+                            
+                        }
+                        {
+                            restaurant_info2?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((rest) => {
+                                return <RestaurantMenuOpt key={id} rest={rest} />
+                            })
+                            
+                        }
+                        {
+                            restaurant_info2?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((rest) => {
+                                return <RestaurantMenuOpt key={id} rest={rest} />
+                            })
+                            
+                        }
+                         {
+                            restaurant_info2?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((rest) => {
+                                return <RestaurantMenuOpt key={id} rest={rest} />
+                            })
+                            
                         }
                     </div>
                 </div>
